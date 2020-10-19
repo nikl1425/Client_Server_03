@@ -1,0 +1,10 @@
+{
+  "version": 2,
+  "dgSpecHash": "MM/K3nc8/a7kb2a9UoaLpR750IWDnVdC/A1PyWkXRByj9n+38N191PETSvCu9H6F80mbZck+fQusEJshRldBeg==",
+  "success": true,
+  "projectFilePath": "C:\\Users\\Jesper\\Desktop\\aflevering_3\\Client_Server_03-master\\Assignment_3_Vers01\\Server.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\Jesper\\.nuget\\packages\\system.text.json\\5.0.0-rc.2.20475.5\\system.text.json.5.0.0-rc.2.20475.5.nupkg.sha512"
+  ],
+  "logs": []
+}

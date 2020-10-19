@@ -1,0 +1,215 @@
+{
+  "version": 3,
+  "targets": {
+    ".NETCoreApp,Version=v3.1": {
+      "JsonTransformation/1.0.1": {
+        "type": "package",
+        "dependencies": {
+          "Newtonsoft.Json": "12.0.2"
+        },
+        "compile": {
+          "lib/netstandard2.0/JsonTransformation.dll": {}
+        },
+        "runtime": {
+          "lib/netstandard2.0/JsonTransformation.dll": {}
+        }
+      },
+      "Newtonsoft.Json/12.0.2": {
+        "type": "package",
+        "compile": {
+          "lib/netstandard2.0/Newtonsoft.Json.dll": {}
+        },
+        "runtime": {
+          "lib/netstandard2.0/Newtonsoft.Json.dll": {}
+        }
+      },
+      "System.Text.Json/5.0.0-rc.2.20475.5": {
+        "type": "package",
+        "compile": {
+          "lib/netcoreapp3.0/System.Text.Json.dll": {}
+        },
+        "runtime": {
+          "lib/netcoreapp3.0/System.Text.Json.dll": {}
+        }
+      },
+      "ClassLibrary1/1.0.0": {
+        "type": "project",
+        "dependencies": {
+          "Test": "1.0.0"
+        },
+        "compile": {
+          "bin/placeholder/ClassLibrary1.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/ClassLibrary1.dll": {}
+        }
+      },
+      "Test/1.0.0": {
+        "type": "project",
+        "compile": {
+          "bin/placeholder/Test.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/Test.dll": {}
+        }
+      }
+    }
+  },
+  "libraries": {
+    "JsonTransformation/1.0.1": {
+      "sha512": "hQccwAdSbLh7vNN5Nxgq4LAAA5VeLcxTjHqZOpqcqe/MRFqn5WH7zxKqmR+wYYSR+hYUEV0Rav3iZ2n/4YVdvQ==",
+      "type": "package",
+      "path": "jsontransformation/1.0.1",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "jsontransformation.1.0.1.nupkg.sha512",
+        "jsontransformation.nuspec",
+        "lib/netstandard2.0/JsonTransformation.dll"
+      ]
+    },
+    "Newtonsoft.Json/12.0.2": {
+      "sha512": "rTK0s2EKlfHsQsH6Yx2smvcTCeyoDNgCW7FEYyV01drPlh2T243PR2DiDXqtC5N4GDm4Ma/lkxfW5a/4793vbA==",
+      "type": "package",
+      "path": "newtonsoft.json/12.0.2",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "LICENSE.md",
+        "lib/net20/Newtonsoft.Json.dll",
+        "lib/net20/Newtonsoft.Json.xml",
+        "lib/net35/Newtonsoft.Json.dll",
+        "lib/net35/Newtonsoft.Json.xml",
+        "lib/net40/Newtonsoft.Json.dll",
+        "lib/net40/Newtonsoft.Json.xml",
+        "lib/net45/Newtonsoft.Json.dll",
+        "lib/net45/Newtonsoft.Json.xml",
+        "lib/netstandard1.0/Newtonsoft.Json.dll",
+        "lib/netstandard1.0/Newtonsoft.Json.xml",
+        "lib/netstandard1.3/Newtonsoft.Json.dll",
+        "lib/netstandard1.3/Newtonsoft.Json.xml",
+        "lib/netstandard2.0/Newtonsoft.Json.dll",
+        "lib/netstandard2.0/Newtonsoft.Json.xml",
+        "lib/portable-net40+sl5+win8+wp8+wpa81/Newtonsoft.Json.dll",
+        "lib/portable-net40+sl5+win8+wp8+wpa81/Newtonsoft.Json.xml",
+        "lib/portable-net45+win8+wp8+wpa81/Newtonsoft.Json.dll",
+        "lib/portable-net45+win8+wp8+wpa81/Newtonsoft.Json.xml",
+        "newtonsoft.json.12.0.2.nupkg.sha512",
+        "newtonsoft.json.nuspec"
+      ]
+    },
+    "System.Text.Json/5.0.0-rc.2.20475.5": {
+      "sha512": "HioIGLvEFyMANm+Ai6SvHyFs7N/rDgCJy8njVN37WEiqZtAM7w3vDWSKZ6+MKOs9mNxbgZ8rgemIgcgyhO8KRA==",
+      "type": "package",
+      "path": "system.text.json/5.0.0-rc.2.20475.5",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "Icon.png",
+        "LICENSE.TXT",
+        "THIRD-PARTY-NOTICES.TXT",
+        "lib/net461/System.Text.Json.dll",
+        "lib/net461/System.Text.Json.xml",
+        "lib/netcoreapp3.0/System.Text.Json.dll",
+        "lib/netcoreapp3.0/System.Text.Json.xml",
+        "lib/netstandard2.0/System.Text.Json.dll",
+        "lib/netstandard2.0/System.Text.Json.xml",
+        "system.text.json.5.0.0-rc.2.20475.5.nupkg.sha512",
+        "system.text.json.nuspec",
+        "useSharedDesignerContext.txt",
+        "version.txt"
+      ]
+    },
+    "ClassLibrary1/1.0.0": {
+      "type": "project",
+      "path": "../ClassLibrary1/ClassLibrary1.csproj",
+      "msbuildProject": "../ClassLibrary1/ClassLibrary1.csproj"
+    },
+    "Test/1.0.0": {
+      "type": "project",
+      "path": "../Test/Test.csproj",
+      "msbuildProject": "../Test/Test.csproj"
+    }
+  },
+  "projectFileDependencyGroups": {
+    ".NETCoreApp,Version=v3.1": [
+      "ClassLibrary1 >= 1.0.0",
+      "JsonTransformation >= 1.0.1",
+      "System.Text.Json >= 5.0.0-rc.2.20475.5"
+    ]
+  },
+  "packageFolders": {
+    "C:\\Users\\Jesper\\.nuget\\packages\\": {},
+    "E:\\Microsoft\\Xamarin\\NuGet\\": {}
+  },
+  "project": {
+    "version": "1.0.0",
+    "restore": {
+      "projectUniqueName": "C:\\Users\\Jesper\\Desktop\\aflevering_3\\Client_Server_03-master\\Client\\Client.csproj",
+      "projectName": "Client",
+      "projectPath": "C:\\Users\\Jesper\\Desktop\\aflevering_3\\Client_Server_03-master\\Client\\Client.csproj",
+      "packagesPath": "C:\\Users\\Jesper\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\Jesper\\Desktop\\aflevering_3\\Client_Server_03-master\\Client\\obj\\",
+      "projectStyle": "PackageReference",
+      "fallbackFolders": [
+        "E:\\Microsoft\\Xamarin\\NuGet\\"
+      ],
+      "configFilePaths": [
+        "C:\\Users\\Jesper\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
+      ],
+      "originalTargetFrameworks": [
+        "netcoreapp3.1"
+      ],
+      "sources": {
+        "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+        "https://api.nuget.org/v3/index.json": {}
+      },
+      "frameworks": {
+        "netcoreapp3.1": {
+          "projectReferences": {
+            "C:\\Users\\Jesper\\Desktop\\aflevering_3\\Client_Server_03-master\\ClassLibrary1\\ClassLibrary1.csproj": {
+              "projectPath": "C:\\Users\\Jesper\\Desktop\\aflevering_3\\Client_Server_03-master\\ClassLibrary1\\ClassLibrary1.csproj"
+            }
+          }
+        }
+      },
+      "warningProperties": {
+        "warnAsError": [
+          "NU1605"
+        ]
+      }
+    },
+    "frameworks": {
+      "netcoreapp3.1": {
+        "dependencies": {
+          "JsonTransformation": {
+            "target": "Package",
+            "version": "[1.0.1, )"
+          },
+          "System.Text.Json": {
+            "target": "Package",
+            "version": "[5.0.0-rc.2.20475.5, )"
+          }
+        },
+        "imports": [
+          "net461",
+          "net462",
+          "net47",
+          "net471",
+          "net472",
+          "net48"
+        ],
+        "assetTargetFallback": true,
+        "warn": true,
+        "frameworkReferences": {
+          "Microsoft.NETCore.App": {
+            "privateAssets": "all"
+          }
+        },
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.401\\RuntimeIdentifierGraph.json"
+      }
+    }
+  }
+}
