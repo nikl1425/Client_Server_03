@@ -1,0 +1,99 @@
+﻿<changelist name="Uncommitted_changes_before_rebase_[Default_Changelist]" date="1603133944338" recycled="true" deleted="true">
+  <option name="PATH" value="$PROJECT_DIR$/.idea/.idea.Assignment_3_Vers01/.idea/shelf/Uncommitted_changes_before_rebase_[Default_Changelist]/shelved.patch" />
+  <option name="DESCRIPTION" value="Uncommitted changes before rebase [Default Changelist]" />
+  <binary>
+    <option name="BEFORE_PATH" value="Client/bin/Debug/netcoreapp3.1/ClassLibrary1.dll" />
+    <option name="AFTER_PATH" value="Client/bin/Debug/netcoreapp3.1/ClassLibrary1.dll" />
+    <option name="SHELVED_PATH" value="$PROJECT_DIR$/.idea/.idea.Assignment_3_Vers01/.idea/shelf/Uncommitted_changes_before_rebase_[Default_Changelist]/ClassLibrary1.dll" />
+  </binary>
+  <binary>
+    <option name="BEFORE_PATH" value="Client/bin/Debug/netcoreapp3.1/Client.dll" />
+    <option name="AFTER_PATH" value="Client/bin/Debug/netcoreapp3.1/Client.dll" />
+    <option name="SHELVED_PATH" value="$PROJECT_DIR$/.idea/.idea.Assignment_3_Vers01/.idea/shelf/Uncommitted_changes_before_rebase_[Default_Changelist]/Client.dll" />
+  </binary>
+  <binary>
+    <option name="BEFORE_PATH" value="Client/obj/Debug/netcoreapp3.1/Client.dll" />
+    <option name="AFTER_PATH" value="Client/obj/Debug/netcoreapp3.1/Client.dll" />
+    <option name="SHELVED_PATH" value="$PROJECT_DIR$/.idea/.idea.Assignment_3_Vers01/.idea/shelf/Uncommitted_changes_before_rebase_[Default_Changelist]/Client1.dll" />
+  </binary>
+  <binary>
+    <option name="BEFORE_PATH" value="Assignment_3_Vers01/bin/Debug/netcoreapp3.1/Server.pdb" />
+    <option name="AFTER_PATH" value="Assignment_3_Vers01/bin/Debug/netcoreapp3.1/Server.pdb" />
+    <option name="SHELVED_PATH" value="$PROJECT_DIR$/.idea/.idea.Assignment_3_Vers01/.idea/shelf/Uncommitted_changes_before_rebase_[Default_Changelist]/Server.pdb" />
+  </binary>
+  <binary>
+    <option name="BEFORE_PATH" value="Assignment_3_Vers01/bin/Debug/netcoreapp3.1/ClassLibrary1.pdb" />
+    <option name="AFTER_PATH" value="Assignment_3_Vers01/bin/Debug/netcoreapp3.1/ClassLibrary1.pdb" />
+    <option name="SHELVED_PATH" value="$PROJECT_DIR$/.idea/.idea.Assignment_3_Vers01/.idea/shelf/Uncommitted_changes_before_rebase_[Default_Changelist]/ClassLibrary1.pdb" />
+  </binary>
+  <binary>
+    <option name="BEFORE_PATH" value="ClassLibrary1/obj/Debug/ClassLibrary1.pdb" />
+    <option name="AFTER_PATH" value="ClassLibrary1/obj/Debug/ClassLibrary1.pdb" />
+    <option name="SHELVED_PATH" value="$PROJECT_DIR$/.idea/.idea.Assignment_3_Vers01/.idea/shelf/Uncommitted_changes_before_rebase_[Default_Changelist]/ClassLibrary11.pdb" />
+  </binary>
+  <binary>
+    <option name="BEFORE_PATH" value="Client/obj/Debug/netcoreapp3.1/Client.csprojAssemblyReference.cache" />
+    <option name="AFTER_PATH" value="Client/obj/Debug/netcoreapp3.1/Client.csprojAssemblyReference.cache" />
+    <option name="SHELVED_PATH" value="$PROJECT_DIR$/.idea/.idea.Assignment_3_Vers01/.idea/shelf/Uncommitted_changes_before_rebase_[Default_Changelist]/Client.csprojAssemblyReference.cache" />
+  </binary>
+  <binary>
+    <option name="BEFORE_PATH" value="Assignment_3_Vers01/obj/Debug/netcoreapp3.1/Server.pdb" />
+    <option name="AFTER_PATH" value="Assignment_3_Vers01/obj/Debug/netcoreapp3.1/Server.pdb" />
+    <option name="SHELVED_PATH" value="$PROJECT_DIR$/.idea/.idea.Assignment_3_Vers01/.idea/shelf/Uncommitted_changes_before_rebase_[Default_Changelist]/Server1.pdb" />
+  </binary>
+  <binary>
+    <option name="BEFORE_PATH" value="ClassLibrary1/obj/Debug/ClassLibrary1.dll" />
+    <option name="AFTER_PATH" value="ClassLibrary1/obj/Debug/ClassLibrary1.dll" />
+    <option name="SHELVED_PATH" value="$PROJECT_DIR$/.idea/.idea.Assignment_3_Vers01/.idea/shelf/Uncommitted_changes_before_rebase_[Default_Changelist]/ClassLibrary11.dll" />
+  </binary>
+  <binary>
+    <option name="BEFORE_PATH" value="Assignment_3_Vers01/obj/Debug/netcoreapp3.1/Server.csprojAssemblyReference.cache" />
+    <option name="AFTER_PATH" value="Assignment_3_Vers01/obj/Debug/netcoreapp3.1/Server.csprojAssemblyReference.cache" />
+    <option name="SHELVED_PATH" value="$PROJECT_DIR$/.idea/.idea.Assignment_3_Vers01/.idea/shelf/Uncommitted_changes_before_rebase_[Default_Changelist]/Server.csprojAssemblyReference.cache" />
+  </binary>
+  <binary>
+    <option name="BEFORE_PATH" value="Assignment_3_Vers01/bin/Debug/netcoreapp3.1/Server.dll" />
+    <option name="AFTER_PATH" value="Assignment_3_Vers01/bin/Debug/netcoreapp3.1/Server.dll" />
+    <option name="SHELVED_PATH" value="$PROJECT_DIR$/.idea/.idea.Assignment_3_Vers01/.idea/shelf/Uncommitted_changes_before_rebase_[Default_Changelist]/Server.dll" />
+  </binary>
+  <binary>
+    <option name="BEFORE_PATH" value="Assignment_3_Vers01/obj/Debug/netcoreapp3.1/Server.dll" />
+    <option name="AFTER_PATH" value="Assignment_3_Vers01/obj/Debug/netcoreapp3.1/Server.dll" />
+    <option name="SHELVED_PATH" value="$PROJECT_DIR$/.idea/.idea.Assignment_3_Vers01/.idea/shelf/Uncommitted_changes_before_rebase_[Default_Changelist]/Server1.dll" />
+  </binary>
+  <binary>
+    <option name="BEFORE_PATH" value="ClassLibrary1/obj/Debug/ClassLibrary1.csprojAssemblyReference.cache" />
+    <option name="AFTER_PATH" value="ClassLibrary1/obj/Debug/ClassLibrary1.csprojAssemblyReference.cache" />
+    <option name="SHELVED_PATH" value="$PROJECT_DIR$/.idea/.idea.Assignment_3_Vers01/.idea/shelf/Uncommitted_changes_before_rebase_[Default_Changelist]/ClassLibrary1.csprojAssemblyReference.cache" />
+  </binary>
+  <binary>
+    <option name="BEFORE_PATH" value="Client/bin/Debug/netcoreapp3.1/Client.pdb" />
+    <option name="AFTER_PATH" value="Client/bin/Debug/netcoreapp3.1/Client.pdb" />
+    <option name="SHELVED_PATH" value="$PROJECT_DIR$/.idea/.idea.Assignment_3_Vers01/.idea/shelf/Uncommitted_changes_before_rebase_[Default_Changelist]/Client.pdb" />
+  </binary>
+  <binary>
+    <option name="BEFORE_PATH" value="Assignment_3_Vers01/bin/Debug/netcoreapp3.1/ClassLibrary1.dll" />
+    <option name="AFTER_PATH" value="Assignment_3_Vers01/bin/Debug/netcoreapp3.1/ClassLibrary1.dll" />
+    <option name="SHELVED_PATH" value="$PROJECT_DIR$/.idea/.idea.Assignment_3_Vers01/.idea/shelf/Uncommitted_changes_before_rebase_[Default_Changelist]/ClassLibrary12.dll" />
+  </binary>
+  <binary>
+    <option name="BEFORE_PATH" value="ClassLibrary1/bin/Debug/ClassLibrary1.dll" />
+    <option name="AFTER_PATH" value="ClassLibrary1/bin/Debug/ClassLibrary1.dll" />
+    <option name="SHELVED_PATH" value="$PROJECT_DIR$/.idea/.idea.Assignment_3_Vers01/.idea/shelf/Uncommitted_changes_before_rebase_[Default_Changelist]/ClassLibrary13.dll" />
+  </binary>
+  <binary>
+    <option name="BEFORE_PATH" value="Client/obj/Debug/netcoreapp3.1/Client.pdb" />
+    <option name="AFTER_PATH" value="Client/obj/Debug/netcoreapp3.1/Client.pdb" />
+    <option name="SHELVED_PATH" value="$PROJECT_DIR$/.idea/.idea.Assignment_3_Vers01/.idea/shelf/Uncommitted_changes_before_rebase_[Default_Changelist]/Client1.pdb" />
+  </binary>
+  <binary>
+    <option name="BEFORE_PATH" value="Client/bin/Debug/netcoreapp3.1/ClassLibrary1.pdb" />
+    <option name="AFTER_PATH" value="Client/bin/Debug/netcoreapp3.1/ClassLibrary1.pdb" />
+    <option name="SHELVED_PATH" value="$PROJECT_DIR$/.idea/.idea.Assignment_3_Vers01/.idea/shelf/Uncommitted_changes_before_rebase_[Default_Changelist]/ClassLibrary12.pdb" />
+  </binary>
+  <binary>
+    <option name="BEFORE_PATH" value="ClassLibrary1/bin/Debug/ClassLibrary1.pdb" />
+    <option name="AFTER_PATH" value="ClassLibrary1/bin/Debug/ClassLibrary1.pdb" />
+    <option name="SHELVED_PATH" value="$PROJECT_DIR$/.idea/.idea.Assignment_3_Vers01/.idea/shelf/Uncommitted_changes_before_rebase_[Default_Changelist]/ClassLibrary13.pdb" />
+  </binary>
+</changelist>
