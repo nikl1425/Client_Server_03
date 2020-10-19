@@ -1,4 +1,5 @@
 ﻿using System;
+using Newtonsoft.Json;
 
 namespace Server
 {
@@ -13,6 +14,12 @@ namespace Server
             Status = status;
             Reason = reason;
             Body = body;
+        }
+        
+         public string ToJson()
+        {
+            var jsonRequest = JsonConvert.SerializeObject(this);
+            return jsonRequest;
         }
 
 

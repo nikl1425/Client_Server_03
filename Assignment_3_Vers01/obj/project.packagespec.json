@@ -31,6 +31,10 @@
   "frameworks": {
     "netcoreapp3.1": {
       "dependencies": {
+        "Newtonsoft.Json": {
+          "target": "Package",
+          "version": "[12.0.2, )"
+        },
         "System.Text.Json": {
           "target": "Package",
           "version": "[5.0.0-rc.2.20475.5, )"

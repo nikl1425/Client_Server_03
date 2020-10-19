@@ -1,9 +1,10 @@
 {
   "version": 2,
-  "dgSpecHash": "EmHOS+fPA3vnzI17rVUAh/B5GFueoV+kwRnjoClQZEHbaEl9v5YtMhyzrZv0PTmWdJZU1I6UkacW5ogtxCB2AQ==",
+  "dgSpecHash": "Z18ZSkzHpipp/sdQhrq9yj05s1oBvwb2ePg6HQLwoOqbicRLvrUzLYL6mmSythdN+nc9lPji/C881nA9oUQKmA==",
   "success": true,
   "projectFilePath": "C:\\Users\\45535\\Desktop\\RAWDATA\\C#\\Projects\\Assignment_3_Vers01\\Assignment_3_Vers01\\Server.csproj",
   "expectedPackageFiles": [
+    "C:\\Users\\45535\\.nuget\\packages\\newtonsoft.json\\12.0.2\\newtonsoft.json.12.0.2.nupkg.sha512",
     "C:\\Users\\45535\\.nuget\\packages\\system.text.json\\5.0.0-rc.2.20475.5\\system.text.json.5.0.0-rc.2.20475.5.nupkg.sha512"
   ],
   "logs": []

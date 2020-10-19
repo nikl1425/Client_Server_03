@@ -28,6 +28,12 @@ namespace Server
                 var data = Encoding.UTF8.GetBytes(msg.ToUpper());
 
                 stream.Write(data);
+                
+                // Write input from client to Json response file.
+                var path = @"C:\Users\45535\Desktop\RAWDATA\C#\Projects\Assignment_3_Vers01\ClassLibrary1\JsonFiles\JsonServerTest.json";
+                System.IO.File.WriteAllText(path, msg);
+
+
             }
         }
 

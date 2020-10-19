@@ -5,7 +5,10 @@
     <projectFile>Client/Client.csproj</projectFile>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="9dcadf51-fb73-4e39-8da6-7fac8254c49b" name="Default Changelist" comment="" />
+    <list default="true" id="9dcadf51-fb73-4e39-8da6-7fac8254c49b" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.Assignment_3_Vers01/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Assignment_3_Vers01/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assignment_3_Vers01/Server.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assignment_3_Vers01/Server.cs" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -111,8 +114,16 @@
       <workItem from="1602946121722" duration="854000" />
       <workItem from="1602950484140" duration="2912000" />
       <workItem from="1603033092964" duration="30121000" />
-      <workItem from="1603127513206" duration="399000" />
+      <workItem from="1603127513206" duration="1234000" />
     </task>
+    <task id="LOCAL-00001" summary="Her er det åbenbart">
+      <created>1603127985348</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1603127985348</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -122,6 +133,8 @@
   <component name="UnityUnitTestConfiguration" currentTestLauncher="NUnit" />
   <component name="VcsManagerConfiguration">
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
+    <MESSAGE value="Her er det åbenbart" />
+    <option name="LAST_COMMIT_MESSAGE" value="Her er det åbenbart" />
   </component>
   <component name="WindowStateProjectService">
     <state x="828" y="178" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1602892139072">
@@ -225,6 +238,14 @@
       <screen x="0" y="0" width="3440" height="1400" />
     </state>
     <state x="120" y="334" key="SettingsEditor/0.0.3440.1400@0.0.3440.1400" timestamp="1603127914434" />
+    <state x="312" y="433" key="Vcs.Push.Dialog.v2" timestamp="1603127987364">
+      <screen x="0" y="0" width="3440" height="1400" />
+    </state>
+    <state x="312" y="433" key="Vcs.Push.Dialog.v2/0.0.3440.1400@0.0.3440.1400" timestamp="1603127987364" />
+    <state x="522" y="606" key="git4idea.remote.GitConfigureRemotesDialog" timestamp="1603127945507">
+      <screen x="0" y="0" width="3440" height="1400" />
+    </state>
+    <state x="522" y="606" key="git4idea.remote.GitConfigureRemotesDialog/0.0.3440.1400@0.0.3440.1400" timestamp="1603127945507" />
     <state x="275" y="327" key="run.anything.popup" timestamp="1603111865686">
       <screen x="0" y="0" width="3440" height="1400" />
     </state>

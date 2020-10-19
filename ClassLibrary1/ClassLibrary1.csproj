@@ -93,6 +93,7 @@
       </ProjectReference>
     </ItemGroup>
     <ItemGroup>
+      <Content Include="JsonFiles\JsonServerTest.json" />
       <Content Include="JsonFiles\Test.json" />
     </ItemGroup>
     <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
