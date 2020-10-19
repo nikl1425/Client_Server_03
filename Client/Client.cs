@@ -17,15 +17,14 @@ namespace Client
        
         static void Main(string[] args)
         {
-            //string path = @"C:\Users\45535\Desktop\RAWDATA\C#\Projects\Assignment_3_Vers01\ClassLibrary1\JsonFiles\Test.json";
             var path = @"ClassLibrary1/JsonFiles/JsonServerTest.json";
-           // Define and start TCP client
+
+            // Define and start TCP client
            using var tcpClient = new TcpClient();
             
             // Client connect to local via. port 5000.
             tcpClient.Connect(IPAddress.Loopback, 5000);
-
-           
+            
             // "sWriter" = how we write to server. 
             var sWriter = new BinaryWriter(tcpClient.GetStream(), Encoding.UTF8);
             
@@ -33,19 +32,16 @@ namespace Client
             var sReader = new StreamReader(tcpClient.GetStream(), Encoding.UTF8);
             
             //Define our request
-            Request request = new Request("update", "/bla", 1, "Bent");
+            Request request = new Request("update", path, 2, "Bent");
             
             //Send request to server - see Util.cs
-
             Util.SendRequest(tcpClient, request.ToJson());
             
             //Console.WriteLine($"Message from the server: {}");
+            Console.Write(request.ToJson());
             
-           Console.Write(request.ToJson());
-           
 
         }
-        
         public string IntepretStatus()
         {
             const string ok = "ok";

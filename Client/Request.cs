@@ -10,8 +10,7 @@ namespace ClassLibrary1
 
     public class Request
     {
-        // Public fiels.
-
+        // Public fields
         public string Method;
         public string Path;
         public long Date;
@@ -20,7 +19,6 @@ namespace ClassLibrary1
 
 
         // Constructor for initializing request.
-
         public Request(string method, string path, int id, string name)
         {
             Method = method;
@@ -30,8 +28,6 @@ namespace ClassLibrary1
             Id = id;
         }
         
-        
-            
         /// <summary>
         /// Call method "RequestToJson" to pass constructor variables to Json string. Use "this" keyword to reference the current scope.
         /// </summary>
