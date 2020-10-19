@@ -17,8 +17,8 @@ namespace Client
        
         static void Main(string[] args)
         {
-            string path = @"C:\Users\45535\Desktop\RAWDATA\C#\Projects\Assignment_3_Vers01\ClassLibrary1\JsonFiles\Test.json";
-
+            //string path = @"C:\Users\45535\Desktop\RAWDATA\C#\Projects\Assignment_3_Vers01\ClassLibrary1\JsonFiles\Test.json";
+            var path = @"ClassLibrary1/JsonFiles/JsonServerTest.json";
            // Define and start TCP client
            using var tcpClient = new TcpClient();
             
