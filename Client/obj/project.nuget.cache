@@ -1,0 +1,12 @@
+{
+  "version": 2,
+  "dgSpecHash": "RFuiRly5eaJJxkn+yg7O+2PVV6NvyMjCnAXwOytXcVVBQd8tJlj6LInkCfN1cokobv/Ilw3AKSH4KLShkC8uCw==",
+  "success": true,
+  "projectFilePath": "C:\\Users\\45535\\Desktop\\RAWDATA\\C#\\Projects\\Assignment_3_Vers01\\Client\\Client.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\45535\\.nuget\\packages\\jsontransformation\\1.0.1\\jsontransformation.1.0.1.nupkg.sha512",
+    "C:\\Users\\45535\\.nuget\\packages\\newtonsoft.json\\12.0.2\\newtonsoft.json.12.0.2.nupkg.sha512",
+    "C:\\Users\\45535\\.nuget\\packages\\system.text.json\\5.0.0-rc.2.20475.5\\system.text.json.5.0.0-rc.2.20475.5.nupkg.sha512"
+  ],
+  "logs": []
+}

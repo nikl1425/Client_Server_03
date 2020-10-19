@@ -1,0 +1,13 @@
+C:\Users\45535\Desktop\RAWDATA\C#\Projects\Assignment_3_Vers01\Assignment_3_Vers01\bin\Debug\netcoreapp3.1\Assignment_3_Vers01.exe
+C:\Users\45535\Desktop\RAWDATA\C#\Projects\Assignment_3_Vers01\Assignment_3_Vers01\bin\Debug\netcoreapp3.1\Assignment_3_Vers01.deps.json
+C:\Users\45535\Desktop\RAWDATA\C#\Projects\Assignment_3_Vers01\Assignment_3_Vers01\bin\Debug\netcoreapp3.1\Assignment_3_Vers01.runtimeconfig.json
+C:\Users\45535\Desktop\RAWDATA\C#\Projects\Assignment_3_Vers01\Assignment_3_Vers01\bin\Debug\netcoreapp3.1\Assignment_3_Vers01.runtimeconfig.dev.json
+C:\Users\45535\Desktop\RAWDATA\C#\Projects\Assignment_3_Vers01\Assignment_3_Vers01\bin\Debug\netcoreapp3.1\Assignment_3_Vers01.dll
+C:\Users\45535\Desktop\RAWDATA\C#\Projects\Assignment_3_Vers01\Assignment_3_Vers01\bin\Debug\netcoreapp3.1\Assignment_3_Vers01.pdb
+C:\Users\45535\Desktop\RAWDATA\C#\Projects\Assignment_3_Vers01\Assignment_3_Vers01\obj\Debug\netcoreapp3.1\Assignment_3_Vers01.csprojAssemblyReference.cache
+C:\Users\45535\Desktop\RAWDATA\C#\Projects\Assignment_3_Vers01\Assignment_3_Vers01\obj\Debug\netcoreapp3.1\Assignment_3_Vers01.AssemblyInfoInputs.cache
+C:\Users\45535\Desktop\RAWDATA\C#\Projects\Assignment_3_Vers01\Assignment_3_Vers01\obj\Debug\netcoreapp3.1\Assignment_3_Vers01.AssemblyInfo.cs
+C:\Users\45535\Desktop\RAWDATA\C#\Projects\Assignment_3_Vers01\Assignment_3_Vers01\obj\Debug\netcoreapp3.1\Assignment_3_Vers01.csproj.CoreCompileInputs.cache
+C:\Users\45535\Desktop\RAWDATA\C#\Projects\Assignment_3_Vers01\Assignment_3_Vers01\obj\Debug\netcoreapp3.1\Assignment_3_Vers01.dll
+C:\Users\45535\Desktop\RAWDATA\C#\Projects\Assignment_3_Vers01\Assignment_3_Vers01\obj\Debug\netcoreapp3.1\Assignment_3_Vers01.pdb
+C:\Users\45535\Desktop\RAWDATA\C#\Projects\Assignment_3_Vers01\Assignment_3_Vers01\obj\Debug\netcoreapp3.1\Assignment_3_Vers01.genruntimeconfig.cache
