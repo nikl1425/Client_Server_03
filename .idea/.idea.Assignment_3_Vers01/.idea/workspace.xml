@@ -4,6 +4,24 @@
     <projectFile>Assignment_3_Vers01/Server.csproj</projectFile>
     <projectFile>Client/Client.csproj</projectFile>
   </component>
+  <component name="BranchesTreeState">
+    <expand>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="LOCAL_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="GROUP_NODE:origin" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+    </expand>
+    <select />
+  </component>
   <component name="ChangeListManager">
     <list default="true" id="9dcadf51-fb73-4e39-8da6-7fac8254c49b" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.Assignment_3_Vers01/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Assignment_3_Vers01/.idea/workspace.xml" afterDir="false" />
@@ -15,11 +33,12 @@
       <change beforePath="$PROJECT_DIR$/Assignment_3_Vers01/obj/Debug/netcoreapp3.1/Server.csprojAssemblyReference.cache" beforeDir="false" afterPath="$PROJECT_DIR$/Assignment_3_Vers01/obj/Debug/netcoreapp3.1/Server.csprojAssemblyReference.cache" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assignment_3_Vers01/obj/Debug/netcoreapp3.1/Server.dll" beforeDir="false" afterPath="$PROJECT_DIR$/Assignment_3_Vers01/obj/Debug/netcoreapp3.1/Server.dll" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assignment_3_Vers01/obj/Debug/netcoreapp3.1/Server.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/Assignment_3_Vers01/obj/Debug/netcoreapp3.1/Server.pdb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ClassLibrary1/JsonFiles/JsonServerTest.json" beforeDir="false" afterPath="$PROJECT_DIR$/ClassLibrary1/JsonFiles/JsonServerTest.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/ClassLibrary1/bin/Debug/ClassLibrary1.dll" beforeDir="false" afterPath="$PROJECT_DIR$/ClassLibrary1/bin/Debug/ClassLibrary1.dll" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/ClassLibrary1/bin/Debug/ClassLibrary1.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/ClassLibrary1/bin/Debug/ClassLibrary1.pdb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ClassLibrary1/obj/Debug/ClassLibrary1.csprojAssemblyReference.cache" beforeDir="false" afterPath="$PROJECT_DIR$/ClassLibrary1/obj/Debug/ClassLibrary1.csprojAssemblyReference.cache" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/ClassLibrary1/obj/Debug/ClassLibrary1.dll" beforeDir="false" afterPath="$PROJECT_DIR$/ClassLibrary1/obj/Debug/ClassLibrary1.dll" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/ClassLibrary1/obj/Debug/ClassLibrary1.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/ClassLibrary1/obj/Debug/ClassLibrary1.pdb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Client/Client.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Client/Client.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Client/bin/Debug/netcoreapp3.1/ClassLibrary1.dll" beforeDir="false" afterPath="$PROJECT_DIR$/Client/bin/Debug/netcoreapp3.1/ClassLibrary1.dll" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Client/bin/Debug/netcoreapp3.1/ClassLibrary1.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/Client/bin/Debug/netcoreapp3.1/ClassLibrary1.pdb" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Client/bin/Debug/netcoreapp3.1/Client.dll" beforeDir="false" afterPath="$PROJECT_DIR$/Client/bin/Debug/netcoreapp3.1/Client.dll" afterDir="false" />
@@ -40,8 +59,17 @@
       </list>
     </option>
   </component>
+  <component name="Git.Pull.Settings">
+    <option name="BRANCH" value="master" />
+  </component>
+  <component name="Git.Rebase.Settings">
+    <option name="NEW_BASE" value="master" />
+  </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="HighlightingSettingsPerFile">
+    <setting file="file://$PROJECT_DIR$/ClassLibrary1/JsonFiles/JsonServerTest.json" root0="FORCE_HIGHLIGHTING" />
   </component>
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
@@ -58,8 +86,8 @@
         <option value="$PROJECT_DIR$/Client/Request.cs" />
         <option value="$PROJECT_DIR$/ClassLibrary1/JsonFiles/JsonServerTest.json" />
         <option value="$PROJECT_DIR$/Assignment_3_Vers01/Response.cs" />
-        <option value="$PROJECT_DIR$/Client/Client.cs" />
         <option value="$PROJECT_DIR$/Assignment_3_Vers01/Server.cs" />
+        <option value="$PROJECT_DIR$/Client/Client.cs" />
       </list>
     </option>
   </component>
@@ -70,11 +98,12 @@
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">
+    <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
     <property name="DebuggerViewTab_PTCS_FirstProportionKey" value="0.34974092" />
     <property name="DebuggerViewTab_PTCS_LastProportionKey" value="0.29965457" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="settings.editor.selected.configurable" value="vcs.Git" />
+    <property name="settings.editor.selected.configurable" value="configurable.group.build" />
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
   <component name="RunManager" selected=".NET Project.Client">
@@ -99,7 +128,7 @@
     <configuration name="Server" type="DotNetProject" factoryName=".NET Project">
       <option name="EXE_PATH" value="$PROJECT_DIR$/Assignment_3_Vers01/bin/Debug/netcoreapp3.1/Server.dll" />
       <option name="PROGRAM_PARAMETERS" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/Assignment_3_Vers01/bin/Debug/netcoreapp3.1" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/Assignment_3_Vers01" />
       <option name="PASS_PARENT_ENVS" value="1" />
       <option name="USE_EXTERNAL_CONSOLE" value="0" />
       <option name="USE_MONO" value="0" />
@@ -107,7 +136,7 @@
       <option name="PROJECT_PATH" value="$PROJECT_DIR$/Assignment_3_Vers01/Server.csproj" />
       <option name="PROJECT_EXE_PATH_TRACKING" value="1" />
       <option name="PROJECT_ARGUMENTS_TRACKING" value="1" />
-      <option name="PROJECT_WORKING_DIRECTORY_TRACKING" value="1" />
+      <option name="PROJECT_WORKING_DIRECTORY_TRACKING" value="0" />
       <option name="PROJECT_KIND" value="DotNetCore" />
       <option name="PROJECT_TFM" value=".NETCoreApp,Version=v3.1" />
       <method v="2">
@@ -134,7 +163,8 @@
       <workItem from="1602946121722" duration="854000" />
       <workItem from="1602950484140" duration="2912000" />
       <workItem from="1603033092964" duration="30121000" />
-      <workItem from="1603127513206" duration="1871000" />
+      <workItem from="1603127513206" duration="5030000" />
+      <workItem from="1603132628145" duration="1699000" />
     </task>
     <task id="LOCAL-00001" summary="Her er det åbenbart">
       <created>1603127985348</created>
@@ -150,7 +180,14 @@
       <option name="project" value="LOCAL" />
       <updated>1603129018436</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="Her er det åbenbart">
+      <created>1603129441073</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1603129441073</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -158,39 +195,51 @@
   </component>
   <component name="UnityProjectConfiguration" hasMinimizedUI="false" />
   <component name="UnityUnitTestConfiguration" currentTestLauncher="NUnit" />
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
   <component name="VcsManagerConfiguration">
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
     <MESSAGE value="Her er det åbenbart" />
     <option name="LAST_COMMIT_MESSAGE" value="Her er det åbenbart" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="828" y="178" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1602892139072">
-      <screen x="0" y="0" width="1920" height="1040" />
+    <state x="692" y="243" width="1092" height="714" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1603132934784">
+      <screen x="0" y="0" width="3440" height="1400" />
     </state>
     <state x="828" y="178" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1602892139072" />
-    <state width="1379" height="357" key="GridCell.Tab.0.bottom" timestamp="1603129259941">
+    <state x="692" y="243" width="1092" height="714" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.3440.1400@0.0.3440.1400" timestamp="1603132934784" />
+    <state width="1379" height="357" key="GridCell.Tab.0.bottom" timestamp="1603133586234">
       <screen x="0" y="0" width="3440" height="1400" />
     </state>
     <state width="914" height="265" key="GridCell.Tab.0.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1602892159284" />
-    <state width="1379" height="357" key="GridCell.Tab.0.bottom/0.0.3440.1400@0.0.3440.1400" timestamp="1603129259941" />
+    <state width="1379" height="357" key="GridCell.Tab.0.bottom/0.0.3440.1400@0.0.3440.1400" timestamp="1603133586234" />
     <state width="914" height="281" key="GridCell.Tab.0.bottom/1920.0.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1602879799315" />
-    <state width="1379" height="357" key="GridCell.Tab.0.center" timestamp="1603129259941">
+    <state width="1379" height="357" key="GridCell.Tab.0.center" timestamp="1603133586234">
       <screen x="0" y="0" width="3440" height="1400" />
     </state>
     <state width="914" height="265" key="GridCell.Tab.0.center/0.0.1920.1040@0.0.1920.1040" timestamp="1602892159284" />
-    <state width="1379" height="357" key="GridCell.Tab.0.center/0.0.3440.1400@0.0.3440.1400" timestamp="1603129259941" />
+    <state width="1379" height="357" key="GridCell.Tab.0.center/0.0.3440.1400@0.0.3440.1400" timestamp="1603133586234" />
     <state width="914" height="281" key="GridCell.Tab.0.center/1920.0.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1602879799315" />
-    <state width="1379" height="357" key="GridCell.Tab.0.left" timestamp="1603129259941">
+    <state width="1379" height="357" key="GridCell.Tab.0.left" timestamp="1603133586234">
       <screen x="0" y="0" width="3440" height="1400" />
     </state>
     <state width="914" height="265" key="GridCell.Tab.0.left/0.0.1920.1040@0.0.1920.1040" timestamp="1602892159284" />
-    <state width="1379" height="357" key="GridCell.Tab.0.left/0.0.3440.1400@0.0.3440.1400" timestamp="1603129259941" />
+    <state width="1379" height="357" key="GridCell.Tab.0.left/0.0.3440.1400@0.0.3440.1400" timestamp="1603133586234" />
     <state width="914" height="281" key="GridCell.Tab.0.left/1920.0.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1602879799315" />
-    <state width="1379" height="357" key="GridCell.Tab.0.right" timestamp="1603129259941">
+    <state width="1379" height="357" key="GridCell.Tab.0.right" timestamp="1603133586234">
       <screen x="0" y="0" width="3440" height="1400" />
     </state>
     <state width="914" height="265" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1602892159284" />
-    <state width="1379" height="357" key="GridCell.Tab.0.right/0.0.3440.1400@0.0.3440.1400" timestamp="1603129259941" />
+    <state width="1379" height="357" key="GridCell.Tab.0.right/0.0.3440.1400@0.0.3440.1400" timestamp="1603133586234" />
     <state width="914" height="281" key="GridCell.Tab.0.right/1920.0.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1602879799315" />
     <state width="1380" height="518" key="GridCell.Tab.1.bottom" timestamp="1603127480911">
       <screen x="0" y="0" width="3440" height="1400" />
@@ -256,19 +305,23 @@
       <screen x="0" y="0" width="3440" height="1400" />
     </state>
     <state width="1380" height="518" key="GridCell.Tab.4.right/0.0.3440.1400@0.0.3440.1400" timestamp="1603127480912" />
-    <state x="1849" y="339" key="Rider.ProjectTemplateDialog.Size" timestamp="1603084985946">
+    <state x="1849" y="339" key="Rider.ProjectTemplateDialog.Size" timestamp="1603132329633">
       <screen x="0" y="0" width="3440" height="1400" />
     </state>
-    <state x="1849" y="339" key="Rider.ProjectTemplateDialog.Size/0.0.3440.1400@0.0.3440.1400" timestamp="1603084985946" />
+    <state x="1849" y="339" key="Rider.ProjectTemplateDialog.Size/0.0.3440.1400@0.0.3440.1400" timestamp="1603132329633" />
     <state x="1032" y="252" key="Rider.ProjectTemplateDialog.Size/1920.0.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1602861848890" />
-    <state x="120" y="334" key="SettingsEditor" timestamp="1603127914434">
+    <state x="120" y="334" key="SettingsEditor" timestamp="1603133914688">
       <screen x="0" y="0" width="3440" height="1400" />
     </state>
-    <state x="120" y="334" key="SettingsEditor/0.0.3440.1400@0.0.3440.1400" timestamp="1603127914434" />
-    <state x="312" y="433" key="Vcs.Push.Dialog.v2" timestamp="1603129020156">
+    <state x="120" y="334" key="SettingsEditor/0.0.3440.1400@0.0.3440.1400" timestamp="1603133914688" />
+    <state x="312" y="433" key="Vcs.Push.Dialog.v2" timestamp="1603129442762">
       <screen x="0" y="0" width="3440" height="1400" />
     </state>
-    <state x="312" y="433" key="Vcs.Push.Dialog.v2/0.0.3440.1400@0.0.3440.1400" timestamp="1603129020156" />
+    <state x="312" y="433" key="Vcs.Push.Dialog.v2/0.0.3440.1400@0.0.3440.1400" timestamp="1603129442762" />
+    <state x="538" y="614" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1603131000040">
+      <screen x="0" y="0" width="3440" height="1400" />
+    </state>
+    <state x="538" y="614" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.3440.1400@0.0.3440.1400" timestamp="1603131000040" />
     <state x="522" y="606" key="git4idea.remote.GitConfigureRemotesDialog" timestamp="1603127945507">
       <screen x="0" y="0" width="3440" height="1400" />
     </state>
@@ -277,10 +330,10 @@
       <screen x="0" y="0" width="3440" height="1400" />
     </state>
     <state x="275" y="327" key="run.anything.popup/0.0.3440.1400@0.0.3440.1400" timestamp="1603111865686" />
-    <state x="1976" y="310" width="1204" height="913" key="search.everywhere.popup" timestamp="1603125575749">
+    <state x="1976" y="310" width="1204" height="913" key="search.everywhere.popup" timestamp="1603132456758">
       <screen x="0" y="0" width="3440" height="1400" />
     </state>
     <state x="1103" y="230" width="672" height="678" key="search.everywhere.popup/0.0.1920.1040@0.0.1920.1040" timestamp="1602891693866" />
-    <state x="1976" y="310" width="1204" height="913" key="search.everywhere.popup/0.0.3440.1400@0.0.3440.1400" timestamp="1603125575749" />
+    <state x="1976" y="310" width="1204" height="913" key="search.everywhere.popup/0.0.3440.1400@0.0.3440.1400" timestamp="1603132456758" />
   </component>
 </project>

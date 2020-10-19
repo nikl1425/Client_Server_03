@@ -1,8 +1,11 @@
 ﻿using System;
+using System.IO;
 using System.Net;
 using System.Net.Sockets;
+using System.Reflection;
 using System.Text;
 using ClassLibrary1;
+using Newtonsoft.Json;
 
 namespace Server
 {
@@ -10,6 +13,7 @@ namespace Server
     {
         static void Main(string[] args)
         {
+            
             var server = new TcpListener(IPAddress.Loopback, 5000);
             server.Start();
             Console.WriteLine("Server started!");
@@ -29,9 +33,11 @@ namespace Server
 
                 stream.Write(data);
                 
+                var path  = @"C:\Users\45535\Desktop\RAWDATA\C#\Projects\Assignment_3_Vers01\ClassLibrary1\JsonFiles\JsonServerTest.json";
+                
                 // Write input from client to Json response file.
-                var path = @"ClassLibrary1/JsonFiles/JsonServerTest.json";
-                System.IO.File.WriteAllText(path, msg);
+                File.WriteAllText(path, msg);
+                
             }
         }
 
