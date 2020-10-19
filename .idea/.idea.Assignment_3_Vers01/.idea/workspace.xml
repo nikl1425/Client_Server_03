@@ -8,6 +8,25 @@
     <list default="true" id="9dcadf51-fb73-4e39-8da6-7fac8254c49b" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.Assignment_3_Vers01/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Assignment_3_Vers01/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assignment_3_Vers01/Server.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assignment_3_Vers01/Server.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assignment_3_Vers01/bin/Debug/netcoreapp3.1/ClassLibrary1.dll" beforeDir="false" afterPath="$PROJECT_DIR$/Assignment_3_Vers01/bin/Debug/netcoreapp3.1/ClassLibrary1.dll" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assignment_3_Vers01/bin/Debug/netcoreapp3.1/ClassLibrary1.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/Assignment_3_Vers01/bin/Debug/netcoreapp3.1/ClassLibrary1.pdb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assignment_3_Vers01/bin/Debug/netcoreapp3.1/Server.dll" beforeDir="false" afterPath="$PROJECT_DIR$/Assignment_3_Vers01/bin/Debug/netcoreapp3.1/Server.dll" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assignment_3_Vers01/bin/Debug/netcoreapp3.1/Server.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/Assignment_3_Vers01/bin/Debug/netcoreapp3.1/Server.pdb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assignment_3_Vers01/obj/Debug/netcoreapp3.1/Server.csprojAssemblyReference.cache" beforeDir="false" afterPath="$PROJECT_DIR$/Assignment_3_Vers01/obj/Debug/netcoreapp3.1/Server.csprojAssemblyReference.cache" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assignment_3_Vers01/obj/Debug/netcoreapp3.1/Server.dll" beforeDir="false" afterPath="$PROJECT_DIR$/Assignment_3_Vers01/obj/Debug/netcoreapp3.1/Server.dll" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assignment_3_Vers01/obj/Debug/netcoreapp3.1/Server.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/Assignment_3_Vers01/obj/Debug/netcoreapp3.1/Server.pdb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ClassLibrary1/bin/Debug/ClassLibrary1.dll" beforeDir="false" afterPath="$PROJECT_DIR$/ClassLibrary1/bin/Debug/ClassLibrary1.dll" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ClassLibrary1/bin/Debug/ClassLibrary1.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/ClassLibrary1/bin/Debug/ClassLibrary1.pdb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ClassLibrary1/obj/Debug/ClassLibrary1.dll" beforeDir="false" afterPath="$PROJECT_DIR$/ClassLibrary1/obj/Debug/ClassLibrary1.dll" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ClassLibrary1/obj/Debug/ClassLibrary1.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/ClassLibrary1/obj/Debug/ClassLibrary1.pdb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Client/Client.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Client/Client.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Client/bin/Debug/netcoreapp3.1/ClassLibrary1.dll" beforeDir="false" afterPath="$PROJECT_DIR$/Client/bin/Debug/netcoreapp3.1/ClassLibrary1.dll" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Client/bin/Debug/netcoreapp3.1/ClassLibrary1.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/Client/bin/Debug/netcoreapp3.1/ClassLibrary1.pdb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Client/bin/Debug/netcoreapp3.1/Client.dll" beforeDir="false" afterPath="$PROJECT_DIR$/Client/bin/Debug/netcoreapp3.1/Client.dll" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Client/bin/Debug/netcoreapp3.1/Client.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/Client/bin/Debug/netcoreapp3.1/Client.pdb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Client/obj/Debug/netcoreapp3.1/Client.csprojAssemblyReference.cache" beforeDir="false" afterPath="$PROJECT_DIR$/Client/obj/Debug/netcoreapp3.1/Client.csprojAssemblyReference.cache" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Client/obj/Debug/netcoreapp3.1/Client.dll" beforeDir="false" afterPath="$PROJECT_DIR$/Client/obj/Debug/netcoreapp3.1/Client.dll" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Client/obj/Debug/netcoreapp3.1/Client.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/Client/obj/Debug/netcoreapp3.1/Client.pdb" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -36,8 +55,9 @@
         <option value="$PROJECT_DIR$/ClassLibrary1/Message.cs" />
         <option value="$PROJECT_DIR$/ClassLibrary1/Request.cs" />
         <option value="$PROJECT_DIR$/ClassLibrary1/JsonFiles/Test.json" />
-        <option value="$PROJECT_DIR$/Assignment_3_Vers01/Response.cs" />
         <option value="$PROJECT_DIR$/Client/Request.cs" />
+        <option value="$PROJECT_DIR$/ClassLibrary1/JsonFiles/JsonServerTest.json" />
+        <option value="$PROJECT_DIR$/Assignment_3_Vers01/Response.cs" />
         <option value="$PROJECT_DIR$/Client/Client.cs" />
         <option value="$PROJECT_DIR$/Assignment_3_Vers01/Server.cs" />
       </list>
@@ -114,7 +134,7 @@
       <workItem from="1602946121722" duration="854000" />
       <workItem from="1602950484140" duration="2912000" />
       <workItem from="1603033092964" duration="30121000" />
-      <workItem from="1603127513206" duration="1234000" />
+      <workItem from="1603127513206" duration="1871000" />
     </task>
     <task id="LOCAL-00001" summary="Her er det åbenbart">
       <created>1603127985348</created>
@@ -123,7 +143,14 @@
       <option name="project" value="LOCAL" />
       <updated>1603127985348</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="Her er det åbenbart">
+      <created>1603129018436</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1603129018436</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -141,29 +168,29 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="828" y="178" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1602892139072" />
-    <state width="1380" height="518" key="GridCell.Tab.0.bottom" timestamp="1603127480911">
+    <state width="1379" height="357" key="GridCell.Tab.0.bottom" timestamp="1603129259941">
       <screen x="0" y="0" width="3440" height="1400" />
     </state>
     <state width="914" height="265" key="GridCell.Tab.0.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1602892159284" />
-    <state width="1380" height="518" key="GridCell.Tab.0.bottom/0.0.3440.1400@0.0.3440.1400" timestamp="1603127480911" />
+    <state width="1379" height="357" key="GridCell.Tab.0.bottom/0.0.3440.1400@0.0.3440.1400" timestamp="1603129259941" />
     <state width="914" height="281" key="GridCell.Tab.0.bottom/1920.0.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1602879799315" />
-    <state width="1380" height="518" key="GridCell.Tab.0.center" timestamp="1603127480911">
+    <state width="1379" height="357" key="GridCell.Tab.0.center" timestamp="1603129259941">
       <screen x="0" y="0" width="3440" height="1400" />
     </state>
     <state width="914" height="265" key="GridCell.Tab.0.center/0.0.1920.1040@0.0.1920.1040" timestamp="1602892159284" />
-    <state width="1380" height="518" key="GridCell.Tab.0.center/0.0.3440.1400@0.0.3440.1400" timestamp="1603127480911" />
+    <state width="1379" height="357" key="GridCell.Tab.0.center/0.0.3440.1400@0.0.3440.1400" timestamp="1603129259941" />
     <state width="914" height="281" key="GridCell.Tab.0.center/1920.0.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1602879799315" />
-    <state width="1380" height="518" key="GridCell.Tab.0.left" timestamp="1603127480911">
+    <state width="1379" height="357" key="GridCell.Tab.0.left" timestamp="1603129259941">
       <screen x="0" y="0" width="3440" height="1400" />
     </state>
     <state width="914" height="265" key="GridCell.Tab.0.left/0.0.1920.1040@0.0.1920.1040" timestamp="1602892159284" />
-    <state width="1380" height="518" key="GridCell.Tab.0.left/0.0.3440.1400@0.0.3440.1400" timestamp="1603127480911" />
+    <state width="1379" height="357" key="GridCell.Tab.0.left/0.0.3440.1400@0.0.3440.1400" timestamp="1603129259941" />
     <state width="914" height="281" key="GridCell.Tab.0.left/1920.0.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1602879799315" />
-    <state width="1380" height="518" key="GridCell.Tab.0.right" timestamp="1603127480911">
+    <state width="1379" height="357" key="GridCell.Tab.0.right" timestamp="1603129259941">
       <screen x="0" y="0" width="3440" height="1400" />
     </state>
     <state width="914" height="265" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1602892159284" />
-    <state width="1380" height="518" key="GridCell.Tab.0.right/0.0.3440.1400@0.0.3440.1400" timestamp="1603127480911" />
+    <state width="1379" height="357" key="GridCell.Tab.0.right/0.0.3440.1400@0.0.3440.1400" timestamp="1603129259941" />
     <state width="914" height="281" key="GridCell.Tab.0.right/1920.0.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1602879799315" />
     <state width="1380" height="518" key="GridCell.Tab.1.bottom" timestamp="1603127480911">
       <screen x="0" y="0" width="3440" height="1400" />
@@ -238,10 +265,10 @@
       <screen x="0" y="0" width="3440" height="1400" />
     </state>
     <state x="120" y="334" key="SettingsEditor/0.0.3440.1400@0.0.3440.1400" timestamp="1603127914434" />
-    <state x="312" y="433" key="Vcs.Push.Dialog.v2" timestamp="1603127987364">
+    <state x="312" y="433" key="Vcs.Push.Dialog.v2" timestamp="1603129020156">
       <screen x="0" y="0" width="3440" height="1400" />
     </state>
-    <state x="312" y="433" key="Vcs.Push.Dialog.v2/0.0.3440.1400@0.0.3440.1400" timestamp="1603127987364" />
+    <state x="312" y="433" key="Vcs.Push.Dialog.v2/0.0.3440.1400@0.0.3440.1400" timestamp="1603129020156" />
     <state x="522" y="606" key="git4idea.remote.GitConfigureRemotesDialog" timestamp="1603127945507">
       <screen x="0" y="0" width="3440" height="1400" />
     </state>

@@ -33,7 +33,7 @@ namespace Client
             var sReader = new StreamReader(tcpClient.GetStream(), Encoding.UTF8);
             
             //Define our request
-            Request request = new Request("update", "/bla", 1, "Ole");
+            Request request = new Request("update", "/bla", 1, "Bent");
             
             //Send request to server - see Util.cs
 
