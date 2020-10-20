@@ -32,7 +32,13 @@ namespace Client
             //Console.WriteLine($"Message from the server: {}");
             Console.Write(request.ToJson());
             File.WriteAllText(path, request.ToJson());
+            
+            //Read responses from the server.
+            Util.ReadResponse(tcpClient);
         }
+        
+        
+        
 
         public string IntepretStatus()
         {
