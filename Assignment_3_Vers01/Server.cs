@@ -25,7 +25,7 @@ namespace Server
             {
                 // set client = new tcp client. 
                 var connection = server.AcceptTcpClient();
-                
+
                 Console.WriteLine("Accepted client!");
 
                 var stream = connection.GetStream();
@@ -44,7 +44,7 @@ namespace Server
 
                 // Write input from client to Json response file.
                 File.WriteAllText(path, msg);
-                
+
                 // Desiralize the request into r and use methods. 
 
                 RequestContainer r = JsonConvert.DeserializeObject<RequestContainer>(msg);
@@ -53,7 +53,7 @@ namespace Server
                 {
                     string methodExist = "method_exist";
                     byte[] random = Encoding.UTF8.GetBytes(methodExist);
-                    
+
                     //stream.Write(Encoding.UTF8.GetBytes(methodExist));
                     Console.WriteLine("method is: " + r.Method);
                 }
@@ -61,10 +61,6 @@ namespace Server
                 {
                     Console.WriteLine("Method missing in request");
                 }
-                
-                
-                
-                
             }
         }
     }

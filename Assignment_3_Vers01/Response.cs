@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using Newtonsoft.Json;
 
 namespace Server
@@ -6,14 +7,13 @@ namespace Server
     public class Response
     {
         public string Status;
-        public string Body;
         public string Reason;
+        
 
-        public Response(string status, string reason, string body)
+        public Response(string status, string reason)
         {
-            Status = status;
-            Reason = reason;
-            Body = body;
+            status = Status;
+            reason = Reason;
         }
         
          public string ToJson()

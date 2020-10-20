@@ -44,8 +44,6 @@ namespace Client
                 int bytesToRead = stream.Read(buffer, 0, buffer.Length);
                 var responseFromServer = Encoding.UTF8.GetString(buffer, 0, bytesToRead);
                 Console.WriteLine("The server responds:  \n" + responseFromServer);
-
-                
             }
         }
 
