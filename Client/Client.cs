@@ -12,28 +12,28 @@ namespace Client
     class ClientProgram
     {
         public string Status;
-       
+
         static void Main(string[] args)
         {
             var path = @"C:\Users\45535\Desktop\RAWDATA\C#\Projects\Assignment_3_Vers01\Client\Test.json";
 
             // Define and start TCP client
-           using var tcpClient = new TcpClient();
-            
+            using var tcpClient = new TcpClient();
+
             // Client connect to local via. port 5000.
             tcpClient.Connect(IPAddress.Loopback, 5000);
 
             //Define our request
             Request request = new Request("update", path, 2, "Bent");
-            
+
             //Send request to server - see Util.cs
             Util.SendRequest(tcpClient, request.ToJson());
-            
+
             //Console.WriteLine($"Message from the server: {}");
             Console.Write(request.ToJson());
             File.WriteAllText(path, request.ToJson());
-
         }
+
         public string IntepretStatus()
         {
             const string ok = "ok";
@@ -70,7 +70,5 @@ namespace Client
 
             return Status;
         }
-        
-        
     }
 }

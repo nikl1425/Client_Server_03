@@ -9,11 +9,23 @@
       "Server/1.0.0": {
         "dependencies": {
           "ClassLibrary1": "1.0.0",
+          "Client": "1.0.0",
           "Newtonsoft.Json": "12.0.2",
           "System.Text.Json": "5.0.0-rc.2.20475.5"
         },
         "runtime": {
           "Server.dll": {}
+        }
+      },
+      "JsonTransformation/1.0.1": {
+        "dependencies": {
+          "Newtonsoft.Json": "12.0.2"
+        },
+        "runtime": {
+          "lib/netstandard2.0/JsonTransformation.dll": {
+            "assemblyVersion": "1.0.1.0",
+            "fileVersion": "1.0.1.0"
+          }
         }
       },
       "Newtonsoft.Json/12.0.2": {
@@ -38,6 +50,16 @@
         },
         "runtime": {
           "ClassLibrary1.dll": {}
+        }
+      },
+      "Client/1.0.0": {
+        "dependencies": {
+          "ClassLibrary1": "1.0.0",
+          "JsonTransformation": "1.0.1",
+          "System.Text.Json": "5.0.0-rc.2.20475.5"
+        },
+        "runtime": {
+          "Client.dll": {}
         }
       },
       "Test/1.0.0": {
@@ -77,6 +99,13 @@
       "serviceable": false,
       "sha512": ""
     },
+    "JsonTransformation/1.0.1": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-hQccwAdSbLh7vNN5Nxgq4LAAA5VeLcxTjHqZOpqcqe/MRFqn5WH7zxKqmR+wYYSR+hYUEV0Rav3iZ2n/4YVdvQ==",
+      "path": "jsontransformation/1.0.1",
+      "hashPath": "jsontransformation.1.0.1.nupkg.sha512"
+    },
     "Newtonsoft.Json/12.0.2": {
       "type": "package",
       "serviceable": true,
@@ -92,6 +121,11 @@
       "hashPath": "system.text.json.5.0.0-rc.2.20475.5.nupkg.sha512"
     },
     "ClassLibrary1/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "Client/1.0.0": {
       "type": "project",
       "serviceable": false,
       "sha512": ""

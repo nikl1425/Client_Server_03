@@ -18,6 +18,9 @@
         "projectReferences": {
           "C:\\Users\\45535\\Desktop\\RAWDATA\\C#\\Projects\\Assignment_3_Vers01\\ClassLibrary1\\ClassLibrary1.csproj": {
             "projectPath": "C:\\Users\\45535\\Desktop\\RAWDATA\\C#\\Projects\\Assignment_3_Vers01\\ClassLibrary1\\ClassLibrary1.csproj"
+          },
+          "C:\\Users\\45535\\Desktop\\RAWDATA\\C#\\Projects\\Assignment_3_Vers01\\Client\\Client.csproj": {
+            "projectPath": "C:\\Users\\45535\\Desktop\\RAWDATA\\C#\\Projects\\Assignment_3_Vers01\\Client\\Client.csproj"
           }
         }
       }
