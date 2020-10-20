@@ -26,57 +26,16 @@
     <list default="true" id="9dcadf51-fb73-4e39-8da6-7fac8254c49b" name="Default Changelist" comment="Path virker for nhr">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.Assignment_3_Vers01/.idea/contentModel.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Assignment_3_Vers01/.idea/contentModel.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.Assignment_3_Vers01/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Assignment_3_Vers01/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.vs/Assignment_3_Vers01/DesignTimeBuild/.dtbcache.v2" beforeDir="false" afterPath="$PROJECT_DIR$/.vs/Assignment_3_Vers01/DesignTimeBuild/.dtbcache.v2" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.vs/Assignment_3_Vers01/v16/.suo" beforeDir="false" afterPath="$PROJECT_DIR$/.vs/Assignment_3_Vers01/v16/.suo" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assignment_3_Vers01.sln" beforeDir="false" afterPath="$PROJECT_DIR$/Assignment_3_Vers01.sln" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assignment_3_Vers01.sln.DotSettings.user" beforeDir="false" afterPath="$PROJECT_DIR$/Assignment_3_Vers01.sln.DotSettings.user" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assignment_3_Vers01/Server.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assignment_3_Vers01/Server.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assignment_3_Vers01/bin/Debug/netcoreapp3.1/ClassLibrary1.dll" beforeDir="false" afterPath="$PROJECT_DIR$/Assignment_3_Vers01/bin/Debug/netcoreapp3.1/ClassLibrary1.dll" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assignment_3_Vers01/bin/Debug/netcoreapp3.1/ClassLibrary1.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/Assignment_3_Vers01/bin/Debug/netcoreapp3.1/ClassLibrary1.pdb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assignment_3_Vers01/bin/Debug/netcoreapp3.1/Server.deps.json" beforeDir="false" afterPath="$PROJECT_DIR$/Assignment_3_Vers01/bin/Debug/netcoreapp3.1/Server.deps.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assignment_3_Vers01/bin/Debug/netcoreapp3.1/Server.dll" beforeDir="false" afterPath="$PROJECT_DIR$/Assignment_3_Vers01/bin/Debug/netcoreapp3.1/Server.dll" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assignment_3_Vers01/bin/Debug/netcoreapp3.1/Server.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/Assignment_3_Vers01/bin/Debug/netcoreapp3.1/Server.pdb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assignment_3_Vers01/bin/Debug/netcoreapp3.1/Test.dll" beforeDir="false" afterPath="$PROJECT_DIR$/Assignment_3_Vers01/bin/Debug/netcoreapp3.1/Test.dll" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assignment_3_Vers01/bin/Debug/netcoreapp3.1/Test.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/Assignment_3_Vers01/bin/Debug/netcoreapp3.1/Test.pdb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assignment_3_Vers01/obj/Debug/netcoreapp3.1/Server.assets.cache" beforeDir="false" afterPath="$PROJECT_DIR$/Assignment_3_Vers01/obj/Debug/netcoreapp3.1/Server.assets.cache" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assignment_3_Vers01/obj/Debug/netcoreapp3.1/Server.csproj.CoreCompileInputs.cache" beforeDir="false" afterPath="$PROJECT_DIR$/Assignment_3_Vers01/obj/Debug/netcoreapp3.1/Server.csproj.CoreCompileInputs.cache" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assignment_3_Vers01/obj/Debug/netcoreapp3.1/Server.csprojAssemblyReference.cache" beforeDir="false" afterPath="$PROJECT_DIR$/Assignment_3_Vers01/obj/Debug/netcoreapp3.1/Server.csprojAssemblyReference.cache" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assignment_3_Vers01/obj/Debug/netcoreapp3.1/Server.dll" beforeDir="false" afterPath="$PROJECT_DIR$/Assignment_3_Vers01/obj/Debug/netcoreapp3.1/Server.dll" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assignment_3_Vers01/obj/Debug/netcoreapp3.1/Server.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/Assignment_3_Vers01/obj/Debug/netcoreapp3.1/Server.pdb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assignment_3_Vers01/obj/Server.csproj.nuget.dgspec.json" beforeDir="false" afterPath="$PROJECT_DIR$/Assignment_3_Vers01/obj/Server.csproj.nuget.dgspec.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assignment_3_Vers01/obj/project.assets.json" beforeDir="false" afterPath="$PROJECT_DIR$/Assignment_3_Vers01/obj/project.assets.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assignment_3_Vers01/obj/project.nuget.cache" beforeDir="false" afterPath="$PROJECT_DIR$/Assignment_3_Vers01/obj/project.nuget.cache" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assignment_3_Vers01/obj/rider.project.restore.info" beforeDir="false" afterPath="$PROJECT_DIR$/Assignment_3_Vers01/obj/rider.project.restore.info" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ClassLibrary1/Util.cs" beforeDir="false" afterPath="$PROJECT_DIR$/ClassLibrary1/Util.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ClassLibrary1/ClassLibrary1.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/ClassLibrary1/ClassLibrary1.csproj" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/ClassLibrary1/bin/Debug/ClassLibrary1.dll" beforeDir="false" afterPath="$PROJECT_DIR$/ClassLibrary1/bin/Debug/ClassLibrary1.dll" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/ClassLibrary1/bin/Debug/ClassLibrary1.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/ClassLibrary1/bin/Debug/ClassLibrary1.pdb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ClassLibrary1/bin/Debug/Test.dll" beforeDir="false" afterPath="$PROJECT_DIR$/ClassLibrary1/bin/Debug/Test.dll" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ClassLibrary1/bin/Debug/Test.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/ClassLibrary1/bin/Debug/Test.pdb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ClassLibrary1/obj/Debug/ClassLibrary1.csprojAssemblyReference.cache" beforeDir="false" afterPath="$PROJECT_DIR$/ClassLibrary1/obj/Debug/ClassLibrary1.csprojAssemblyReference.cache" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/ClassLibrary1/obj/Debug/ClassLibrary1.dll" beforeDir="false" afterPath="$PROJECT_DIR$/ClassLibrary1/obj/Debug/ClassLibrary1.dll" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/ClassLibrary1/obj/Debug/ClassLibrary1.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/ClassLibrary1/obj/Debug/ClassLibrary1.pdb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Client/Client.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Client/Client.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Client/bin/Debug/netcoreapp3.1/ClassLibrary1.dll" beforeDir="false" afterPath="$PROJECT_DIR$/Client/bin/Debug/netcoreapp3.1/ClassLibrary1.dll" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Client/bin/Debug/netcoreapp3.1/ClassLibrary1.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/Client/bin/Debug/netcoreapp3.1/ClassLibrary1.pdb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Client/bin/Debug/netcoreapp3.1/Client.deps.json" beforeDir="false" afterPath="$PROJECT_DIR$/Client/bin/Debug/netcoreapp3.1/Client.deps.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Client/bin/Debug/netcoreapp3.1/Client.dll" beforeDir="false" afterPath="$PROJECT_DIR$/Client/bin/Debug/netcoreapp3.1/Client.dll" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Client/bin/Debug/netcoreapp3.1/Client.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/Client/bin/Debug/netcoreapp3.1/Client.pdb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Client/bin/Debug/netcoreapp3.1/Test.dll" beforeDir="false" afterPath="$PROJECT_DIR$/Client/bin/Debug/netcoreapp3.1/Test.dll" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Client/bin/Debug/netcoreapp3.1/Test.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/Client/bin/Debug/netcoreapp3.1/Test.pdb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Client/obj/Client.csproj.nuget.dgspec.json" beforeDir="false" afterPath="$PROJECT_DIR$/Client/obj/Client.csproj.nuget.dgspec.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Client/obj/Debug/netcoreapp3.1/Client.assets.cache" beforeDir="false" afterPath="$PROJECT_DIR$/Client/obj/Debug/netcoreapp3.1/Client.assets.cache" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Client/obj/Debug/netcoreapp3.1/Client.csproj.CoreCompileInputs.cache" beforeDir="false" afterPath="$PROJECT_DIR$/Client/obj/Debug/netcoreapp3.1/Client.csproj.CoreCompileInputs.cache" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Client/obj/Debug/netcoreapp3.1/Client.csprojAssemblyReference.cache" beforeDir="false" afterPath="$PROJECT_DIR$/Client/obj/Debug/netcoreapp3.1/Client.csprojAssemblyReference.cache" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Client/obj/Debug/netcoreapp3.1/Client.dll" beforeDir="false" afterPath="$PROJECT_DIR$/Client/obj/Debug/netcoreapp3.1/Client.dll" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Client/obj/Debug/netcoreapp3.1/Client.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/Client/obj/Debug/netcoreapp3.1/Client.pdb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Client/obj/project.assets.json" beforeDir="false" afterPath="$PROJECT_DIR$/Client/obj/project.assets.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Client/obj/project.nuget.cache" beforeDir="false" afterPath="$PROJECT_DIR$/Client/obj/project.nuget.cache" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Client/obj/rider.project.restore.info" beforeDir="false" afterPath="$PROJECT_DIR$/Client/obj/rider.project.restore.info" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Test/Tests.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Test/Tests.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Test/bin/Debug/Test.dll" beforeDir="false" afterPath="$PROJECT_DIR$/Test/bin/Debug/Test.dll" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Test/bin/Debug/Test.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/Test/bin/Debug/Test.pdb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Test/obj/Debug/Test.dll" beforeDir="false" afterPath="$PROJECT_DIR$/Test/obj/Debug/Test.dll" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Test/obj/Debug/Test.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/Test/obj/Debug/Test.pdb" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -125,11 +84,11 @@
         <option value="$PROJECT_DIR$/Assignment_3_Vers01/RequestContainer.cs" />
         <option value="$PROJECT_DIR$/Client/ResponseContainer.cs" />
         <option value="$PROJECT_DIR$/Assignment_3_Vers01/Response.cs" />
-        <option value="$PROJECT_DIR$/Assignment_3_Vers01/Server.cs" />
         <option value="$PROJECT_DIR$/Client/Client.cs" />
         <option value="$PROJECT_DIR$/Test/Tests.cs" />
         <option value="$PROJECT_DIR$/ClassLibrary1/Util.cs" />
         <option value="$PROJECT_DIR$/Tests/Tests.cs" />
+        <option value="$PROJECT_DIR$/Assignment_3_Vers01/Server.cs" />
       </list>
     </option>
   </component>
@@ -213,7 +172,9 @@
       <workItem from="1603178212813" duration="11789000" />
       <workItem from="1603190129786" duration="4503000" />
       <workItem from="1603195263941" duration="5730000" />
-      <workItem from="1603201074224" duration="4136000" />
+      <workItem from="1603201074224" duration="6586000" />
+      <workItem from="1603213008034" duration="174000" />
+      <workItem from="1603213203801" duration="340000" />
     </task>
     <task id="LOCAL-00001" summary="Her er det åbenbart">
       <created>1603127985348</created>
@@ -320,7 +281,14 @@
       <option name="project" value="LOCAL" />
       <updated>1603193368415</updated>
     </task>
-    <option name="localTasksCounter" value="16" />
+    <task id="LOCAL-00016" summary="Her er alt">
+      <created>1603207183106</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1603207183106</updated>
+    </task>
+    <option name="localTasksCounter" value="17" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -352,7 +320,8 @@
     <MESSAGE value="Made response structure" />
     <MESSAGE value="Lavet GetSErverrepsonse method" />
     <MESSAGE value="Senest" />
-    <option name="LAST_COMMIT_MESSAGE" value="Senest" />
+    <MESSAGE value="Her er alt" />
+    <option name="LAST_COMMIT_MESSAGE" value="Her er alt" />
   </component>
   <component name="WindowStateProjectService">
     <state x="692" y="243" width="1092" height="714" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1603169936776">
@@ -364,29 +333,29 @@
       <screen x="0" y="0" width="3440" height="1400" />
     </state>
     <state x="0" y="122" key="DiffContextDialog/0.0.3440.1400@0.0.3440.1400" timestamp="1603134555737" />
-    <state width="1518" height="357" key="GridCell.Tab.0.bottom" timestamp="1603206426444">
+    <state width="1035" height="357" key="GridCell.Tab.0.bottom" timestamp="1603213380720">
       <screen x="0" y="0" width="3440" height="1400" />
     </state>
     <state width="914" height="265" key="GridCell.Tab.0.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1602892159284" />
-    <state width="1518" height="357" key="GridCell.Tab.0.bottom/0.0.3440.1400@0.0.3440.1400" timestamp="1603206426444" />
+    <state width="1035" height="357" key="GridCell.Tab.0.bottom/0.0.3440.1400@0.0.3440.1400" timestamp="1603213380720" />
     <state width="914" height="281" key="GridCell.Tab.0.bottom/1920.0.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1602879799315" />
-    <state width="1518" height="357" key="GridCell.Tab.0.center" timestamp="1603206426444">
+    <state width="1035" height="357" key="GridCell.Tab.0.center" timestamp="1603213380720">
       <screen x="0" y="0" width="3440" height="1400" />
     </state>
     <state width="914" height="265" key="GridCell.Tab.0.center/0.0.1920.1040@0.0.1920.1040" timestamp="1602892159284" />
-    <state width="1518" height="357" key="GridCell.Tab.0.center/0.0.3440.1400@0.0.3440.1400" timestamp="1603206426444" />
+    <state width="1035" height="357" key="GridCell.Tab.0.center/0.0.3440.1400@0.0.3440.1400" timestamp="1603213380720" />
     <state width="914" height="281" key="GridCell.Tab.0.center/1920.0.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1602879799315" />
-    <state width="1518" height="357" key="GridCell.Tab.0.left" timestamp="1603206426444">
+    <state width="1035" height="357" key="GridCell.Tab.0.left" timestamp="1603213380720">
       <screen x="0" y="0" width="3440" height="1400" />
     </state>
     <state width="914" height="265" key="GridCell.Tab.0.left/0.0.1920.1040@0.0.1920.1040" timestamp="1602892159284" />
-    <state width="1518" height="357" key="GridCell.Tab.0.left/0.0.3440.1400@0.0.3440.1400" timestamp="1603206426444" />
+    <state width="1035" height="357" key="GridCell.Tab.0.left/0.0.3440.1400@0.0.3440.1400" timestamp="1603213380720" />
     <state width="914" height="281" key="GridCell.Tab.0.left/1920.0.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1602879799315" />
-    <state width="1518" height="357" key="GridCell.Tab.0.right" timestamp="1603206426444">
+    <state width="1035" height="357" key="GridCell.Tab.0.right" timestamp="1603213380720">
       <screen x="0" y="0" width="3440" height="1400" />
     </state>
     <state width="914" height="265" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1602892159284" />
-    <state width="1518" height="357" key="GridCell.Tab.0.right/0.0.3440.1400@0.0.3440.1400" timestamp="1603206426444" />
+    <state width="1035" height="357" key="GridCell.Tab.0.right/0.0.3440.1400@0.0.3440.1400" timestamp="1603213380720" />
     <state width="914" height="281" key="GridCell.Tab.0.right/1920.0.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1602879799315" />
     <state width="1518" height="515" key="GridCell.Tab.1.bottom" timestamp="1603201048254">
       <screen x="0" y="0" width="3440" height="1400" />
@@ -473,18 +442,22 @@
       <screen x="0" y="0" width="3440" height="1400" />
     </state>
     <state x="101" y="100" width="1266" height="1201" key="VCS.FileHistoryDialog/0.0.3440.1400@0.0.3440.1400" timestamp="1603134876888" />
-    <state x="312" y="433" key="Vcs.Push.Dialog.v2" timestamp="1603206371130">
+    <state x="312" y="433" key="Vcs.Push.Dialog.v2" timestamp="1603213238325">
       <screen x="0" y="0" width="3440" height="1400" />
     </state>
-    <state x="312" y="433" key="Vcs.Push.Dialog.v2/0.0.3440.1400@0.0.3440.1400" timestamp="1603206371130" />
+    <state x="312" y="433" key="Vcs.Push.Dialog.v2/0.0.3440.1400@0.0.3440.1400" timestamp="1603213238325" />
     <state x="538" y="614" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1603193783402">
       <screen x="0" y="0" width="3440" height="1400" />
     </state>
     <state x="538" y="614" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.3440.1400@0.0.3440.1400" timestamp="1603193783402" />
-    <state x="1860" y="0" width="1218" height="1398" key="dock-window-1" timestamp="1603200483852">
+    <state x="1083" y="0" width="1115" height="1407" key="dock-window-1" timestamp="1603212118106">
       <screen x="0" y="0" width="3440" height="1400" />
     </state>
-    <state x="1860" y="0" width="1218" height="1398" key="dock-window-1/0.0.3440.1400@0.0.3440.1400" timestamp="1603200483852" />
+    <state x="1083" y="0" width="1115" height="1407" key="dock-window-1/0.0.3440.1400@0.0.3440.1400" timestamp="1603212118106" />
+    <state x="303" y="414" key="git4idea.branch.GitSmartOperationDialog" timestamp="1603212852427">
+      <screen x="0" y="0" width="3440" height="1400" />
+    </state>
+    <state x="303" y="414" key="git4idea.branch.GitSmartOperationDialog/0.0.3440.1400@0.0.3440.1400" timestamp="1603212852427" />
     <state x="522" y="606" key="git4idea.remote.GitConfigureRemotesDialog" timestamp="1603127945507">
       <screen x="0" y="0" width="3440" height="1400" />
     </state>
