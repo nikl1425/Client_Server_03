@@ -3,7 +3,7 @@ using Newtonsoft.Json;
 
 namespace Server
 {
-    public class HandleRequest
+    public class RequestContainer
     {
         public string Method {
             get;

@@ -46,7 +46,7 @@ namespace Server
                 
                 // Desiralize the request into r and use methods. 
 
-                HandleRequest r = JsonConvert.DeserializeObject<HandleRequest>(msg);
+                RequestContainer r = JsonConvert.DeserializeObject<RequestContainer>(msg);
                 
                 Console.WriteLine("id" + r.Id);
                 
