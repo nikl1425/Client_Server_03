@@ -6,6 +6,7 @@ using System.Text;
 using ClassLibrary1;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
+using JsonSerializer = System.Text.Json.JsonSerializer;
 
 namespace Client
 {
@@ -23,42 +24,42 @@ namespace Client
             // Client connect to local via. port 5000.
             tcpClient.Connect(IPAddress.Loopback, 5000);
             Console.WriteLine("Client started");
-            
+
 
             //Define our request
-                Request request = new Request("update", path, 2, "Bent");
+            Request request = new Request("update", path, 2, "Bent");
 
-                //Send request to server - see Util.cs
-                Util.SendRequest(tcpClient, request.ToJson());
+            //Send request to server - see Util.cs
+            Util.SendRequest(tcpClient, request.ToJson());
 
-                //Console.WriteLine($"Message to the server: {}");
-                Console.WriteLine("We send this to the client: \n " + request.ToJson());
-                //File.WriteAllText(path, request.ToJson());
-                
-                
-                byte[] bytes = new byte[tcpClient.ReceiveBufferSize];
-                var stream = tcpClient.GetStream();
-                var data = new Byte[tcpClient.ReceiveBufferSize];
-                var cnt = stream.Read(data);
-
-                //Read responses from the server.
-                var messageFromServer = Encoding.UTF8.GetString(data, 0, cnt);
-                ResponseContainer response = JsonConvert.DeserializeObject<ResponseContainer>(messageFromServer);
-                var r2 = Util.ReadResponse(tcpClient);
+            //Console.WriteLine($"Message to the server: {}");
+            Console.WriteLine("We send this to the client: \n " + request.ToJson());
+            //File.WriteAllText(path, request.ToJson());
             
-               Console.WriteLine($"The server responds:  \n + {response.Reason}");
-                
-                //We send respond to a JSON formatted string.
+            
+            //Read responses from the server.
+            string r3 = ReadResponse(tcpClient, tcpClient.GetStream());
+            ResponseContainer responseContainer = JsonConvert.DeserializeObject<ResponseContainer>(r3);
 
-                
-                
-                //Now we desirialize it, so it will be stored in our "responseContainer.cs" OBS WAIT UNTIL WE SEND right response from server.
-                
-                
-                
-                
-            }
+
+            Console.WriteLine($"The server responds:  \n + {responseContainer.Status} \n {responseContainer.Reason}");
+
+            //We send respond to a JSON formatted string.
+
+
+            //Now we desirialize it, so it will be stored in our "responseContainer.cs" OBS WAIT UNTIL WE SEND right response from server.
+        }
+
         
+        private static string ReadResponse(TcpClient client, NetworkStream stream)
+        {
+            byte[] data = new byte[client.ReceiveBufferSize];
+
+            var cnt = stream.Read(data);
+
+            var msg = Encoding.UTF8.GetString(data, 0, cnt);
+            return msg;
+        }
 
         public static string GetServerResponse(TcpClient tcpClient)
         {

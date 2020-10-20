@@ -37,7 +37,7 @@ namespace Server
 
                 data = Encoding.UTF8.GetBytes(msg.ToUpper());
 
-                stream.Write(data);
+                //stream.Write(data);
 
                 //var path = @"C:\Users\45535\Desktop\RAWDATA\C#\Projects\Assignment_3_Vers01\Assignment_3_Vers01\JsonServerTest.json";
 
@@ -51,17 +51,16 @@ namespace Server
                 Console.WriteLine("the method of msg is: \n" + r.Method);
 
                 // RESPOND TYPES:
-                Response missingMethod = new Response(1, "Define method in json");
+                Response missingMethod = new Response(1, "argument exist");
 
 
                 // test and send select response
                 if (r.Method != null)
                 {
                     var MissedmethodJson = missingMethod.ToJson();
-                    var missMethod = Encoding.UTF8.GetBytes(MissedmethodJson);
                     Console.WriteLine(MissedmethodJson);
-                    byte[] random = Encoding.UTF8.GetBytes(MissedmethodJson);
-                    stream.Write(Encoding.UTF8.GetBytes(MissedmethodJson.ToUpper()));
+                    byte[] random = Encoding.UTF8.GetBytes(MissedmethodJson.ToUpper());
+                    stream.Write(random);
                     //stream.Write(Encoding.UTF8.GetBytes(methodExist));
                     Console.WriteLine("method is: " + r.Method);
                     

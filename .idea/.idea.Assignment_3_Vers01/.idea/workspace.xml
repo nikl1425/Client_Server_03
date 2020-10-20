@@ -25,23 +25,15 @@
   <component name="ChangeListManager">
     <list default="true" id="9dcadf51-fb73-4e39-8da6-7fac8254c49b" name="Default Changelist" comment="Path virker for nhr">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.Assignment_3_Vers01/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Assignment_3_Vers01/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assignment_3_Vers01/JsonServerTest.json" beforeDir="false" afterPath="$PROJECT_DIR$/Assignment_3_Vers01/JsonServerTest.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assignment_3_Vers01/Response.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assignment_3_Vers01/Response.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assignment_3_Vers01/Server.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assignment_3_Vers01/Server.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assignment_3_Vers01/bin/Debug/netcoreapp3.1/ClassLibrary1.dll" beforeDir="false" afterPath="$PROJECT_DIR$/Assignment_3_Vers01/bin/Debug/netcoreapp3.1/ClassLibrary1.dll" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assignment_3_Vers01/bin/Debug/netcoreapp3.1/ClassLibrary1.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/Assignment_3_Vers01/bin/Debug/netcoreapp3.1/ClassLibrary1.pdb" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assignment_3_Vers01/bin/Debug/netcoreapp3.1/Server.dll" beforeDir="false" afterPath="$PROJECT_DIR$/Assignment_3_Vers01/bin/Debug/netcoreapp3.1/Server.dll" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assignment_3_Vers01/bin/Debug/netcoreapp3.1/Server.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/Assignment_3_Vers01/bin/Debug/netcoreapp3.1/Server.pdb" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assignment_3_Vers01/obj/Debug/netcoreapp3.1/Server.csprojAssemblyReference.cache" beforeDir="false" afterPath="$PROJECT_DIR$/Assignment_3_Vers01/obj/Debug/netcoreapp3.1/Server.csprojAssemblyReference.cache" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assignment_3_Vers01/obj/Debug/netcoreapp3.1/Server.dll" beforeDir="false" afterPath="$PROJECT_DIR$/Assignment_3_Vers01/obj/Debug/netcoreapp3.1/Server.dll" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assignment_3_Vers01/obj/Debug/netcoreapp3.1/Server.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/Assignment_3_Vers01/obj/Debug/netcoreapp3.1/Server.pdb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ClassLibrary1/obj/Debug/ClassLibrary1.csprojAssemblyReference.cache" beforeDir="false" afterPath="$PROJECT_DIR$/ClassLibrary1/obj/Debug/ClassLibrary1.csprojAssemblyReference.cache" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Client/Client.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Client/Client.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Client/ResponseContainer.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Client/ResponseContainer.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Client/Test.json" beforeDir="false" afterPath="$PROJECT_DIR$/Client/Test.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Client/bin/Debug/netcoreapp3.1/Client.dll" beforeDir="false" afterPath="$PROJECT_DIR$/Client/bin/Debug/netcoreapp3.1/Client.dll" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Client/bin/Debug/netcoreapp3.1/Client.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/Client/bin/Debug/netcoreapp3.1/Client.pdb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Client/obj/Debug/netcoreapp3.1/Client.csprojAssemblyReference.cache" beforeDir="false" afterPath="$PROJECT_DIR$/Client/obj/Debug/netcoreapp3.1/Client.csprojAssemblyReference.cache" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Client/obj/Debug/netcoreapp3.1/Client.dll" beforeDir="false" afterPath="$PROJECT_DIR$/Client/obj/Debug/netcoreapp3.1/Client.dll" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Client/obj/Debug/netcoreapp3.1/Client.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/Client/obj/Debug/netcoreapp3.1/Client.pdb" afterDir="false" />
     </list>
@@ -168,7 +160,7 @@
       <workItem from="1603167907173" duration="2120000" />
       <workItem from="1603170082195" duration="5899000" />
       <workItem from="1603178212813" duration="11789000" />
-      <workItem from="1603190129786" duration="1610000" />
+      <workItem from="1603190129786" duration="3105000" />
     </task>
     <task id="LOCAL-00001" summary="Her er det åbenbart">
       <created>1603127985348</created>
@@ -261,7 +253,14 @@
       <option name="project" value="LOCAL" />
       <updated>1603186199309</updated>
     </task>
-    <option name="localTasksCounter" value="14" />
+    <task id="LOCAL-00014" summary="Senest">
+      <created>1603191854209</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1603191854209</updated>
+    </task>
+    <option name="localTasksCounter" value="15" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -292,7 +291,8 @@
     <MESSAGE value="We can read responses from the server in our Client.cs" />
     <MESSAGE value="Made response structure" />
     <MESSAGE value="Lavet GetSErverrepsonse method" />
-    <option name="LAST_COMMIT_MESSAGE" value="Lavet GetSErverrepsonse method" />
+    <MESSAGE value="Senest" />
+    <option name="LAST_COMMIT_MESSAGE" value="Senest" />
   </component>
   <component name="WindowStateProjectService">
     <state x="692" y="243" width="1092" height="714" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1603169936776">
@@ -304,29 +304,29 @@
       <screen x="0" y="0" width="3440" height="1400" />
     </state>
     <state x="0" y="122" key="DiffContextDialog/0.0.3440.1400@0.0.3440.1400" timestamp="1603134555737" />
-    <state width="1241" height="358" key="GridCell.Tab.0.bottom" timestamp="1603191621523">
+    <state width="1241" height="358" key="GridCell.Tab.0.bottom" timestamp="1603193156972">
       <screen x="0" y="0" width="3440" height="1400" />
     </state>
     <state width="914" height="265" key="GridCell.Tab.0.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1602892159284" />
-    <state width="1241" height="358" key="GridCell.Tab.0.bottom/0.0.3440.1400@0.0.3440.1400" timestamp="1603191621523" />
+    <state width="1241" height="358" key="GridCell.Tab.0.bottom/0.0.3440.1400@0.0.3440.1400" timestamp="1603193156972" />
     <state width="914" height="281" key="GridCell.Tab.0.bottom/1920.0.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1602879799315" />
-    <state width="1241" height="358" key="GridCell.Tab.0.center" timestamp="1603191621523">
+    <state width="1241" height="358" key="GridCell.Tab.0.center" timestamp="1603193156972">
       <screen x="0" y="0" width="3440" height="1400" />
     </state>
     <state width="914" height="265" key="GridCell.Tab.0.center/0.0.1920.1040@0.0.1920.1040" timestamp="1602892159284" />
-    <state width="1241" height="358" key="GridCell.Tab.0.center/0.0.3440.1400@0.0.3440.1400" timestamp="1603191621523" />
+    <state width="1241" height="358" key="GridCell.Tab.0.center/0.0.3440.1400@0.0.3440.1400" timestamp="1603193156972" />
     <state width="914" height="281" key="GridCell.Tab.0.center/1920.0.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1602879799315" />
-    <state width="1241" height="358" key="GridCell.Tab.0.left" timestamp="1603191621523">
+    <state width="1241" height="358" key="GridCell.Tab.0.left" timestamp="1603193156972">
       <screen x="0" y="0" width="3440" height="1400" />
     </state>
     <state width="914" height="265" key="GridCell.Tab.0.left/0.0.1920.1040@0.0.1920.1040" timestamp="1602892159284" />
-    <state width="1241" height="358" key="GridCell.Tab.0.left/0.0.3440.1400@0.0.3440.1400" timestamp="1603191621523" />
+    <state width="1241" height="358" key="GridCell.Tab.0.left/0.0.3440.1400@0.0.3440.1400" timestamp="1603193156972" />
     <state width="914" height="281" key="GridCell.Tab.0.left/1920.0.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1602879799315" />
-    <state width="1241" height="358" key="GridCell.Tab.0.right" timestamp="1603191621523">
+    <state width="1241" height="358" key="GridCell.Tab.0.right" timestamp="1603193156972">
       <screen x="0" y="0" width="3440" height="1400" />
     </state>
     <state width="914" height="265" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1602892159284" />
-    <state width="1241" height="358" key="GridCell.Tab.0.right/0.0.3440.1400@0.0.3440.1400" timestamp="1603191621523" />
+    <state width="1241" height="358" key="GridCell.Tab.0.right/0.0.3440.1400@0.0.3440.1400" timestamp="1603193156972" />
     <state width="914" height="281" key="GridCell.Tab.0.right/1920.0.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1602879799315" />
     <state width="1241" height="515" key="GridCell.Tab.1.bottom" timestamp="1603190114386">
       <screen x="0" y="0" width="3440" height="1400" />
@@ -413,10 +413,10 @@
       <screen x="0" y="0" width="3440" height="1400" />
     </state>
     <state x="101" y="100" width="1266" height="1201" key="VCS.FileHistoryDialog/0.0.3440.1400@0.0.3440.1400" timestamp="1603134876888" />
-    <state x="312" y="433" key="Vcs.Push.Dialog.v2" timestamp="1603186200224">
+    <state x="312" y="433" key="Vcs.Push.Dialog.v2" timestamp="1603191855567">
       <screen x="0" y="0" width="3440" height="1400" />
     </state>
-    <state x="312" y="433" key="Vcs.Push.Dialog.v2/0.0.3440.1400@0.0.3440.1400" timestamp="1603186200224" />
+    <state x="312" y="433" key="Vcs.Push.Dialog.v2/0.0.3440.1400@0.0.3440.1400" timestamp="1603191855567" />
     <state x="538" y="614" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1603131000040">
       <screen x="0" y="0" width="3440" height="1400" />
     </state>
