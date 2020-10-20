@@ -43,6 +43,7 @@
           </e>
         </e>
         <e p="Request.cs" t="Include" />
+        <e p="ResponseContainer.cs" t="Include" />
         <e p="Test.json" t="Include" />
       </e>
       <e p="packages" t="ExcludeRecursive" />

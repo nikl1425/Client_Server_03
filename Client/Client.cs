@@ -41,6 +41,16 @@ namespace Client
                 //Read responses from the server.
                 var responseFromServer = GetServerResponse(tcpClient);
                 Console.WriteLine("The server responds:  \n" + responseFromServer);
+                
+                //We send respond to a JSON formatted string.
+
+                var response = responseFromServer.ToJson();
+                
+                //Now we desirialize it, so it will be stored in our "responseContainer.cs" OBS WAIT UNTIL WE SEND right response from server.
+                
+                
+                
+                
             }
         }
 

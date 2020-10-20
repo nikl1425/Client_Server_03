@@ -25,7 +25,7 @@ namespace ClassLibrary1
                 client.GetStream().Write(msg, 0, msg.Length);
             }
 
-            public static Response ReadResponse(this TcpClient client)
+            public static Response ReadResponse(TcpClient client)
             {
                 var strm = client.GetStream();
                 //strm.ReadTimeout = 250;
