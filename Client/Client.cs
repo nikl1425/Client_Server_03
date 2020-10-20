@@ -22,23 +22,33 @@ namespace Client
 
             // Client connect to local via. port 5000.
             tcpClient.Connect(IPAddress.Loopback, 5000);
+            Console.WriteLine("Client started");
 
-            //Define our request
-            Request request = new Request("update", path, 2, "Bent");
+            if (tcpClient.Connected == true)
+            {
+                tcpClient.ReceiveTimeout = 3;
+                tcpClient.SendTimeout = 3;
+                //Define our request
+                Request request = new Request("update", path, 2, "Bent");
 
-            //Send request to server - see Util.cs
-            Util.SendRequest(tcpClient, request.ToJson());
+                //Send request to server - see Util.cs
+                Util.SendRequest(tcpClient, request.ToJson());
 
-            //Console.WriteLine($"Message from the server: {}");
-            Console.Write(request.ToJson());
-            File.WriteAllText(path, request.ToJson());
-            
-            //Read responses from the server.
-            Util.ReadResponse(tcpClient);
+                //Console.WriteLine($"Message to the server: {}");
+                Console.WriteLine("We send this to the client: \n " + request.ToJson());
+                File.WriteAllText(path, request.ToJson());
+
+                //Read responses from the server.
+                NetworkStream stream = tcpClient.GetStream();
+                byte[] buffer = new byte[2048];
+                int bytesToRead = stream.Read(buffer, 0, buffer.Length);
+                var responseFromServer = Encoding.UTF8.GetString(buffer, 0, bytesToRead);
+                Console.WriteLine("The server responds:  \n" + responseFromServer);
+
+                
+            }
         }
-        
-        
-        
+
 
         public string IntepretStatus()
         {

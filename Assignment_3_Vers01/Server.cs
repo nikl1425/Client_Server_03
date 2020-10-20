@@ -24,11 +24,12 @@ namespace Server
             while (true)
             {
                 // set client = new tcp client. 
-                var client = server.AcceptTcpClient();
+                var connection = server.AcceptTcpClient();
+                
                 Console.WriteLine("Accepted client!");
 
-                var stream = client.GetStream();
-                byte[] data = new byte[client.ReceiveBufferSize];
+                var stream = connection.GetStream();
+                byte[] data = new byte[connection.ReceiveBufferSize];
                 var cnt = stream.Read(data);
 
                 var msg = Encoding.UTF8.GetString(data, 0, cnt);
@@ -47,8 +48,22 @@ namespace Server
                 // Desiralize the request into r and use methods. 
 
                 RequestContainer r = JsonConvert.DeserializeObject<RequestContainer>(msg);
+
+                if (r.Method != null)
+                {
+                    string methodExist = "method_exist";
+                    byte[] random = Encoding.UTF8.GetBytes(methodExist);
+                    
+                    //stream.Write(Encoding.UTF8.GetBytes(methodExist));
+                    Console.WriteLine("method is: " + r.Method);
+                }
+                else
+                {
+                    Console.WriteLine("Method missing in request");
+                }
                 
-                Console.WriteLine("id" + r.Id);
+                
+                
                 
             }
         }
