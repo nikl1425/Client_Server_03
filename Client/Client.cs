@@ -39,12 +39,18 @@ namespace Client
                 File.WriteAllText(path, request.ToJson());
 
                 //Read responses from the server.
-                NetworkStream stream = tcpClient.GetStream();
-                byte[] buffer = new byte[2048];
-                int bytesToRead = stream.Read(buffer, 0, buffer.Length);
-                var responseFromServer = Encoding.UTF8.GetString(buffer, 0, bytesToRead);
+                var responseFromServer = GetServerResponse(tcpClient);
                 Console.WriteLine("The server responds:  \n" + responseFromServer);
             }
+        }
+
+        public static string GetServerResponse(TcpClient tcpClient)
+        {
+            NetworkStream stream = tcpClient.GetStream();
+            byte[] buffer = new byte[2048];
+            int bytesToRead = stream.Read(buffer, 0, buffer.Length);
+            var responseFromServer = Encoding.UTF8.GetString(buffer, 0, bytesToRead);
+            return responseFromServer;
         }
 
 

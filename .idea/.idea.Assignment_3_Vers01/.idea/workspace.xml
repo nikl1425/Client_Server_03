@@ -23,12 +23,7 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="9dcadf51-fb73-4e39-8da6-7fac8254c49b" name="Default Changelist" comment="Path virker for nhr">
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.Assignment_3_Vers01/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Assignment_3_Vers01/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assignment_3_Vers01/Response.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assignment_3_Vers01/Response.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assignment_3_Vers01/Server.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assignment_3_Vers01/Server.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Client/Client.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Client/Client.cs" afterDir="false" />
-    </list>
+    <list default="true" id="9dcadf51-fb73-4e39-8da6-7fac8254c49b" name="Default Changelist" comment="Path virker for nhr" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -152,7 +147,7 @@
       <workItem from="1603132628145" duration="2228000" />
       <workItem from="1603167907173" duration="2120000" />
       <workItem from="1603170082195" duration="5899000" />
-      <workItem from="1603178212813" duration="5864000" />
+      <workItem from="1603178212813" duration="6469000" />
     </task>
     <task id="LOCAL-00001" summary="Her er det åbenbart">
       <created>1603127985348</created>
@@ -224,7 +219,14 @@
       <option name="project" value="LOCAL" />
       <updated>1603183279334</updated>
     </task>
-    <option name="localTasksCounter" value="11" />
+    <task id="LOCAL-00011" summary="Made response structure">
+      <created>1603184735382</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1603184735382</updated>
+    </task>
+    <option name="localTasksCounter" value="12" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -253,7 +255,8 @@
     <MESSAGE value="Renamed handlerequest to RequestContainer.cs" />
     <MESSAGE value="Util.Readresponse implemented in Client.cs" />
     <MESSAGE value="We can read responses from the server in our Client.cs" />
-    <option name="LAST_COMMIT_MESSAGE" value="We can read responses from the server in our Client.cs" />
+    <MESSAGE value="Made response structure" />
+    <option name="LAST_COMMIT_MESSAGE" value="Made response structure" />
   </component>
   <component name="WindowStateProjectService">
     <state x="692" y="243" width="1092" height="714" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1603169936776">
@@ -374,10 +377,10 @@
       <screen x="0" y="0" width="3440" height="1400" />
     </state>
     <state x="101" y="100" width="1266" height="1201" key="VCS.FileHistoryDialog/0.0.3440.1400@0.0.3440.1400" timestamp="1603134876888" />
-    <state x="312" y="433" key="Vcs.Push.Dialog.v2" timestamp="1603183281730">
+    <state x="312" y="433" key="Vcs.Push.Dialog.v2" timestamp="1603184736793">
       <screen x="0" y="0" width="3440" height="1400" />
     </state>
-    <state x="312" y="433" key="Vcs.Push.Dialog.v2/0.0.3440.1400@0.0.3440.1400" timestamp="1603183281730" />
+    <state x="312" y="433" key="Vcs.Push.Dialog.v2/0.0.3440.1400@0.0.3440.1400" timestamp="1603184736793" />
     <state x="538" y="614" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1603131000040">
       <screen x="0" y="0" width="3440" height="1400" />
     </state>
