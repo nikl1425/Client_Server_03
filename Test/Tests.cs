@@ -15,6 +15,7 @@ namespace Test
     {
         public string Status { get; set; }
         public string Body { get; set; }
+        public string Reason { get; set; }
     }
 
     public class Category
@@ -52,9 +53,9 @@ namespace Test
 
             client.SendRequest("{}");
 
-            var response = client.ReadResponse();
+            var response = client.ClientReadResponse();
 
-            Assert.Contains("missing method", response.Status.ToLower());
+            Assert.Contains("missing method", response.Reason.ToLower());
         }
 
         [Fact]
@@ -621,24 +622,14 @@ namespace Test
             client.GetStream().Write(msg, 0, msg.Length);
         }
 
-        public static Response ReadResponse(this TcpClient client)
+        public static string ClientReadResponse(TcpClient client, NetworkStream stream)
         {
-            var strm = client.GetStream();
-            //strm.ReadTimeout = 250;
-            byte[] resp = new byte[2048];
-            using (var memStream = new MemoryStream())
-            {
-                int bytesread = 0;
-                do
-                {
-                    bytesread = strm.Read(resp, 0, resp.Length);
-                    memStream.Write(resp, 0, bytesread);
+            byte[] data = new byte[client.ReceiveBufferSize];
 
-                } while (bytesread == 2048);
-                
-                var responseData = Encoding.UTF8.GetString(memStream.ToArray());
-                return JsonSerializer.Deserialize<Response>(responseData, new JsonSerializerOptions { PropertyNamingPolicy = JsonNamingPolicy.CamelCase});
-            }
+            var cnt = stream.Read(data);
+
+            var msg = Encoding.UTF8.GetString(data, 0, cnt);
+            return msg;
         }
     }
 }

@@ -45,9 +45,6 @@
         }
       },
       "ClassLibrary1/1.0.0": {
-        "dependencies": {
-          "Test": "1.0.0"
-        },
         "runtime": {
           "ClassLibrary1.dll": {}
         }
@@ -62,9 +59,12 @@
           "Client.dll": {}
         }
       },
-      "Test/1.0.0": {
+      "Test/1.0.0.0": {
         "runtime": {
-          "Test.dll": {}
+          "Test.dll": {
+            "assemblyVersion": "1.0.0.0",
+            "fileVersion": "1.0.0.0"
+          }
         }
       },
       "xunit.core/2.1.0.3179": {
@@ -130,8 +130,8 @@
       "serviceable": false,
       "sha512": ""
     },
-    "Test/1.0.0": {
-      "type": "project",
+    "Test/1.0.0.0": {
+      "type": "reference",
       "serviceable": false,
       "sha512": ""
     },

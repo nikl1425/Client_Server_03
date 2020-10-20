@@ -78,16 +78,7 @@
       "restore": {
         "projectUniqueName": "C:\\Users\\45535\\Desktop\\RAWDATA\\C#\\Projects\\Assignment_3_Vers01\\ClassLibrary1\\ClassLibrary1.csproj",
         "projectName": "ClassLibrary1",
-        "projectPath": "C:\\Users\\45535\\Desktop\\RAWDATA\\C#\\Projects\\Assignment_3_Vers01\\ClassLibrary1\\ClassLibrary1.csproj",
-        "frameworks": {
-          "net472": {
-            "projectReferences": {
-              "C:\\Users\\45535\\Desktop\\RAWDATA\\C#\\Projects\\Assignment_3_Vers01\\Test\\Test.csproj": {
-                "projectPath": "C:\\Users\\45535\\Desktop\\RAWDATA\\C#\\Projects\\Assignment_3_Vers01\\Test\\Test.csproj"
-              }
-            }
-          }
-        }
+        "projectPath": "C:\\Users\\45535\\Desktop\\RAWDATA\\C#\\Projects\\Assignment_3_Vers01\\ClassLibrary1\\ClassLibrary1.csproj"
       },
       "frameworks": {
         "net472": {}
@@ -157,17 +148,6 @@
           },
           "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.402\\RuntimeIdentifierGraph.json"
         }
-      }
-    },
-    "C:\\Users\\45535\\Desktop\\RAWDATA\\C#\\Projects\\Assignment_3_Vers01\\Test\\Test.csproj": {
-      "version": "1.0.0",
-      "restore": {
-        "projectUniqueName": "C:\\Users\\45535\\Desktop\\RAWDATA\\C#\\Projects\\Assignment_3_Vers01\\Test\\Test.csproj",
-        "projectName": "Test",
-        "projectPath": "C:\\Users\\45535\\Desktop\\RAWDATA\\C#\\Projects\\Assignment_3_Vers01\\Test\\Test.csproj"
-      },
-      "frameworks": {
-        "net472": {}
       }
     }
   }

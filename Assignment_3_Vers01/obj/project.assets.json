@@ -34,9 +34,6 @@
       },
       "ClassLibrary1/1.0.0": {
         "type": "project",
-        "dependencies": {
-          "Test": "1.0.0"
-        },
         "compile": {
           "bin/placeholder/ClassLibrary1.dll": {}
         },
@@ -57,15 +54,6 @@
         },
         "runtime": {
           "bin/placeholder/Client.dll": {}
-        }
-      },
-      "Test/1.0.0": {
-        "type": "project",
-        "compile": {
-          "bin/placeholder/Test.dll": {}
-        },
-        "runtime": {
-          "bin/placeholder/Test.dll": {}
         }
       }
     }
@@ -144,11 +132,6 @@
       "type": "project",
       "path": "../Client/Client.csproj",
       "msbuildProject": "../Client/Client.csproj"
-    },
-    "Test/1.0.0": {
-      "type": "project",
-      "path": "../Test/Test.csproj",
-      "msbuildProject": "../Test/Test.csproj"
     }
   },
   "projectFileDependencyGroups": {

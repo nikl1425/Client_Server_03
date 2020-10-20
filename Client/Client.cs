@@ -38,7 +38,7 @@ namespace Client
             
             
             //Read responses from the server.
-            string r3 = ReadResponse(tcpClient, tcpClient.GetStream());
+            string r3 = ClientReadResponse(tcpClient, tcpClient.GetStream());
             ResponseContainer responseContainer = JsonConvert.DeserializeObject<ResponseContainer>(r3);
 
 
@@ -51,7 +51,7 @@ namespace Client
         }
 
         
-        private static string ReadResponse(TcpClient client, NetworkStream stream)
+        public static string ClientReadResponse(TcpClient client, NetworkStream stream)
         {
             byte[] data = new byte[client.ReceiveBufferSize];
 
