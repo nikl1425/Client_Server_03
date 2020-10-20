@@ -51,15 +51,16 @@ namespace Server
                 Console.WriteLine("the method of msg is: \n" + r.Method);
 
                 // RESPOND TYPES:
-                Response missingMethod = new Response(1, "missing method");;
+                Response perfect = new Response(1, "Ok good request");
+                Response missingMethod = new Response(4, "missing method");;
 
 
                 // test and send select response
                 if (r.Method != null)
                 {
-                    var missedmethodJson = missingMethod.ToJson();
-                    Console.WriteLine(missedmethodJson);
-                    byte[] response = Encoding.UTF8.GetBytes(missedmethodJson.ToUpper());
+                    var perfectJson = perfect.ToJson();
+                    Console.WriteLine(perfectJson);
+                    byte[] response = Encoding.UTF8.GetBytes(perfectJson.ToUpper());
                     stream.Write(response);
                     //stream.Write(Encoding.UTF8.GetBytes(methodExist));
                     Console.WriteLine("method is: " + r.Method);
