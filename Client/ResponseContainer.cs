@@ -2,7 +2,7 @@
 {
     public class ResponseContainer
     {
-        public string Status { get; set; }
+        public int Status { get; set; }
         public string Reason { get; set; }
     }
 }

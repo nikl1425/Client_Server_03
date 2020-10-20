@@ -39,23 +39,32 @@ namespace Server
 
                 stream.Write(data);
 
-                var path =
-                    @"C:\Users\45535\Desktop\RAWDATA\C#\Projects\Assignment_3_Vers01\Assignment_3_Vers01\JsonServerTest.json";
+                //var path = @"C:\Users\45535\Desktop\RAWDATA\C#\Projects\Assignment_3_Vers01\Assignment_3_Vers01\JsonServerTest.json";
 
                 // Write input from client to Json response file.
-                File.WriteAllText(path, msg);
+                //File.WriteAllText(path, msg);
 
                 // Desiralize the request into r and use methods. 
 
                 RequestContainer r = JsonConvert.DeserializeObject<RequestContainer>(msg);
+                //RequestContainer r = Util.FromJson<RequestContainer>(msg);
+                Console.WriteLine("the method of msg is: \n" + r.Method);
 
+                // RESPOND TYPES:
+                Response missingMethod = new Response(1, "Define method in json");
+
+
+                // test and send select response
                 if (r.Method != null)
                 {
-                    string methodExist = "method_exist";
-                    byte[] random = Encoding.UTF8.GetBytes(methodExist);
-
+                    var MissedmethodJson = missingMethod.ToJson();
+                    var missMethod = Encoding.UTF8.GetBytes(MissedmethodJson);
+                    Console.WriteLine(MissedmethodJson);
+                    byte[] random = Encoding.UTF8.GetBytes(MissedmethodJson);
+                    stream.Write(Encoding.UTF8.GetBytes(MissedmethodJson.ToUpper()));
                     //stream.Write(Encoding.UTF8.GetBytes(methodExist));
                     Console.WriteLine("method is: " + r.Method);
+                    
                 }
                 else
                 {

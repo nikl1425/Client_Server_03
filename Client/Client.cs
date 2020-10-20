@@ -23,12 +23,9 @@ namespace Client
             // Client connect to local via. port 5000.
             tcpClient.Connect(IPAddress.Loopback, 5000);
             Console.WriteLine("Client started");
+            
 
-            if (tcpClient.Connected == true)
-            {
-                tcpClient.ReceiveTimeout = 3;
-                tcpClient.SendTimeout = 3;
-                //Define our request
+            //Define our request
                 Request request = new Request("update", path, 2, "Bent");
 
                 //Send request to server - see Util.cs
@@ -36,15 +33,24 @@ namespace Client
 
                 //Console.WriteLine($"Message to the server: {}");
                 Console.WriteLine("We send this to the client: \n " + request.ToJson());
-                File.WriteAllText(path, request.ToJson());
+                //File.WriteAllText(path, request.ToJson());
+                
+                
+                byte[] bytes = new byte[tcpClient.ReceiveBufferSize];
+                var stream = tcpClient.GetStream();
+                var data = new Byte[tcpClient.ReceiveBufferSize];
+                var cnt = stream.Read(data);
 
                 //Read responses from the server.
-                var responseFromServer = GetServerResponse(tcpClient);
-                Console.WriteLine("The server responds:  \n" + responseFromServer);
+                var messageFromServer = Encoding.UTF8.GetString(data, 0, cnt);
+                ResponseContainer response = JsonConvert.DeserializeObject<ResponseContainer>(messageFromServer);
+                var r2 = Util.ReadResponse(tcpClient);
+            
+               Console.WriteLine($"The server responds:  \n + {response.Reason}");
                 
                 //We send respond to a JSON formatted string.
 
-                var response = responseFromServer.ToJson();
+                
                 
                 //Now we desirialize it, so it will be stored in our "responseContainer.cs" OBS WAIT UNTIL WE SEND right response from server.
                 
@@ -52,7 +58,7 @@ namespace Client
                 
                 
             }
-        }
+        
 
         public static string GetServerResponse(TcpClient tcpClient)
         {

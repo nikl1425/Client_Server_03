@@ -6,14 +6,14 @@ namespace Server
 {
     public class Response
     {
-        public string Status;
+        public int Status;
         public string Reason;
         
 
-        public Response(string status, string reason)
+        public Response(int status, string reason)
         {
-            status = Status;
-            reason = Reason;
+            this.Status = status;
+            this.Reason = reason;
         }
         
          public string ToJson()
