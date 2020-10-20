@@ -6,6 +6,8 @@
     <e p="C:\Users\45535\Desktop\RAWDATA\C#\Projects\Assignment_3_Vers01" t="IncludeFlat">
       <e p="Assignment_3_Vers01" t="IncludeRecursive">
         <e p="bin" t="ExcludeRecursive" />
+        <e p="HandleRequest.cs" t="Include" />
+        <e p="JsonServerTest.json" t="Include" />
         <e p="obj" t="ExcludeRecursive">
           <e p="Debug" t="Include">
             <e p="netcoreapp3.1" t="Include">
@@ -21,10 +23,7 @@
       <e p="ClassLibrary1" t="IncludeRecursive">
         <e p="bin" t="ExcludeRecursive" />
         <e p="ClassLibrary1.csproj" t="IncludeRecursive" />
-        <e p="JsonFiles" t="Include">
-          <e p="JsonServerTest.json" t="Include" />
-          <e p="Test.json" t="Include" />
-        </e>
+        <e p="JsonFiles" t="Include" />
         <e p="obj" t="ExcludeRecursive" />
         <e p="packages.config" t="Include" />
         <e p="Properties" t="Include">
@@ -44,6 +43,7 @@
           </e>
         </e>
         <e p="Request.cs" t="Include" />
+        <e p="Test.json" t="Include" />
       </e>
       <e p="packages" t="ExcludeRecursive" />
       <e p="Test" t="IncludeRecursive">

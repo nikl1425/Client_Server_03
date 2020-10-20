@@ -11,26 +11,18 @@ namespace Client
 {
     class ClientProgram
     {
-        private StreamWriter _streamWriter;
-        private StreamReader _streamReader;
         public string Status;
        
         static void Main(string[] args)
         {
-            var path = @"ClassLibrary1/JsonFiles/JsonServerTest.json";
+            var path = @"C:\Users\45535\Desktop\RAWDATA\C#\Projects\Assignment_3_Vers01\Client\Test.json";
 
             // Define and start TCP client
            using var tcpClient = new TcpClient();
             
             // Client connect to local via. port 5000.
             tcpClient.Connect(IPAddress.Loopback, 5000);
-            
-            // "sWriter" = how we write to server. 
-            var sWriter = new BinaryWriter(tcpClient.GetStream(), Encoding.UTF8);
-            
-            // "sReader" = how we read responses
-            var sReader = new StreamReader(tcpClient.GetStream(), Encoding.UTF8);
-            
+
             //Define our request
             Request request = new Request("update", path, 2, "Bent");
             
@@ -39,7 +31,7 @@ namespace Client
             
             //Console.WriteLine($"Message from the server: {}");
             Console.Write(request.ToJson());
-            
+            File.WriteAllText(path, request.ToJson());
 
         }
         public string IntepretStatus()

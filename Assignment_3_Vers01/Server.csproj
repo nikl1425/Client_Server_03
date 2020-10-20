@@ -14,4 +14,8 @@
     <ProjectReference Include="..\ClassLibrary1\ClassLibrary1.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Content Include="JsonServerTest.json" />
+  </ItemGroup>
+
 </Project>

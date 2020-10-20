@@ -35,7 +35,7 @@ namespace Server
                 
                 stream.Write(data);
 
-                var path  = @"C:\Users\45535\Desktop\RAWDATA\C#\Projects\Assignment_3_Vers01\ClassLibrary1\JsonFiles\JsonServerTest.json";
+                var path  = @"C:\Users\45535\Desktop\RAWDATA\C#\Projects\Assignment_3_Vers01\Assignment_3_Vers01\JsonServerTest.json";
                 
                 // Write input from client to Json response file.
                 File.WriteAllText(path, msg);
