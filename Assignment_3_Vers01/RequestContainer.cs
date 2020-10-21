@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using Newtonsoft.Json;
 
 namespace Server
@@ -13,16 +14,18 @@ namespace Server
             get;
             set;
         }
-        public long Date  {
+        public string Date  {
             get;
             set;
         }
 
-        public string Body
-        {
-            get;
-            set;
-        }
+        
+        
+
+        public string Body { get; set; }
+
+
+
 
 
         /*
@@ -50,4 +53,5 @@ namespace Server
         public string Id { get; set; }
         */
     }
+    
 }

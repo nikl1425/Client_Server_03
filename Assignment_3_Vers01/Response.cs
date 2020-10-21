@@ -7,13 +7,13 @@ namespace Server
     public class Response
     {
         public string status { get; set; }
-        public string body { get; set;  }
+        public string reason { get; set;  }
         
 
-        public Response(string Status, string Body)
+        public Response(string Status, string Reason)
         {
             status = Status;
-            body = Body;
+            reason = Reason;
         }
         
          

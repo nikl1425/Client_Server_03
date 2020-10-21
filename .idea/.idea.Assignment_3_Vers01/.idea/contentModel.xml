@@ -18,6 +18,7 @@
         <e p="Response.cs" t="Include" />
         <e p="Server.cs" t="Include" />
         <e p="Server.csproj" t="IncludeRecursive" />
+        <e p="Server.csproj.DotSettings" t="Include" />
       </e>
       <e p="Assignment_3_Vers01.sln" t="IncludeFlat" />
       <e p="ClassLibrary1" t="IncludeRecursive">
