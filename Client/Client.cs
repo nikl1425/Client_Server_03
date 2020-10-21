@@ -27,7 +27,7 @@ namespace Client
 
 
             //Define our request
-            Request request = new Request("update", path, 2, "Bent");
+            Request request = new Request("Update", path, 2, "Bent");
 
             //Send request to server - see Util.cs
             Util.SendRequest(tcpClient, request.ToJson());
@@ -35,22 +35,25 @@ namespace Client
             //Console.WriteLine($"Message to the server: {}");
             Console.WriteLine("We send this to the client: \n " + request.ToJson());
             //File.WriteAllText(path, request.ToJson());
-            
-            
-            //Read responses from the server.
-            string r3 = ClientReadResponse(tcpClient, tcpClient.GetStream());
-            ResponseContainer responseContainer = JsonConvert.DeserializeObject<ResponseContainer>(r3);
+            while (true)
+            {
 
 
-            Console.WriteLine($"The server responds:  \n + {responseContainer.Status} \n {responseContainer.Reason}");
 
-            //We send respond to a JSON formatted string.
+                //Read responses from the server.
+                string r3 = ClientReadResponse(tcpClient, tcpClient.GetStream());
+                ResponseContainer responseContainer = Util.FromJson<ResponseContainer>(r3);
 
 
-            //Now we desirialize it, so it will be stored in our "responseContainer.cs" OBS WAIT UNTIL WE SEND right response from server.
+                Console.WriteLine($"The server responds:  \n + {responseContainer.Body} \n {responseContainer.Body}");
+
+                //We send respond to a JSON formatted string.
+
+
+                //Now we desirialize it, so it will be stored in our "responseContainer.cs" OBS WAIT UNTIL WE SEND right response from server.
+            }
         }
 
-        
         public static string ClientReadResponse(TcpClient client, NetworkStream stream)
         {
             byte[] data = new byte[client.ReceiveBufferSize];
@@ -107,5 +110,6 @@ namespace Client
 
             return Status;
         }
+        
     }
 }

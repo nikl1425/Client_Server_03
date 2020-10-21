@@ -21,6 +21,7 @@ namespace Server
             server.Start();
             Console.WriteLine("Server started!");
 
+
             while (true)
             {
                 // set client = new tcp client. 
@@ -29,48 +30,53 @@ namespace Server
                 Console.WriteLine("Accepted client!");
 
                 var stream = connection.GetStream();
+                var stream2 = connection.GetStream();
                 byte[] data = new byte[connection.ReceiveBufferSize];
                 var cnt = stream.Read(data);
 
                 var msg = Encoding.UTF8.GetString(data, 0, cnt);
                 Console.WriteLine($"Message from client:  {msg}");
 
-                data = Encoding.UTF8.GetBytes(msg.ToUpper());
-
-                //stream.Write(data);
-
-                //var path = @"C:\Users\45535\Desktop\RAWDATA\C#\Projects\Assignment_3_Vers01\Assignment_3_Vers01\JsonServerTest.json";
-
-                // Write input from client to Json response file.
-                //File.WriteAllText(path, msg);
-
                 // Desiralize the request into r and use methods. 
 
-                RequestContainer r = JsonConvert.DeserializeObject<RequestContainer>(msg);
+                RequestContainer r = Util.FromJson<RequestContainer>(msg);
                 //RequestContainer r = Util.FromJson<RequestContainer>(msg);
                 Console.WriteLine("the method of msg is: \n" + r.Method);
 
                 // RESPOND TYPES:
-                Response perfect = new Response(1, "Ok good request");
-                Response missingMethod = new Response(4, "missing method");;
+                Response perfect = new Response("1 OK", "Well done.");
+                Response created = new Response("2 Created: ", " ");
+                Response updated = new Response("3 Updated: ", " ");
+                Response badRequest = new Response("4 missing method: ", " ");
+                Response notFound = new Response("5 Not found: ", " ");
+                Response error = new Response("6 error: ", " ");
 
-
-                // test and send select response
-                if (r.Method != null)
+                bool whatever = false;
+                if (r.Method == null)
                 {
-                    var perfectJson = perfect.ToJson();
+                    var missedmethodJson = Util.ToJson(badRequest);
+                    Console.WriteLine(missedmethodJson);
+                    byte[] response = Encoding.UTF8.GetBytes(missedmethodJson.ToUpper());
+                    stream.Write(response);
+                    continue;
+                }
+                else if (r.Date == 0)
+                {
+                    Response missingDate = new Response("4 missing date", " ");
+                    var missDate = Util.ToJson(missingDate);
+                    byte[] missDate2 = Encoding.UTF8.GetBytes(missDate.ToUpper());
+                    stream.Write(missDate2);
+                    Console.WriteLine("we are here");
+                    continue;
+                }
+                else
+                {
+                    var perfectJson = Util.ToJson(perfect);
                     Console.WriteLine(perfectJson);
                     byte[] response = Encoding.UTF8.GetBytes(perfectJson.ToUpper());
                     stream.Write(response);
                     //stream.Write(Encoding.UTF8.GetBytes(methodExist));
                     Console.WriteLine("method is: " + r.Method);
-                }
-                else
-                {
-                    var missedmethodJson = missingMethod.ToJson();
-                    Console.WriteLine(missedmethodJson);
-                    byte[] response = Encoding.UTF8.GetBytes(missedmethodJson.ToUpper());
-                    stream.Write(response);
                 }
             }
         }

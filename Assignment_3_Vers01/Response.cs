@@ -6,21 +6,17 @@ namespace Server
 {
     public class Response
     {
-        public int Status;
-        public string Reason;
+        public string status { get; set; }
+        public string body { get; set;  }
         
 
-        public Response(int status, string reason)
+        public Response(string Status, string Body)
         {
-            this.Status = status;
-            this.Reason = reason;
+            status = Status;
+            body = Body;
         }
         
-         public string ToJson()
-        {
-            var jsonRequest = JsonConvert.SerializeObject(this);
-            return jsonRequest;
-        }
+         
 
 
        

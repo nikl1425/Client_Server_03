@@ -13,7 +13,7 @@ namespace Server
             get;
             set;
         }
-        public long Date {
+        public long Date  {
             get;
             set;
         }
