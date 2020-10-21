@@ -23,35 +23,7 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="9dcadf51-fb73-4e39-8da6-7fac8254c49b" name="Default Changelist" comment="Path virker for nhr">
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.Assignment_3_Vers01/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Assignment_3_Vers01/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assignment_3_Vers01/RequestContainer.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assignment_3_Vers01/RequestContainer.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assignment_3_Vers01/Response.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assignment_3_Vers01/Response.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assignment_3_Vers01/Server.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assignment_3_Vers01/Server.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assignment_3_Vers01/bin/Debug/netcoreapp3.1/ClassLibrary1.dll" beforeDir="false" afterPath="$PROJECT_DIR$/Assignment_3_Vers01/bin/Debug/netcoreapp3.1/ClassLibrary1.dll" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assignment_3_Vers01/bin/Debug/netcoreapp3.1/ClassLibrary1.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/Assignment_3_Vers01/bin/Debug/netcoreapp3.1/ClassLibrary1.pdb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assignment_3_Vers01/bin/Debug/netcoreapp3.1/Client.dll" beforeDir="false" afterPath="$PROJECT_DIR$/Assignment_3_Vers01/bin/Debug/netcoreapp3.1/Client.dll" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assignment_3_Vers01/bin/Debug/netcoreapp3.1/Client.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/Assignment_3_Vers01/bin/Debug/netcoreapp3.1/Client.pdb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assignment_3_Vers01/bin/Debug/netcoreapp3.1/Server.dll" beforeDir="false" afterPath="$PROJECT_DIR$/Assignment_3_Vers01/bin/Debug/netcoreapp3.1/Server.dll" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assignment_3_Vers01/bin/Debug/netcoreapp3.1/Server.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/Assignment_3_Vers01/bin/Debug/netcoreapp3.1/Server.pdb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assignment_3_Vers01/obj/Debug/netcoreapp3.1/Server.csprojAssemblyReference.cache" beforeDir="false" afterPath="$PROJECT_DIR$/Assignment_3_Vers01/obj/Debug/netcoreapp3.1/Server.csprojAssemblyReference.cache" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assignment_3_Vers01/obj/Debug/netcoreapp3.1/Server.dll" beforeDir="false" afterPath="$PROJECT_DIR$/Assignment_3_Vers01/obj/Debug/netcoreapp3.1/Server.dll" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assignment_3_Vers01/obj/Debug/netcoreapp3.1/Server.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/Assignment_3_Vers01/obj/Debug/netcoreapp3.1/Server.pdb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ClassLibrary1/Util.cs" beforeDir="false" afterPath="$PROJECT_DIR$/ClassLibrary1/Util.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ClassLibrary1/bin/Debug/ClassLibrary1.dll" beforeDir="false" afterPath="$PROJECT_DIR$/ClassLibrary1/bin/Debug/ClassLibrary1.dll" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ClassLibrary1/bin/Debug/ClassLibrary1.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/ClassLibrary1/bin/Debug/ClassLibrary1.pdb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ClassLibrary1/obj/Debug/ClassLibrary1.dll" beforeDir="false" afterPath="$PROJECT_DIR$/ClassLibrary1/obj/Debug/ClassLibrary1.dll" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ClassLibrary1/obj/Debug/ClassLibrary1.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/ClassLibrary1/obj/Debug/ClassLibrary1.pdb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Client/Client.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Client/Client.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Client/ResponseContainer.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Client/ResponseContainer.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Client/bin/Debug/netcoreapp3.1/ClassLibrary1.dll" beforeDir="false" afterPath="$PROJECT_DIR$/Client/bin/Debug/netcoreapp3.1/ClassLibrary1.dll" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Client/bin/Debug/netcoreapp3.1/ClassLibrary1.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/Client/bin/Debug/netcoreapp3.1/ClassLibrary1.pdb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Client/bin/Debug/netcoreapp3.1/Client.dll" beforeDir="false" afterPath="$PROJECT_DIR$/Client/bin/Debug/netcoreapp3.1/Client.dll" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Client/bin/Debug/netcoreapp3.1/Client.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/Client/bin/Debug/netcoreapp3.1/Client.pdb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Client/obj/Debug/netcoreapp3.1/Client.csprojAssemblyReference.cache" beforeDir="false" afterPath="$PROJECT_DIR$/Client/obj/Debug/netcoreapp3.1/Client.csprojAssemblyReference.cache" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Client/obj/Debug/netcoreapp3.1/Client.dll" beforeDir="false" afterPath="$PROJECT_DIR$/Client/obj/Debug/netcoreapp3.1/Client.dll" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Client/obj/Debug/netcoreapp3.1/Client.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/Client/obj/Debug/netcoreapp3.1/Client.pdb" afterDir="false" />
-    </list>
+    <list default="true" id="9dcadf51-fb73-4e39-8da6-7fac8254c49b" name="Default Changelist" comment="Path virker for nhr" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -117,8 +89,8 @@
   </component>
   <component name="PropertiesComponent">
     <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
-    <property name="DebuggerViewTab_PTCS_FirstProportionKey" value="0.34969738" />
-    <property name="DebuggerViewTab_PTCS_LastProportionKey" value="0.29993275" />
+    <property name="DebuggerViewTab_PTCS_FirstProportionKey" value="0.34968778" />
+    <property name="DebuggerViewTab_PTCS_LastProportionKey" value="0.2997324" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="nodejs_package_manager_path" value="npm" />
@@ -192,7 +164,7 @@
       <workItem from="1603201074224" duration="6586000" />
       <workItem from="1603213008034" duration="174000" />
       <workItem from="1603213203801" duration="4199000" />
-      <workItem from="1603246657005" duration="16336000" />
+      <workItem from="1603246657005" duration="16731000" />
     </task>
     <task id="LOCAL-00001" summary="Her er det åbenbart">
       <created>1603127985348</created>
@@ -320,7 +292,14 @@
       <option name="project" value="LOCAL" />
       <updated>1603214117352</updated>
     </task>
-    <option name="localTasksCounter" value="19" />
+    <task id="LOCAL-00019" summary="Til Henrik">
+      <created>1603263761811</created>
+      <option name="number" value="00019" />
+      <option name="presentableId" value="LOCAL-00019" />
+      <option name="project" value="LOCAL" />
+      <updated>1603263761811</updated>
+    </task>
+    <option name="localTasksCounter" value="20" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -354,7 +333,8 @@
     <MESSAGE value="Senest" />
     <MESSAGE value="Her er alt" />
     <MESSAGE value="til jesper" />
-    <option name="LAST_COMMIT_MESSAGE" value="til jesper" />
+    <MESSAGE value="Til Henrik" />
+    <option name="LAST_COMMIT_MESSAGE" value="Til Henrik" />
   </component>
   <component name="WindowStateProjectService">
     <state x="692" y="243" width="1092" height="714" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1603169936776">
@@ -366,94 +346,94 @@
       <screen x="0" y="0" width="3440" height="1400" />
     </state>
     <state x="0" y="122" key="DiffContextDialog/0.0.3440.1400@0.0.3440.1400" timestamp="1603134555737" />
-    <state width="1152" height="357" key="GridCell.Tab.0.bottom" timestamp="1603263320421">
+    <state width="1152" height="357" key="GridCell.Tab.0.bottom" timestamp="1603263612579">
       <screen x="0" y="0" width="3440" height="1400" />
     </state>
     <state width="914" height="265" key="GridCell.Tab.0.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1602892159284" />
-    <state width="1152" height="357" key="GridCell.Tab.0.bottom/0.0.3440.1400@0.0.3440.1400" timestamp="1603263320421" />
+    <state width="1152" height="357" key="GridCell.Tab.0.bottom/0.0.3440.1400@0.0.3440.1400" timestamp="1603263612579" />
     <state width="914" height="281" key="GridCell.Tab.0.bottom/1920.0.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1602879799315" />
-    <state width="1152" height="357" key="GridCell.Tab.0.center" timestamp="1603263320421">
+    <state width="1152" height="357" key="GridCell.Tab.0.center" timestamp="1603263612579">
       <screen x="0" y="0" width="3440" height="1400" />
     </state>
     <state width="914" height="265" key="GridCell.Tab.0.center/0.0.1920.1040@0.0.1920.1040" timestamp="1602892159284" />
-    <state width="1152" height="357" key="GridCell.Tab.0.center/0.0.3440.1400@0.0.3440.1400" timestamp="1603263320421" />
+    <state width="1152" height="357" key="GridCell.Tab.0.center/0.0.3440.1400@0.0.3440.1400" timestamp="1603263612579" />
     <state width="914" height="281" key="GridCell.Tab.0.center/1920.0.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1602879799315" />
-    <state width="1152" height="357" key="GridCell.Tab.0.left" timestamp="1603263320421">
+    <state width="1152" height="357" key="GridCell.Tab.0.left" timestamp="1603263612579">
       <screen x="0" y="0" width="3440" height="1400" />
     </state>
     <state width="914" height="265" key="GridCell.Tab.0.left/0.0.1920.1040@0.0.1920.1040" timestamp="1602892159284" />
-    <state width="1152" height="357" key="GridCell.Tab.0.left/0.0.3440.1400@0.0.3440.1400" timestamp="1603263320421" />
+    <state width="1152" height="357" key="GridCell.Tab.0.left/0.0.3440.1400@0.0.3440.1400" timestamp="1603263612579" />
     <state width="914" height="281" key="GridCell.Tab.0.left/1920.0.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1602879799315" />
-    <state width="1152" height="357" key="GridCell.Tab.0.right" timestamp="1603263320421">
+    <state width="1152" height="357" key="GridCell.Tab.0.right" timestamp="1603263612579">
       <screen x="0" y="0" width="3440" height="1400" />
     </state>
     <state width="914" height="265" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1602892159284" />
-    <state width="1152" height="357" key="GridCell.Tab.0.right/0.0.3440.1400@0.0.3440.1400" timestamp="1603263320421" />
+    <state width="1152" height="357" key="GridCell.Tab.0.right/0.0.3440.1400@0.0.3440.1400" timestamp="1603263612579" />
     <state width="914" height="281" key="GridCell.Tab.0.right/1920.0.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1602879799315" />
-    <state width="1518" height="515" key="GridCell.Tab.1.bottom" timestamp="1603201048254">
+    <state width="1152" height="515" key="GridCell.Tab.1.bottom" timestamp="1603263610712">
       <screen x="0" y="0" width="3440" height="1400" />
     </state>
-    <state width="1518" height="515" key="GridCell.Tab.1.bottom/0.0.3440.1400@0.0.3440.1400" timestamp="1603201048254" />
-    <state width="1518" height="515" key="GridCell.Tab.1.center" timestamp="1603201048254">
+    <state width="1152" height="515" key="GridCell.Tab.1.bottom/0.0.3440.1400@0.0.3440.1400" timestamp="1603263610712" />
+    <state width="1152" height="515" key="GridCell.Tab.1.center" timestamp="1603263610712">
       <screen x="0" y="0" width="3440" height="1400" />
     </state>
-    <state width="1518" height="515" key="GridCell.Tab.1.center/0.0.3440.1400@0.0.3440.1400" timestamp="1603201048254" />
-    <state width="1518" height="515" key="GridCell.Tab.1.left" timestamp="1603201048254">
+    <state width="1152" height="515" key="GridCell.Tab.1.center/0.0.3440.1400@0.0.3440.1400" timestamp="1603263610712" />
+    <state width="1152" height="515" key="GridCell.Tab.1.left" timestamp="1603263610712">
       <screen x="0" y="0" width="3440" height="1400" />
     </state>
-    <state width="1518" height="515" key="GridCell.Tab.1.left/0.0.3440.1400@0.0.3440.1400" timestamp="1603201048254" />
-    <state width="1518" height="515" key="GridCell.Tab.1.right" timestamp="1603201048254">
+    <state width="1152" height="515" key="GridCell.Tab.1.left/0.0.3440.1400@0.0.3440.1400" timestamp="1603263610712" />
+    <state width="1152" height="515" key="GridCell.Tab.1.right" timestamp="1603263610712">
       <screen x="0" y="0" width="3440" height="1400" />
     </state>
-    <state width="1518" height="515" key="GridCell.Tab.1.right/0.0.3440.1400@0.0.3440.1400" timestamp="1603201048254" />
-    <state width="1518" height="515" key="GridCell.Tab.2.bottom" timestamp="1603201048254">
+    <state width="1152" height="515" key="GridCell.Tab.1.right/0.0.3440.1400@0.0.3440.1400" timestamp="1603263610712" />
+    <state width="1152" height="515" key="GridCell.Tab.2.bottom" timestamp="1603263610712">
       <screen x="0" y="0" width="3440" height="1400" />
     </state>
-    <state width="1518" height="515" key="GridCell.Tab.2.bottom/0.0.3440.1400@0.0.3440.1400" timestamp="1603201048254" />
-    <state width="1518" height="515" key="GridCell.Tab.2.center" timestamp="1603201048254">
+    <state width="1152" height="515" key="GridCell.Tab.2.bottom/0.0.3440.1400@0.0.3440.1400" timestamp="1603263610712" />
+    <state width="1152" height="515" key="GridCell.Tab.2.center" timestamp="1603263610712">
       <screen x="0" y="0" width="3440" height="1400" />
     </state>
-    <state width="1518" height="515" key="GridCell.Tab.2.center/0.0.3440.1400@0.0.3440.1400" timestamp="1603201048254" />
-    <state width="1518" height="515" key="GridCell.Tab.2.left" timestamp="1603201048254">
+    <state width="1152" height="515" key="GridCell.Tab.2.center/0.0.3440.1400@0.0.3440.1400" timestamp="1603263610712" />
+    <state width="1152" height="515" key="GridCell.Tab.2.left" timestamp="1603263610712">
       <screen x="0" y="0" width="3440" height="1400" />
     </state>
-    <state width="1518" height="515" key="GridCell.Tab.2.left/0.0.3440.1400@0.0.3440.1400" timestamp="1603201048254" />
-    <state width="1518" height="515" key="GridCell.Tab.2.right" timestamp="1603201048254">
+    <state width="1152" height="515" key="GridCell.Tab.2.left/0.0.3440.1400@0.0.3440.1400" timestamp="1603263610712" />
+    <state width="1152" height="515" key="GridCell.Tab.2.right" timestamp="1603263610712">
       <screen x="0" y="0" width="3440" height="1400" />
     </state>
-    <state width="1518" height="515" key="GridCell.Tab.2.right/0.0.3440.1400@0.0.3440.1400" timestamp="1603201048254" />
-    <state width="1518" height="515" key="GridCell.Tab.3.bottom" timestamp="1603201048254">
+    <state width="1152" height="515" key="GridCell.Tab.2.right/0.0.3440.1400@0.0.3440.1400" timestamp="1603263610712" />
+    <state width="1152" height="515" key="GridCell.Tab.3.bottom" timestamp="1603263610713">
       <screen x="0" y="0" width="3440" height="1400" />
     </state>
-    <state width="1518" height="515" key="GridCell.Tab.3.bottom/0.0.3440.1400@0.0.3440.1400" timestamp="1603201048254" />
-    <state width="1518" height="515" key="GridCell.Tab.3.center" timestamp="1603201048254">
+    <state width="1152" height="515" key="GridCell.Tab.3.bottom/0.0.3440.1400@0.0.3440.1400" timestamp="1603263610713" />
+    <state width="1152" height="515" key="GridCell.Tab.3.center" timestamp="1603263610713">
       <screen x="0" y="0" width="3440" height="1400" />
     </state>
-    <state width="1518" height="515" key="GridCell.Tab.3.center/0.0.3440.1400@0.0.3440.1400" timestamp="1603201048254" />
-    <state width="1518" height="515" key="GridCell.Tab.3.left" timestamp="1603201048254">
+    <state width="1152" height="515" key="GridCell.Tab.3.center/0.0.3440.1400@0.0.3440.1400" timestamp="1603263610713" />
+    <state width="1152" height="515" key="GridCell.Tab.3.left" timestamp="1603263610712">
       <screen x="0" y="0" width="3440" height="1400" />
     </state>
-    <state width="1518" height="515" key="GridCell.Tab.3.left/0.0.3440.1400@0.0.3440.1400" timestamp="1603201048254" />
-    <state width="1518" height="515" key="GridCell.Tab.3.right" timestamp="1603201048254">
+    <state width="1152" height="515" key="GridCell.Tab.3.left/0.0.3440.1400@0.0.3440.1400" timestamp="1603263610712" />
+    <state width="1152" height="515" key="GridCell.Tab.3.right" timestamp="1603263610713">
       <screen x="0" y="0" width="3440" height="1400" />
     </state>
-    <state width="1518" height="515" key="GridCell.Tab.3.right/0.0.3440.1400@0.0.3440.1400" timestamp="1603201048254" />
-    <state width="1518" height="515" key="GridCell.Tab.4.bottom" timestamp="1603201048255">
+    <state width="1152" height="515" key="GridCell.Tab.3.right/0.0.3440.1400@0.0.3440.1400" timestamp="1603263610713" />
+    <state width="1152" height="515" key="GridCell.Tab.4.bottom" timestamp="1603263610713">
       <screen x="0" y="0" width="3440" height="1400" />
     </state>
-    <state width="1518" height="515" key="GridCell.Tab.4.bottom/0.0.3440.1400@0.0.3440.1400" timestamp="1603201048255" />
-    <state width="1518" height="515" key="GridCell.Tab.4.center" timestamp="1603201048255">
+    <state width="1152" height="515" key="GridCell.Tab.4.bottom/0.0.3440.1400@0.0.3440.1400" timestamp="1603263610713" />
+    <state width="1152" height="515" key="GridCell.Tab.4.center" timestamp="1603263610713">
       <screen x="0" y="0" width="3440" height="1400" />
     </state>
-    <state width="1518" height="515" key="GridCell.Tab.4.center/0.0.3440.1400@0.0.3440.1400" timestamp="1603201048255" />
-    <state width="1518" height="515" key="GridCell.Tab.4.left" timestamp="1603201048254">
+    <state width="1152" height="515" key="GridCell.Tab.4.center/0.0.3440.1400@0.0.3440.1400" timestamp="1603263610713" />
+    <state width="1152" height="515" key="GridCell.Tab.4.left" timestamp="1603263610713">
       <screen x="0" y="0" width="3440" height="1400" />
     </state>
-    <state width="1518" height="515" key="GridCell.Tab.4.left/0.0.3440.1400@0.0.3440.1400" timestamp="1603201048254" />
-    <state width="1518" height="515" key="GridCell.Tab.4.right" timestamp="1603201048255">
+    <state width="1152" height="515" key="GridCell.Tab.4.left/0.0.3440.1400@0.0.3440.1400" timestamp="1603263610713" />
+    <state width="1152" height="515" key="GridCell.Tab.4.right" timestamp="1603263610713">
       <screen x="0" y="0" width="3440" height="1400" />
     </state>
-    <state width="1518" height="515" key="GridCell.Tab.4.right/0.0.3440.1400@0.0.3440.1400" timestamp="1603201048255" />
+    <state width="1152" height="515" key="GridCell.Tab.4.right/0.0.3440.1400@0.0.3440.1400" timestamp="1603263610713" />
     <state x="0" y="123" key="MergeDialog" timestamp="1603134642278">
       <screen x="0" y="0" width="3440" height="1400" />
     </state>
@@ -475,10 +455,10 @@
       <screen x="0" y="0" width="3440" height="1400" />
     </state>
     <state x="101" y="100" width="1266" height="1201" key="VCS.FileHistoryDialog/0.0.3440.1400@0.0.3440.1400" timestamp="1603134876888" />
-    <state x="312" y="433" key="Vcs.Push.Dialog.v2" timestamp="1603214123101">
+    <state x="312" y="433" key="Vcs.Push.Dialog.v2" timestamp="1603263763270">
       <screen x="0" y="0" width="3440" height="1400" />
     </state>
-    <state x="312" y="433" key="Vcs.Push.Dialog.v2/0.0.3440.1400@0.0.3440.1400" timestamp="1603214123101" />
+    <state x="312" y="433" key="Vcs.Push.Dialog.v2/0.0.3440.1400@0.0.3440.1400" timestamp="1603263763270" />
     <state x="538" y="614" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1603193783402">
       <screen x="0" y="0" width="3440" height="1400" />
     </state>
@@ -504,24 +484,5 @@
     </state>
     <state x="1103" y="230" width="672" height="678" key="search.everywhere.popup/0.0.1920.1040@0.0.1920.1040" timestamp="1602891693866" />
     <state x="1976" y="310" width="1204" height="913" key="search.everywhere.popup/0.0.3440.1400@0.0.3440.1400" timestamp="1603259718235" />
-  </component>
-  <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="DotNet Breakpoints">
-          <url>file://$PROJECT_DIR$/Assignment_3_Vers01/Server.cs</url>
-          <line>62</line>
-          <properties documentPath="C:\Users\45535\Desktop\RAWDATA\C#\Projects\Assignment_3_Vers01\Assignment_3_Vers01\Server.cs" initialLine="62">
-            <startOffsets>
-              <option value="2293" />
-            </startOffsets>
-            <endOffsets>
-              <option value="2317" />
-            </endOffsets>
-          </properties>
-          <option name="timeStamp" value="1" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
   </component>
 </project>

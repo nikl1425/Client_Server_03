@@ -46,6 +46,16 @@
         <e p="Test.json" t="Include" />
       </e>
       <e p="packages" t="ExcludeRecursive" />
+      <e p="Testing" t="IncludeRecursive">
+        <e p="Assignment3Tests.cs" t="Include" />
+        <e p="bin" t="ExcludeRecursive" />
+        <e p="obj" t="ExcludeRecursive" />
+        <e p="packages.config" t="Include" />
+        <e p="Properties" t="Include">
+          <e p="AssemblyInfo.cs" t="Include" />
+        </e>
+        <e p="Testing.csproj" t="IncludeRecursive" />
+      </e>
     </e>
   </component>
 </project>
