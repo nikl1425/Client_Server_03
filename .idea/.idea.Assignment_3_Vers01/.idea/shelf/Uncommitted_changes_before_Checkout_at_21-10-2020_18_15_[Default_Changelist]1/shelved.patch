@@ -1,0 +1,610 @@
+Index: Assignment_3_Vers01/RequestContainer.cs
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>using System.Collections.Generic;\r\nusing Newtonsoft.Json;\r\n\r\nnamespace Server\r\n{\r\n    public class RequestContainer\r\n    {\r\n        public string Method {\r\n            get;\r\n            set;\r\n        }\r\n        public string Path{\r\n            get;\r\n            set;\r\n        }\r\n        public long Date {\r\n            get;\r\n            set;\r\n        }\r\n        public string Name{\r\n            get;\r\n            set;\r\n        }\r\n        public int Id {\r\n            get;\r\n            set;\r\n        }\r\n\r\n\r\n        /*\r\n       [JsonProperty(\"results\")]\r\n       public Results Results { get; set; }\r\n    }\r\n\r\n    public class Results\r\n    {\r\n        [JsonProperty(\"jobCodes\")]\r\n        public Dictionary<string, JobCode> JobCodes { get; set; }\r\n    }\r\n\r\n    public class JobCode\r\n    {\r\n        [JsonProperty (\"Method\")]\r\n        public string Method { get; set; }\r\n        [JsonProperty (\"Path\")]\r\n        public string Path { get; set; }\r\n        [JsonProperty (\"Date\")] \r\n        public long Date { get; set; }\r\n        [JsonProperty (\"Name\")]\r\n        public string Name { get; set; }\r\n        [JsonProperty (\"Id\")]\r\n        public string Id { get; set; }\r\n        */\r\n    }\r\n}
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- Assignment_3_Vers01/RequestContainer.cs	(revision 6f2cf4b44aeed1e08a14c7df82bd5c45e74be106)
++++ Assignment_3_Vers01/RequestContainer.cs	(date 1603296564446)
+@@ -13,15 +13,13 @@
+             get;
+             set;
+         }
+-        public long Date {
+-            get;
+-            set;
+-        }
+-        public string Name{
++        public string Date  {
+             get;
+             set;
+         }
+-        public int Id {
++
++        public string Body
++        {
+             get;
+             set;
+         }
+Index: Assignment_3_Vers01/Server.cs
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>using System;\r\nusing System.Collections.Generic;\r\nusing System.IO;\r\nusing System.Linq;\r\nusing System.Net;\r\nusing System.Net.Sockets;\r\nusing System.Reflection;\r\nusing System.Text;\r\nusing ClassLibrary1;\r\nusing Newtonsoft.Json;\r\nusing Newtonsoft.Json.Linq;\r\n\r\nnamespace Server\r\n{\r\n    class ServerProgram\r\n    {\r\n        static void Main(string[] args)\r\n        {\r\n            // set server to TCP listener on local\r\n            var server = new TcpListener(IPAddress.Loopback, 5000);\r\n            server.Start();\r\n            Console.WriteLine(\"Server started!\");\r\n\r\n            while (true)\r\n            {\r\n                // set client = new tcp client. \r\n                var connection = server.AcceptTcpClient();\r\n\r\n                Console.WriteLine(\"Accepted client!\");\r\n\r\n                var stream = connection.GetStream();\r\n                byte[] data = new byte[connection.ReceiveBufferSize];\r\n                var cnt = stream.Read(data);\r\n\r\n                var msg = Encoding.UTF8.GetString(data, 0, cnt);\r\n                Console.WriteLine($\"Message from client:  {msg}\");\r\n\r\n                data = Encoding.UTF8.GetBytes(msg.ToUpper());\r\n\r\n                //stream.Write(data);\r\n\r\n                //var path = @\"C:\\Users\\45535\\Desktop\\RAWDATA\\C#\\Projects\\Assignment_3_Vers01\\Assignment_3_Vers01\\JsonServerTest.json\";\r\n\r\n                // Write input from client to Json response file.\r\n                //File.WriteAllText(path, msg);\r\n\r\n                // Desiralize the request into r and use methods. \r\n\r\n                RequestContainer r = JsonConvert.DeserializeObject<RequestContainer>(msg);\r\n                //RequestContainer r = Util.FromJson<RequestContainer>(msg);\r\n                Console.WriteLine(\"the method of msg is: \\n\" + r.Method);\r\n\r\n                // RESPOND TYPES:\r\n                Response missingMethod = new Response(1, \"missing method\");;\r\n\r\n\r\n                // test and send select response\r\n                if (r.Method != null)\r\n                {\r\n                    var missedmethodJson = missingMethod.ToJson();\r\n                    Console.WriteLine(missedmethodJson);\r\n                    byte[] response = Encoding.UTF8.GetBytes(missedmethodJson.ToUpper());\r\n                    stream.Write(response);\r\n                    //stream.Write(Encoding.UTF8.GetBytes(methodExist));\r\n                    Console.WriteLine(\"method is: \" + r.Method);\r\n                }\r\n                else\r\n                {\r\n                    var missedmethodJson = missingMethod.ToJson();\r\n                    Console.WriteLine(missedmethodJson);\r\n                    byte[] response = Encoding.UTF8.GetBytes(missedmethodJson.ToUpper());\r\n                    stream.Write(response);\r\n                }\r\n            }\r\n        }\r\n    }\r\n}
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- Assignment_3_Vers01/Server.cs	(revision 6f2cf4b44aeed1e08a14c7df82bd5c45e74be106)
++++ Assignment_3_Vers01/Server.cs	(date 1603296731887)
+@@ -6,6 +6,7 @@
+ using System.Net.Sockets;
+ using System.Reflection;
+ using System.Text;
++using System.Threading;
+ using ClassLibrary1;
+ using Newtonsoft.Json;
+ using Newtonsoft.Json.Linq;
+@@ -21,6 +22,7 @@
+             server.Start();
+             Console.WriteLine("Server started!");
+ 
++
+             while (true)
+             {
+                 // set client = new tcp client. 
+@@ -35,42 +37,73 @@
+                 var msg = Encoding.UTF8.GetString(data, 0, cnt);
+                 Console.WriteLine($"Message from client:  {msg}");
+ 
+-                data = Encoding.UTF8.GetBytes(msg.ToUpper());
+-
+-                //stream.Write(data);
+-
+-                //var path = @"C:\Users\45535\Desktop\RAWDATA\C#\Projects\Assignment_3_Vers01\Assignment_3_Vers01\JsonServerTest.json";
+-
+-                // Write input from client to Json response file.
+-                //File.WriteAllText(path, msg);
+-
+                 // Desiralize the request into r and use methods. 
+ 
+-                RequestContainer r = JsonConvert.DeserializeObject<RequestContainer>(msg);
++                RequestContainer r = Util.FromJson<RequestContainer>(msg);
+                 //RequestContainer r = Util.FromJson<RequestContainer>(msg);
+                 Console.WriteLine("the method of msg is: \n" + r.Method);
+ 
+                 // RESPOND TYPES:
+-                Response missingMethod = new Response(1, "missing method");;
++                Response perfect = new Response("1 OK", "Well done.");
++                Response created = new Response("2 Created: ", " ");
++                Response updated = new Response("3 Updated: ", " ");
++                Response badRequest = new Response("4 missing date, missing method, illegal method ", " ");
++                Response missingRessourse = new Response("4 missing resource", " ");
++                Response notFound = new Response("5 Not found: ", " ");
++                Response error = new Response("6 error: ", " ");
++                
++                // Legal methods:
++                HashSet<string> serverMethods = new HashSet<string>();
++                serverMethods.Add("create");
++                serverMethods.Add("read");
++                serverMethods.Add("update");
++                serverMethods.Add("delete");
++                serverMethods.Add("echo");
+ 
+ 
+-                // test and send select response
+-                if (r.Method != null)
++
++                if (r.Method == null && r.Date == null)
+                 {
+-                    var missedmethodJson = missingMethod.ToJson();
++                    var missedmethodJson = Util.ToJson(badRequest);
+                     Console.WriteLine(missedmethodJson);
+                     byte[] response = Encoding.UTF8.GetBytes(missedmethodJson.ToUpper());
+                     stream.Write(response);
+-                    //stream.Write(Encoding.UTF8.GetBytes(methodExist));
+-                    Console.WriteLine("method is: " + r.Method);
++                    connection.Close();
++                    stream.Flush();
++                    continue;
+                 }
++                else if (!serverMethods.Contains(r.Method))
++                {
++                    var illegalMethodJson = Util.ToJson(badRequest);
++                    Console.WriteLine("Illegal method: " + illegalMethodJson);
++                    byte[] response = Encoding.UTF8.GetBytes(illegalMethodJson.ToUpper());
++                    stream.Write(response);
++                    connection.Close();
++                    stream.Flush();
++                    continue;
++                }
++                else if (serverMethods.Contains(r.Method) && r.Date != null && r.Path == null)
++                {
++                    var missingResources = Util.ToJson(missingRessourse);
++                    Console.WriteLine("Ressource doesn't exists: " + missingResources);
++                    byte[] response = Encoding.UTF8.GetBytes(missingResources);
++                    stream.Write(response);
++                    connection.Close();
++                    stream.Flush();
++                } 
+                 else
+                 {
+-                    var missedmethodJson = missingMethod.ToJson();
+-                    Console.WriteLine(missedmethodJson);
+-                    byte[] response = Encoding.UTF8.GetBytes(missedmethodJson.ToUpper());
++                    var perfectJson = Util.ToJson(perfect);
++                    Console.WriteLine(perfectJson);
++                    byte[] response = Encoding.UTF8.GetBytes(perfectJson.ToUpper());
+                     stream.Write(response);
++                    connection.Close();
++                    stream.Flush();
++                    //stream.Write(Encoding.UTF8.GetBytes(methodExist));
++                    Console.WriteLine("method is: " + r.Method);
+                 }
++                connection.Close();
++
+             }
+         }
+     }
+Index: Client/ResponseContainer.cs
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>namespace Client\r\n{\r\n    public class ResponseContainer\r\n    {\r\n        public int Status { get; set; }\r\n        public string Reason { get; set; }\r\n    }\r\n}
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- Client/ResponseContainer.cs	(revision 6f2cf4b44aeed1e08a14c7df82bd5c45e74be106)
++++ Client/ResponseContainer.cs	(date 1603296604265)
+@@ -2,7 +2,7 @@
+ {
+     public class ResponseContainer
+     {
+-        public int Status { get; set; }
+-        public string Reason { get; set; }
++        public string Status { get; set; }
++        public string Body { get; set; }
+     }
+ }
+\ No newline at end of file
+Index: Client/Client.cs
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>using System;\r\nusing System.IO;\r\nusing System.Net;\r\nusing System.Net.Sockets;\r\nusing System.Text;\r\nusing ClassLibrary1;\r\nusing Newtonsoft.Json;\r\nusing Newtonsoft.Json.Linq;\r\nusing JsonSerializer = System.Text.Json.JsonSerializer;\r\n\r\nnamespace Client\r\n{\r\n    class ClientProgram\r\n    {\r\n        public string Status;\r\n\r\n        static void Main(string[] args)\r\n        {\r\n            var path = @\"C:\\Users\\45535\\Desktop\\RAWDATA\\C#\\Projects\\Assignment_3_Vers01\\Client\\Test.json\";\r\n\r\n            // Define and start TCP client\r\n            using var tcpClient = new TcpClient();\r\n\r\n            // Client connect to local via. port 5000.\r\n            tcpClient.Connect(IPAddress.Loopback, 5000);\r\n            Console.WriteLine(\"Client started\");\r\n\r\n\r\n            //Define our request\r\n            Request request = new Request(\"update\", path, 2, \"Bent\");\r\n\r\n            //Send request to server - see Util.cs\r\n            Util.SendRequest(tcpClient, request.ToJson());\r\n\r\n            //Console.WriteLine($\"Message to the server: {}\");\r\n            Console.WriteLine(\"We send this to the client: \\n \" + request.ToJson());\r\n            //File.WriteAllText(path, request.ToJson());\r\n            \r\n            \r\n            //Read responses from the server.\r\n            string r3 = ClientReadResponse(tcpClient, tcpClient.GetStream());\r\n            ResponseContainer responseContainer = JsonConvert.DeserializeObject<ResponseContainer>(r3);\r\n\r\n\r\n            Console.WriteLine($\"The server responds:  \\n + {responseContainer.Status} \\n {responseContainer.Reason}\");\r\n\r\n            //We send respond to a JSON formatted string.\r\n\r\n\r\n            //Now we desirialize it, so it will be stored in our \"responseContainer.cs\" OBS WAIT UNTIL WE SEND right response from server.\r\n        }\r\n\r\n        \r\n        public static string ClientReadResponse(TcpClient client, NetworkStream stream)\r\n        {\r\n            byte[] data = new byte[client.ReceiveBufferSize];\r\n\r\n            var cnt = stream.Read(data);\r\n\r\n            var msg = Encoding.UTF8.GetString(data, 0, cnt);\r\n            return msg;\r\n        }\r\n\r\n        public static string GetServerResponse(TcpClient tcpClient)\r\n        {\r\n            NetworkStream stream = tcpClient.GetStream();\r\n            byte[] buffer = new byte[2048];\r\n            int bytesToRead = stream.Read(buffer, 0, buffer.Length);\r\n            var responseFromServer = Encoding.UTF8.GetString(buffer, 0, bytesToRead);\r\n            return responseFromServer;\r\n        }\r\n\r\n\r\n        public string IntepretStatus()\r\n        {\r\n            const string ok = \"ok\";\r\n            const string created = \"created\";\r\n            const string updated = \"Updated\";\r\n            const string badRequest = \"badRequest\";\r\n            const string notFound = \"notFound\";\r\n            const string error = \"error\";\r\n\r\n            if (Status == \"1\")\r\n            {\r\n                Console.WriteLine(ok);\r\n            }\r\n            else if (Status == \"2\")\r\n            {\r\n                Console.WriteLine(created);\r\n            }\r\n            else if (Status == \"3\")\r\n            {\r\n                Console.WriteLine(updated);\r\n            }\r\n            else if (Status == \"4\")\r\n            {\r\n                Console.WriteLine(badRequest);\r\n            }\r\n            else if (Status == \"5\")\r\n            {\r\n                Console.WriteLine(notFound);\r\n            }\r\n            else if (Status == \"6\")\r\n            {\r\n                Console.WriteLine(error);\r\n            }\r\n\r\n            return Status;\r\n        }\r\n    }\r\n}
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- Client/Client.cs	(revision 6f2cf4b44aeed1e08a14c7df82bd5c45e74be106)
++++ Client/Client.cs	(date 1603296567572)
+@@ -27,7 +27,7 @@
+ 
+ 
+             //Define our request
+-            Request request = new Request("update", path, 2, "Bent");
++            Request request = new Request("Update", path, 2, "Bent");
+ 
+             //Send request to server - see Util.cs
+             Util.SendRequest(tcpClient, request.ToJson());
+@@ -35,22 +35,25 @@
+             //Console.WriteLine($"Message to the server: {}");
+             Console.WriteLine("We send this to the client: \n " + request.ToJson());
+             //File.WriteAllText(path, request.ToJson());
+-            
+-            
+-            //Read responses from the server.
+-            string r3 = ClientReadResponse(tcpClient, tcpClient.GetStream());
+-            ResponseContainer responseContainer = JsonConvert.DeserializeObject<ResponseContainer>(r3);
++            while (true)
++            {
++
++
++
++                //Read responses from the server.
++                string r3 = ClientReadResponse(tcpClient, tcpClient.GetStream());
++                ResponseContainer responseContainer = Util.FromJson<ResponseContainer>(r3);
+ 
+ 
+-            Console.WriteLine($"The server responds:  \n + {responseContainer.Status} \n {responseContainer.Reason}");
++                Console.WriteLine($"The server responds:  \n + {responseContainer.Body} \n {responseContainer.Body}");
+ 
+-            //We send respond to a JSON formatted string.
++                //We send respond to a JSON formatted string.
+ 
+ 
+-            //Now we desirialize it, so it will be stored in our "responseContainer.cs" OBS WAIT UNTIL WE SEND right response from server.
++                //Now we desirialize it, so it will be stored in our "responseContainer.cs" OBS WAIT UNTIL WE SEND right response from server.
++            }
+         }
+ 
+-        
+         public static string ClientReadResponse(TcpClient client, NetworkStream stream)
+         {
+             byte[] data = new byte[client.ReceiveBufferSize];
+@@ -107,5 +110,6 @@
+ 
+             return Status;
+         }
++        
+     }
+ }
+\ No newline at end of file
+Index: Assignment_3_Vers01/Response.cs
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>using System;\r\nusing System.Collections.Generic;\r\nusing Newtonsoft.Json;\r\n\r\nnamespace Server\r\n{\r\n    public class Response\r\n    {\r\n        public int Status;\r\n        public string Reason;\r\n        \r\n\r\n        public Response(int status, string reason)\r\n        {\r\n            this.Status = status;\r\n            this.Reason = reason;\r\n        }\r\n        \r\n         public string ToJson()\r\n        {\r\n            var jsonRequest = JsonConvert.SerializeObject(this);\r\n            return jsonRequest;\r\n        }\r\n\r\n\r\n       \r\n    }\r\n}
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- Assignment_3_Vers01/Response.cs	(revision 6f2cf4b44aeed1e08a14c7df82bd5c45e74be106)
++++ Assignment_3_Vers01/Response.cs	(date 1603296557681)
+@@ -6,21 +6,17 @@
+ {
+     public class Response
+     {
+-        public int Status;
+-        public string Reason;
++        public string status { get; set; }
++        public string body { get; set;  }
+         
+ 
+-        public Response(int status, string reason)
++        public Response(string Status, string Body)
+         {
+-            this.Status = status;
+-            this.Reason = reason;
++            status = Status;
++            body = Body;
+         }
+         
+-         public string ToJson()
+-        {
+-            var jsonRequest = JsonConvert.SerializeObject(this);
+-            return jsonRequest;
+-        }
++         
+ 
+ 
+        
+Index: ClassLibrary1/Util.cs
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>using System.IO;\r\nusing System.Net.Sockets;\r\nusing System.Text;\r\nusing System.Text.Json;\r\nusing Test;\r\n\r\nnamespace ClassLibrary1\r\n{\r\n \r\n        public static class Util\r\n        {\r\n            public static string ToJson(this object data)\r\n            {\r\n                return JsonSerializer.Serialize(data, new JsonSerializerOptions { PropertyNamingPolicy = JsonNamingPolicy.CamelCase });\r\n            }\r\n\r\n            public static T FromJson<T>(this string element)\r\n            {\r\n                return JsonSerializer.Deserialize<T>(element, new JsonSerializerOptions { PropertyNamingPolicy = JsonNamingPolicy.CamelCase });\r\n            }\r\n\r\n            public static void SendRequest(this TcpClient client, string request)\r\n            {\r\n                var msg = Encoding.UTF8.GetBytes(request);\r\n                client.GetStream().Write(msg, 0, msg.Length);\r\n            }\r\n\r\n            public static Response ReadResponse(TcpClient client)\r\n            {\r\n                var strm = client.GetStream();\r\n                strm.ReadTimeout = 250;\r\n                byte[] resp = new byte[2048];\r\n                using (var memStream = new MemoryStream())\r\n                {\r\n                    int bytesread = 0;\r\n                    do\r\n                    {\r\n                        bytesread = strm.Read(resp, 0, resp.Length);\r\n                        memStream.Write(resp, 0, bytesread);\r\n\r\n                    } while (bytesread == 2048);\r\n                \r\n                    var responseData = Encoding.UTF8.GetString(memStream.ToArray());\r\n                    return JsonSerializer.Deserialize<Response>(responseData, new JsonSerializerOptions { PropertyNamingPolicy = JsonNamingPolicy.CamelCase});\r\n                }\r\n            }\r\n        }\r\n    }\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- ClassLibrary1/Util.cs	(revision 6f2cf4b44aeed1e08a14c7df82bd5c45e74be106)
++++ ClassLibrary1/Util.cs	(date 1603296561320)
+@@ -1,48 +1,64 @@
++using System.ComponentModel;
+ using System.IO;
+ using System.Net.Sockets;
+ using System.Text;
+ using System.Text.Json;
++using Newtonsoft.Json;
+ using Test;
++using JsonSerializer = System.Text.Json.JsonSerializer;
+ 
+ namespace ClassLibrary1
+ {
+- 
+-        public static class Util
+-        {
+-            public static string ToJson(this object data)
+-            {
+-                return JsonSerializer.Serialize(data, new JsonSerializerOptions { PropertyNamingPolicy = JsonNamingPolicy.CamelCase });
+-            }
++
++    public static class Util
++    {
++        public static string ToJson(this object data)
++        {
++            return JsonSerializer.Serialize(data,
++                new JsonSerializerOptions {PropertyNameCaseInsensitive = true});
++        }
++        
++        
++        
+ 
+-            public static T FromJson<T>(this string element)
+-            {
+-                return JsonSerializer.Deserialize<T>(element, new JsonSerializerOptions { PropertyNamingPolicy = JsonNamingPolicy.CamelCase });
+-            }
++        public static T FromJson<T>(this string element)
++        {
++            return JsonSerializer.Deserialize<T>(element,
++                new JsonSerializerOptions {PropertyNameCaseInsensitive = true});
++        }
+ 
+-            public static void SendRequest(this TcpClient client, string request)
+-            {
+-                var msg = Encoding.UTF8.GetBytes(request);
+-                client.GetStream().Write(msg, 0, msg.Length);
+-            }
++        public static void SendRequest(this TcpClient client, string request)
++        {
++            var msg = Encoding.UTF8.GetBytes(request);
++            client.GetStream().Write(msg, 0, msg.Length);
++        }
+ 
+-            public static Response ReadResponse(TcpClient client)
+-            {
+-                var strm = client.GetStream();
+-                strm.ReadTimeout = 250;
+-                byte[] resp = new byte[2048];
+-                using (var memStream = new MemoryStream())
+-                {
+-                    int bytesread = 0;
+-                    do
+-                    {
+-                        bytesread = strm.Read(resp, 0, resp.Length);
+-                        memStream.Write(resp, 0, bytesread);
++        public static Response ReadResponse(TcpClient client)
++        {
++            var strm = client.GetStream();
++            strm.ReadTimeout = 250;
++            byte[] resp = new byte[2048];
++            using (var memStream = new MemoryStream())
++            {
++                int bytesread = 0;
++                do
++                {
++                    bytesread = strm.Read(resp, 0, resp.Length);
++                    memStream.Write(resp, 0, bytesread);
+ 
+-                    } while (bytesread == 2048);
+-                
+-                    var responseData = Encoding.UTF8.GetString(memStream.ToArray());
+-                    return JsonSerializer.Deserialize<Response>(responseData, new JsonSerializerOptions { PropertyNamingPolicy = JsonNamingPolicy.CamelCase});
+-                }
+-            }
++                } while (bytesread == 2048);
++
++                var responseData = Encoding.UTF8.GetString(memStream.ToArray());
++                return JsonSerializer.Deserialize<Response>(responseData,
++                    new JsonSerializerOptions {PropertyNamingPolicy = JsonNamingPolicy.CamelCase});
++            }
++            
++            
++        }
++        
++        
++
++        
+         }
+     }
++
+Index: Assignment_3_Vers01.sln
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>\r\nMicrosoft Visual Studio Solution File, Format Version 12.00\r\n# Visual Studio Version 16\r\nVisualStudioVersion = 16.0.30413.136\r\nMinimumVisualStudioVersion = 10.0.40219.1\r\nProject(\"{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}\") = \"Server\", \"Assignment_3_Vers01\\Server.csproj\", \"{85E83C5B-468C-4F9A-A777-5D0CF63FE814}\"\r\nEndProject\r\nProject(\"{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}\") = \"Client\", \"Client\\Client.csproj\", \"{9DA239BA-A691-451D-8F7D-761A2001DF66}\"\r\nEndProject\r\nProject(\"{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}\") = \"ClassLibrary1\", \"ClassLibrary1\\ClassLibrary1.csproj\", \"{FD544186-90F8-41CC-BA5C-2B04F1ACDB97}\"\r\nEndProject\r\nGlobal\r\n\tGlobalSection(SolutionConfigurationPlatforms) = preSolution\r\n\t\tDebug|Any CPU = Debug|Any CPU\r\n\t\tRelease|Any CPU = Release|Any CPU\r\n\tEndGlobalSection\r\n\tGlobalSection(ProjectConfigurationPlatforms) = postSolution\r\n\t\t{85E83C5B-468C-4F9A-A777-5D0CF63FE814}.Debug|Any CPU.ActiveCfg = Debug|Any CPU\r\n\t\t{85E83C5B-468C-4F9A-A777-5D0CF63FE814}.Debug|Any CPU.Build.0 = Debug|Any CPU\r\n\t\t{85E83C5B-468C-4F9A-A777-5D0CF63FE814}.Release|Any CPU.ActiveCfg = Release|Any CPU\r\n\t\t{85E83C5B-468C-4F9A-A777-5D0CF63FE814}.Release|Any CPU.Build.0 = Release|Any CPU\r\n\t\t{9DA239BA-A691-451D-8F7D-761A2001DF66}.Debug|Any CPU.ActiveCfg = Debug|Any CPU\r\n\t\t{9DA239BA-A691-451D-8F7D-761A2001DF66}.Debug|Any CPU.Build.0 = Debug|Any CPU\r\n\t\t{9DA239BA-A691-451D-8F7D-761A2001DF66}.Release|Any CPU.ActiveCfg = Release|Any CPU\r\n\t\t{9DA239BA-A691-451D-8F7D-761A2001DF66}.Release|Any CPU.Build.0 = Release|Any CPU\r\n\t\t{FD544186-90F8-41CC-BA5C-2B04F1ACDB97}.Debug|Any CPU.ActiveCfg = Debug|Any CPU\r\n\t\t{FD544186-90F8-41CC-BA5C-2B04F1ACDB97}.Debug|Any CPU.Build.0 = Debug|Any CPU\r\n\t\t{FD544186-90F8-41CC-BA5C-2B04F1ACDB97}.Release|Any CPU.ActiveCfg = Release|Any CPU\r\n\t\t{FD544186-90F8-41CC-BA5C-2B04F1ACDB97}.Release|Any CPU.Build.0 = Release|Any CPU\r\n\tEndGlobalSection\r\n\tGlobalSection(SolutionProperties) = preSolution\r\n\t\tHideSolutionNode = FALSE\r\n\tEndGlobalSection\r\n\tGlobalSection(ExtensibilityGlobals) = postSolution\r\n\t\tSolutionGuid = {B68BE245-0911-4B9D-86BE-F6E37CF2D3C5}\r\n\tEndGlobalSection\r\nEndGlobal\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- Assignment_3_Vers01.sln	(revision 6f2cf4b44aeed1e08a14c7df82bd5c45e74be106)
++++ Assignment_3_Vers01.sln	(date 1603296700474)
+@@ -9,6 +9,8 @@
+ EndProject
+ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ClassLibrary1", "ClassLibrary1\ClassLibrary1.csproj", "{FD544186-90F8-41CC-BA5C-2B04F1ACDB97}"
+ EndProject
++Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TestProject1", "TestProject1\TestProject1.csproj", "{EAB50D4D-2392-43C1-8A0B-3914A20D6F73}"
++EndProject
+ Global
+ 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+ 		Debug|Any CPU = Debug|Any CPU
+@@ -27,6 +29,10 @@
+ 		{FD544186-90F8-41CC-BA5C-2B04F1ACDB97}.Debug|Any CPU.Build.0 = Debug|Any CPU
+ 		{FD544186-90F8-41CC-BA5C-2B04F1ACDB97}.Release|Any CPU.ActiveCfg = Release|Any CPU
+ 		{FD544186-90F8-41CC-BA5C-2B04F1ACDB97}.Release|Any CPU.Build.0 = Release|Any CPU
++		{EAB50D4D-2392-43C1-8A0B-3914A20D6F73}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
++		{EAB50D4D-2392-43C1-8A0B-3914A20D6F73}.Debug|Any CPU.Build.0 = Debug|Any CPU
++		{EAB50D4D-2392-43C1-8A0B-3914A20D6F73}.Release|Any CPU.ActiveCfg = Release|Any CPU
++		{EAB50D4D-2392-43C1-8A0B-3914A20D6F73}.Release|Any CPU.Build.0 = Release|Any CPU
+ 	EndGlobalSection
+ 	GlobalSection(SolutionProperties) = preSolution
+ 		HideSolutionNode = FALSE
+Index: .idea/.idea.Assignment_3_Vers01/.idea/workspace.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?xml version=\"1.0\" encoding=\"UTF-8\"?>\r\n<project version=\"4\">\r\n  <component name=\"AutoGeneratedRunConfigurationManager\">\r\n    <projectFile>Assignment_3_Vers01/Server.csproj</projectFile>\r\n    <projectFile>Client/Client.csproj</projectFile>\r\n  </component>\r\n  <component name=\"BranchesTreeState\">\r\n    <expand>\r\n      <path>\r\n        <item name=\"ROOT\" type=\"e8cecc67:BranchNodeDescriptor\" />\r\n        <item name=\"LOCAL_ROOT\" type=\"e8cecc67:BranchNodeDescriptor\" />\r\n      </path>\r\n      <path>\r\n        <item name=\"ROOT\" type=\"e8cecc67:BranchNodeDescriptor\" />\r\n        <item name=\"REMOTE_ROOT\" type=\"e8cecc67:BranchNodeDescriptor\" />\r\n      </path>\r\n      <path>\r\n        <item name=\"ROOT\" type=\"e8cecc67:BranchNodeDescriptor\" />\r\n        <item name=\"REMOTE_ROOT\" type=\"e8cecc67:BranchNodeDescriptor\" />\r\n        <item name=\"GROUP_NODE:origin\" type=\"e8cecc67:BranchNodeDescriptor\" />\r\n      </path>\r\n    </expand>\r\n    <select />\r\n  </component>\r\n  <component name=\"ChangeListManager\">\r\n    <list default=\"true\" id=\"9dcadf51-fb73-4e39-8da6-7fac8254c49b\" name=\"Default Changelist\" comment=\"Path virker for nhr\">\r\n      <change beforePath=\"$PROJECT_DIR$/.idea/.idea.Assignment_3_Vers01/.idea/contentModel.xml\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/.idea/.idea.Assignment_3_Vers01/.idea/contentModel.xml\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/.idea/.idea.Assignment_3_Vers01/.idea/workspace.xml\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/.idea/.idea.Assignment_3_Vers01/.idea/workspace.xml\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/.vs/Assignment_3_Vers01/DesignTimeBuild/.dtbcache.v2\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/.vs/Assignment_3_Vers01/DesignTimeBuild/.dtbcache.v2\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/.vs/Assignment_3_Vers01/v16/.suo\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/.vs/Assignment_3_Vers01/v16/.suo\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/Assignment_3_Vers01.sln\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/Assignment_3_Vers01.sln\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/Assignment_3_Vers01.sln.DotSettings.user\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/Assignment_3_Vers01.sln.DotSettings.user\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/Assignment_3_Vers01/Server.cs\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/Assignment_3_Vers01/Server.cs\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/Assignment_3_Vers01/bin/Debug/netcoreapp3.1/ClassLibrary1.dll\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/Assignment_3_Vers01/bin/Debug/netcoreapp3.1/ClassLibrary1.dll\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/Assignment_3_Vers01/bin/Debug/netcoreapp3.1/ClassLibrary1.pdb\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/Assignment_3_Vers01/bin/Debug/netcoreapp3.1/ClassLibrary1.pdb\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/Assignment_3_Vers01/bin/Debug/netcoreapp3.1/Server.deps.json\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/Assignment_3_Vers01/bin/Debug/netcoreapp3.1/Server.deps.json\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/Assignment_3_Vers01/bin/Debug/netcoreapp3.1/Server.dll\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/Assignment_3_Vers01/bin/Debug/netcoreapp3.1/Server.dll\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/Assignment_3_Vers01/bin/Debug/netcoreapp3.1/Server.pdb\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/Assignment_3_Vers01/bin/Debug/netcoreapp3.1/Server.pdb\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/Assignment_3_Vers01/bin/Debug/netcoreapp3.1/Test.dll\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/Assignment_3_Vers01/bin/Debug/netcoreapp3.1/Test.dll\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/Assignment_3_Vers01/bin/Debug/netcoreapp3.1/Test.pdb\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/Assignment_3_Vers01/bin/Debug/netcoreapp3.1/Test.pdb\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/Assignment_3_Vers01/obj/Debug/netcoreapp3.1/Server.assets.cache\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/Assignment_3_Vers01/obj/Debug/netcoreapp3.1/Server.assets.cache\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/Assignment_3_Vers01/obj/Debug/netcoreapp3.1/Server.csproj.CoreCompileInputs.cache\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/Assignment_3_Vers01/obj/Debug/netcoreapp3.1/Server.csproj.CoreCompileInputs.cache\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/Assignment_3_Vers01/obj/Debug/netcoreapp3.1/Server.csprojAssemblyReference.cache\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/Assignment_3_Vers01/obj/Debug/netcoreapp3.1/Server.csprojAssemblyReference.cache\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/Assignment_3_Vers01/obj/Debug/netcoreapp3.1/Server.dll\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/Assignment_3_Vers01/obj/Debug/netcoreapp3.1/Server.dll\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/Assignment_3_Vers01/obj/Debug/netcoreapp3.1/Server.pdb\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/Assignment_3_Vers01/obj/Debug/netcoreapp3.1/Server.pdb\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/Assignment_3_Vers01/obj/Server.csproj.nuget.dgspec.json\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/Assignment_3_Vers01/obj/Server.csproj.nuget.dgspec.json\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/Assignment_3_Vers01/obj/project.assets.json\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/Assignment_3_Vers01/obj/project.assets.json\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/Assignment_3_Vers01/obj/project.nuget.cache\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/Assignment_3_Vers01/obj/project.nuget.cache\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/Assignment_3_Vers01/obj/rider.project.restore.info\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/Assignment_3_Vers01/obj/rider.project.restore.info\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/ClassLibrary1/Util.cs\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/ClassLibrary1/Util.cs\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/ClassLibrary1/bin/Debug/ClassLibrary1.dll\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/ClassLibrary1/bin/Debug/ClassLibrary1.dll\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/ClassLibrary1/bin/Debug/ClassLibrary1.pdb\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/ClassLibrary1/bin/Debug/ClassLibrary1.pdb\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/ClassLibrary1/bin/Debug/Test.dll\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/ClassLibrary1/bin/Debug/Test.dll\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/ClassLibrary1/bin/Debug/Test.pdb\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/ClassLibrary1/bin/Debug/Test.pdb\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/ClassLibrary1/obj/Debug/ClassLibrary1.csprojAssemblyReference.cache\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/ClassLibrary1/obj/Debug/ClassLibrary1.csprojAssemblyReference.cache\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/ClassLibrary1/obj/Debug/ClassLibrary1.dll\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/ClassLibrary1/obj/Debug/ClassLibrary1.dll\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/ClassLibrary1/obj/Debug/ClassLibrary1.pdb\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/ClassLibrary1/obj/Debug/ClassLibrary1.pdb\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/Client/Client.cs\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/Client/Client.cs\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/Client/bin/Debug/netcoreapp3.1/ClassLibrary1.dll\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/Client/bin/Debug/netcoreapp3.1/ClassLibrary1.dll\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/Client/bin/Debug/netcoreapp3.1/ClassLibrary1.pdb\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/Client/bin/Debug/netcoreapp3.1/ClassLibrary1.pdb\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/Client/bin/Debug/netcoreapp3.1/Client.deps.json\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/Client/bin/Debug/netcoreapp3.1/Client.deps.json\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/Client/bin/Debug/netcoreapp3.1/Client.dll\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/Client/bin/Debug/netcoreapp3.1/Client.dll\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/Client/bin/Debug/netcoreapp3.1/Client.pdb\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/Client/bin/Debug/netcoreapp3.1/Client.pdb\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/Client/bin/Debug/netcoreapp3.1/Test.dll\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/Client/bin/Debug/netcoreapp3.1/Test.dll\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/Client/bin/Debug/netcoreapp3.1/Test.pdb\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/Client/bin/Debug/netcoreapp3.1/Test.pdb\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/Client/obj/Client.csproj.nuget.dgspec.json\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/Client/obj/Client.csproj.nuget.dgspec.json\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/Client/obj/Debug/netcoreapp3.1/Client.assets.cache\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/Client/obj/Debug/netcoreapp3.1/Client.assets.cache\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/Client/obj/Debug/netcoreapp3.1/Client.csproj.CoreCompileInputs.cache\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/Client/obj/Debug/netcoreapp3.1/Client.csproj.CoreCompileInputs.cache\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/Client/obj/Debug/netcoreapp3.1/Client.csprojAssemblyReference.cache\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/Client/obj/Debug/netcoreapp3.1/Client.csprojAssemblyReference.cache\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/Client/obj/Debug/netcoreapp3.1/Client.dll\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/Client/obj/Debug/netcoreapp3.1/Client.dll\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/Client/obj/Debug/netcoreapp3.1/Client.pdb\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/Client/obj/Debug/netcoreapp3.1/Client.pdb\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/Client/obj/project.assets.json\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/Client/obj/project.assets.json\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/Client/obj/project.nuget.cache\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/Client/obj/project.nuget.cache\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/Client/obj/rider.project.restore.info\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/Client/obj/rider.project.restore.info\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/Test/Tests.cs\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/Test/Tests.cs\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/Test/bin/Debug/Test.dll\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/Test/bin/Debug/Test.dll\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/Test/bin/Debug/Test.pdb\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/Test/bin/Debug/Test.pdb\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/Test/obj/Debug/Test.dll\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/Test/obj/Debug/Test.dll\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/Test/obj/Debug/Test.pdb\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/Test/obj/Debug/Test.pdb\" afterDir=\"false\" />\r\n    </list>\r\n    <option name=\"SHOW_DIALOG\" value=\"false\" />\r\n    <option name=\"HIGHLIGHT_CONFLICTS\" value=\"true\" />\r\n    <option name=\"HIGHLIGHT_NON_ACTIVE_CHANGELIST\" value=\"false\" />\r\n    <option name=\"LAST_RESOLUTION\" value=\"IGNORE\" />\r\n  </component>\r\n  <component name=\"FileTemplateManagerImpl\">\r\n    <option name=\"RECENT_TEMPLATES\">\r\n      <list>\r\n        <option value=\"JSON File\" />\r\n      </list>\r\n    </option>\r\n  </component>\r\n  <component name=\"Git.Pull.Settings\">\r\n    <option name=\"BRANCH\" value=\"master\" />\r\n  </component>\r\n  <component name=\"Git.Rebase.Settings\">\r\n    <option name=\"NEW_BASE\" value=\"master\" />\r\n  </component>\r\n  <component name=\"Git.Settings\">\r\n    <option name=\"RECENT_BRANCH_BY_REPOSITORY\">\r\n      <map>\r\n        <entry key=\"$PROJECT_DIR$\" value=\"master\" />\r\n      </map>\r\n    </option>\r\n    <option name=\"RECENT_GIT_ROOT_PATH\" value=\"$PROJECT_DIR$\" />\r\n  </component>\r\n  <component name=\"HighlightingSettingsPerFile\">\r\n    <setting file=\"file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/B9B5DBED-02E3-45D0-BC55-940FC8BEB2FE/1B/NetworkStream.cs\" root0=\"SKIP_HIGHLIGHTING\" />\r\n    <setting file=\"file://$PROJECT_DIR$/../RAWDATA_2020_Assignment3TestSuite-master/Assignment3TestSuite/Assignment3Tests.cs\" root0=\"SKIP_HIGHLIGHTING\" />\r\n    <setting file=\"file://$PROJECT_DIR$/Assignment_3_Vers01/JsonServerTest.json\" root0=\"FORCE_HIGHLIGHTING\" />\r\n  </component>\r\n  <component name=\"IdeDocumentHistory\">\r\n    <option name=\"CHANGED_PATHS\">\r\n      <list>\r\n        <option value=\"$PROJECT_DIR$/Client/Program.cs\" />\r\n        <option value=\"$PROJECT_DIR$/ClassLibrary1/Class1.cs\" />\r\n        <option value=\"$PROJECT_DIR$/ClassLibrary1/MyClient.cs\" />\r\n        <option value=\"$PROJECT_DIR$/Client/RAWDATA_2020_Assignment3TestSuite-master/Assignment3TestSuite/Assignment3Tests.cs\" />\r\n        <option value=\"$PROJECT_DIR$/ClassLibrary1/Message.cs\" />\r\n        <option value=\"$PROJECT_DIR$/ClassLibrary1/Request.cs\" />\r\n        <option value=\"$PROJECT_DIR$/ClassLibrary1/JsonFiles/Test.json\" />\r\n        <option value=\"$PROJECT_DIR$/ClassLibrary1/JsonFiles/JsonServerTest.json\" />\r\n        <option value=\"$PROJECT_DIR$/Assignment_3_Vers01/HandleRequest.cs\" />\r\n        <option value=\"$PROJECT_DIR$/Client/Request.cs\" />\r\n        <option value=\"$PROJECT_DIR$/Assignment_3_Vers01/RequestContainer.cs\" />\r\n        <option value=\"$PROJECT_DIR$/Client/ResponseContainer.cs\" />\r\n        <option value=\"$PROJECT_DIR$/Assignment_3_Vers01/Response.cs\" />\r\n        <option value=\"$PROJECT_DIR$/Assignment_3_Vers01/Server.cs\" />\r\n        <option value=\"$PROJECT_DIR$/Client/Client.cs\" />\r\n        <option value=\"$PROJECT_DIR$/Test/Tests.cs\" />\r\n        <option value=\"$PROJECT_DIR$/ClassLibrary1/Util.cs\" />\r\n        <option value=\"$PROJECT_DIR$/Tests/Tests.cs\" />\r\n      </list>\r\n    </option>\r\n  </component>\r\n  <component name=\"ProjectId\" id=\"1ixuEi1xA01H4JzhwI4lIaP8noI\" />\r\n  <component name=\"ProjectLevelVcsManager\" settingsEditedManually=\"true\" />\r\n  <component name=\"ProjectViewState\">\r\n    <option name=\"hideEmptyMiddlePackages\" value=\"true\" />\r\n    <option name=\"showLibraryContents\" value=\"true\" />\r\n  </component>\r\n  <component name=\"PropertiesComponent\">\r\n    <property name=\"ASKED_ADD_EXTERNAL_FILES\" value=\"true\" />\r\n    <property name=\"DebuggerViewTab_PTCS_FirstProportionKey\" value=\"0.34969738\" />\r\n    <property name=\"DebuggerViewTab_PTCS_LastProportionKey\" value=\"0.29993275\" />\r\n    <property name=\"RunOnceActivity.OpenProjectViewOnStart\" value=\"true\" />\r\n    <property name=\"WebServerToolWindowFactoryState\" value=\"false\" />\r\n    <property name=\"nodejs_package_manager_path\" value=\"npm\" />\r\n    <property name=\"settings.editor.selected.configurable\" value=\"configurable.group.build\" />\r\n    <property name=\"vue.rearranger.settings.migration\" value=\"true\" />\r\n  </component>\r\n  <component name=\"RunManager\" selected=\".NET Project.Client\">\r\n    <configuration name=\"Client\" type=\"DotNetProject\" factoryName=\".NET Project\">\r\n      <option name=\"EXE_PATH\" value=\"$PROJECT_DIR$/Client/bin/Debug/netcoreapp3.1/Client.dll\" />\r\n      <option name=\"PROGRAM_PARAMETERS\" value=\"\" />\r\n      <option name=\"WORKING_DIRECTORY\" value=\"$PROJECT_DIR$/Client/bin/Debug/netcoreapp3.1\" />\r\n      <option name=\"PASS_PARENT_ENVS\" value=\"1\" />\r\n      <option name=\"USE_EXTERNAL_CONSOLE\" value=\"0\" />\r\n      <option name=\"USE_MONO\" value=\"0\" />\r\n      <option name=\"RUNTIME_ARGUMENTS\" value=\"\" />\r\n      <option name=\"PROJECT_PATH\" value=\"$PROJECT_DIR$/Client/Client.csproj\" />\r\n      <option name=\"PROJECT_EXE_PATH_TRACKING\" value=\"1\" />\r\n      <option name=\"PROJECT_ARGUMENTS_TRACKING\" value=\"1\" />\r\n      <option name=\"PROJECT_WORKING_DIRECTORY_TRACKING\" value=\"1\" />\r\n      <option name=\"PROJECT_KIND\" value=\"DotNetCore\" />\r\n      <option name=\"PROJECT_TFM\" value=\".NETCoreApp,Version=v3.1\" />\r\n      <method v=\"2\">\r\n        <option name=\"Build\" />\r\n      </method>\r\n    </configuration>\r\n    <configuration name=\"Server\" type=\"DotNetProject\" factoryName=\".NET Project\">\r\n      <option name=\"EXE_PATH\" value=\"$PROJECT_DIR$/Assignment_3_Vers01/bin/Debug/netcoreapp3.1/Server.dll\" />\r\n      <option name=\"PROGRAM_PARAMETERS\" value=\"\" />\r\n      <option name=\"WORKING_DIRECTORY\" value=\"$PROJECT_DIR$/Assignment_3_Vers01\" />\r\n      <option name=\"PASS_PARENT_ENVS\" value=\"1\" />\r\n      <option name=\"USE_EXTERNAL_CONSOLE\" value=\"0\" />\r\n      <option name=\"USE_MONO\" value=\"0\" />\r\n      <option name=\"RUNTIME_ARGUMENTS\" value=\"\" />\r\n      <option name=\"PROJECT_PATH\" value=\"$PROJECT_DIR$/Assignment_3_Vers01/Server.csproj\" />\r\n      <option name=\"PROJECT_EXE_PATH_TRACKING\" value=\"1\" />\r\n      <option name=\"PROJECT_ARGUMENTS_TRACKING\" value=\"1\" />\r\n      <option name=\"PROJECT_WORKING_DIRECTORY_TRACKING\" value=\"0\" />\r\n      <option name=\"PROJECT_KIND\" value=\"DotNetCore\" />\r\n      <option name=\"PROJECT_TFM\" value=\".NETCoreApp,Version=v3.1\" />\r\n      <method v=\"2\">\r\n        <option name=\"Build\" />\r\n      </method>\r\n    </configuration>\r\n    <list>\r\n      <item itemvalue=\".NET Project.Client\" />\r\n      <item itemvalue=\".NET Project.Server\" />\r\n    </list>\r\n  </component>\r\n  <component name=\"SpellCheckerSettings\" RuntimeDictionaries=\"0\" Folders=\"0\" CustomDictionaries=\"0\" DefaultDictionary=\"application-level\" UseSingleDictionary=\"true\" transferred=\"true\" />\r\n  <component name=\"TaskManager\">\r\n    <task active=\"true\" id=\"Default\" summary=\"Default task\">\r\n      <changelist id=\"9dcadf51-fb73-4e39-8da6-7fac8254c49b\" name=\"Default Changelist\" comment=\"\" />\r\n      <created>1602861455482</created>\r\n      <option name=\"number\" value=\"Default\" />\r\n      <option name=\"presentableId\" value=\"Default\" />\r\n      <updated>1602861455482</updated>\r\n      <workItem from=\"1602861462141\" duration=\"980000\" />\r\n      <workItem from=\"1602867269007\" duration=\"10972000\" />\r\n      <workItem from=\"1602890795492\" duration=\"2544000\" />\r\n      <workItem from=\"1602918193884\" duration=\"594000\" />\r\n      <workItem from=\"1602946121722\" duration=\"854000\" />\r\n      <workItem from=\"1602950484140\" duration=\"2912000\" />\r\n      <workItem from=\"1603033092964\" duration=\"30121000\" />\r\n      <workItem from=\"1603127513206\" duration=\"5030000\" />\r\n      <workItem from=\"1603132628145\" duration=\"2228000\" />\r\n      <workItem from=\"1603167907173\" duration=\"2120000\" />\r\n      <workItem from=\"1603170082195\" duration=\"5899000\" />\r\n      <workItem from=\"1603178212813\" duration=\"11789000\" />\r\n      <workItem from=\"1603190129786\" duration=\"4503000\" />\r\n      <workItem from=\"1603195263941\" duration=\"5730000\" />\r\n      <workItem from=\"1603201074224\" duration=\"4136000\" />\r\n    </task>\r\n    <task id=\"LOCAL-00001\" summary=\"Her er det åbenbart\">\r\n      <created>1603127985348</created>\r\n      <option name=\"number\" value=\"00001\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00001\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1603127985348</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00002\" summary=\"Her er det åbenbart\">\r\n      <created>1603129018436</created>\r\n      <option name=\"number\" value=\"00002\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00002\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1603129018436</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00003\" summary=\"Her er det åbenbart\">\r\n      <created>1603129441073</created>\r\n      <option name=\"number\" value=\"00003\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00003\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1603129441073</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00004\" summary=\"Path virker for nhr\">\r\n      <created>1603134585014</created>\r\n      <option name=\"number\" value=\"00004\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00004\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1603134585014</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00005\" summary=\"Path virker for nhr\">\r\n      <created>1603134769264</created>\r\n      <option name=\"number\" value=\"00005\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00005\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1603134769264</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00006\" summary=\"removed unnecessary code. rewrote client and server paths\">\r\n      <created>1603170213183</created>\r\n      <option name=\"number\" value=\"00006\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00006\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1603170213183</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00007\" summary=\"Desirialized an request object !\">\r\n      <created>1603174713979</created>\r\n      <option name=\"number\" value=\"00007\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00007\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1603174713979</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00008\" summary=\"Renamed handlerequest to RequestContainer.cs\">\r\n      <created>1603178276942</created>\r\n      <option name=\"number\" value=\"00008\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00008\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1603178276942</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00009\" summary=\"Util.Readresponse implemented in Client.cs\">\r\n      <created>1603178380810</created>\r\n      <option name=\"number\" value=\"00009\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00009\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1603178380810</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00010\" summary=\"We can read responses from the server in our Client.cs\">\r\n      <created>1603183279334</created>\r\n      <option name=\"number\" value=\"00010\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00010\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1603183279334</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00011\" summary=\"Made response structure\">\r\n      <created>1603184735382</created>\r\n      <option name=\"number\" value=\"00011\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00011\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1603184735382</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00012\" summary=\"Lavet GetSErverrepsonse method\">\r\n      <created>1603184991964</created>\r\n      <option name=\"number\" value=\"00012\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00012\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1603184991964</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00013\" summary=\"Lavet GetSErverrepsonse method\">\r\n      <created>1603186199309</created>\r\n      <option name=\"number\" value=\"00013\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00013\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1603186199309</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00014\" summary=\"Senest\">\r\n      <created>1603191854209</created>\r\n      <option name=\"number\" value=\"00014\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00014\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1603191854209</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00015\" summary=\"Senest\">\r\n      <created>1603193368415</created>\r\n      <option name=\"number\" value=\"00015\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00015\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1603193368415</updated>\r\n    </task>\r\n    <option name=\"localTasksCounter\" value=\"16\" />\r\n    <servers />\r\n  </component>\r\n  <component name=\"TypeScriptGeneratedFilesManager\">\r\n    <option name=\"version\" value=\"3\" />\r\n  </component>\r\n  <component name=\"UnityProjectConfiguration\" hasMinimizedUI=\"false\" />\r\n  <component name=\"UnityUnitTestConfiguration\" currentTestLauncher=\"NUnit\" />\r\n  <component name=\"Vcs.Log.Tabs.Properties\">\r\n    <option name=\"TAB_STATES\">\r\n      <map>\r\n        <entry key=\"MAIN\">\r\n          <value>\r\n            <State />\r\n          </value>\r\n        </entry>\r\n      </map>\r\n    </option>\r\n    <option name=\"oldMeFiltersMigrated\" value=\"true\" />\r\n  </component>\r\n  <component name=\"VcsManagerConfiguration\">\r\n    <option name=\"CLEAR_INITIAL_COMMIT_MESSAGE\" value=\"true\" />\r\n    <MESSAGE value=\"Her er det åbenbart\" />\r\n    <MESSAGE value=\"Path virker for nhr\" />\r\n    <MESSAGE value=\"removed unnecessary code. rewrote client and server paths\" />\r\n    <MESSAGE value=\"Desirialized an request object !\" />\r\n    <MESSAGE value=\"Renamed handlerequest to RequestContainer.cs\" />\r\n    <MESSAGE value=\"Util.Readresponse implemented in Client.cs\" />\r\n    <MESSAGE value=\"We can read responses from the server in our Client.cs\" />\r\n    <MESSAGE value=\"Made response structure\" />\r\n    <MESSAGE value=\"Lavet GetSErverrepsonse method\" />\r\n    <MESSAGE value=\"Senest\" />\r\n    <option name=\"LAST_COMMIT_MESSAGE\" value=\"Senest\" />\r\n  </component>\r\n  <component name=\"WindowStateProjectService\">\r\n    <state x=\"692\" y=\"243\" width=\"1092\" height=\"714\" key=\"#com.intellij.execution.impl.EditConfigurationsDialog\" timestamp=\"1603169936776\">\r\n      <screen x=\"0\" y=\"0\" width=\"3440\" height=\"1400\" />\r\n    </state>\r\n    <state x=\"828\" y=\"178\" key=\"#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1920.1040@0.0.1920.1040\" timestamp=\"1602892139072\" />\r\n    <state x=\"692\" y=\"243\" width=\"1092\" height=\"714\" key=\"#com.intellij.execution.impl.EditConfigurationsDialog/0.0.3440.1400@0.0.3440.1400\" timestamp=\"1603169936776\" />\r\n    <state x=\"0\" y=\"122\" key=\"DiffContextDialog\" timestamp=\"1603134555737\">\r\n      <screen x=\"0\" y=\"0\" width=\"3440\" height=\"1400\" />\r\n    </state>\r\n    <state x=\"0\" y=\"122\" key=\"DiffContextDialog/0.0.3440.1400@0.0.3440.1400\" timestamp=\"1603134555737\" />\r\n    <state width=\"1518\" height=\"357\" key=\"GridCell.Tab.0.bottom\" timestamp=\"1603206426444\">\r\n      <screen x=\"0\" y=\"0\" width=\"3440\" height=\"1400\" />\r\n    </state>\r\n    <state width=\"914\" height=\"265\" key=\"GridCell.Tab.0.bottom/0.0.1920.1040@0.0.1920.1040\" timestamp=\"1602892159284\" />\r\n    <state width=\"1518\" height=\"357\" key=\"GridCell.Tab.0.bottom/0.0.3440.1400@0.0.3440.1400\" timestamp=\"1603206426444\" />\r\n    <state width=\"914\" height=\"281\" key=\"GridCell.Tab.0.bottom/1920.0.1920.1040/0.0.1920.1040@0.0.1920.1040\" timestamp=\"1602879799315\" />\r\n    <state width=\"1518\" height=\"357\" key=\"GridCell.Tab.0.center\" timestamp=\"1603206426444\">\r\n      <screen x=\"0\" y=\"0\" width=\"3440\" height=\"1400\" />\r\n    </state>\r\n    <state width=\"914\" height=\"265\" key=\"GridCell.Tab.0.center/0.0.1920.1040@0.0.1920.1040\" timestamp=\"1602892159284\" />\r\n    <state width=\"1518\" height=\"357\" key=\"GridCell.Tab.0.center/0.0.3440.1400@0.0.3440.1400\" timestamp=\"1603206426444\" />\r\n    <state width=\"914\" height=\"281\" key=\"GridCell.Tab.0.center/1920.0.1920.1040/0.0.1920.1040@0.0.1920.1040\" timestamp=\"1602879799315\" />\r\n    <state width=\"1518\" height=\"357\" key=\"GridCell.Tab.0.left\" timestamp=\"1603206426444\">\r\n      <screen x=\"0\" y=\"0\" width=\"3440\" height=\"1400\" />\r\n    </state>\r\n    <state width=\"914\" height=\"265\" key=\"GridCell.Tab.0.left/0.0.1920.1040@0.0.1920.1040\" timestamp=\"1602892159284\" />\r\n    <state width=\"1518\" height=\"357\" key=\"GridCell.Tab.0.left/0.0.3440.1400@0.0.3440.1400\" timestamp=\"1603206426444\" />\r\n    <state width=\"914\" height=\"281\" key=\"GridCell.Tab.0.left/1920.0.1920.1040/0.0.1920.1040@0.0.1920.1040\" timestamp=\"1602879799315\" />\r\n    <state width=\"1518\" height=\"357\" key=\"GridCell.Tab.0.right\" timestamp=\"1603206426444\">\r\n      <screen x=\"0\" y=\"0\" width=\"3440\" height=\"1400\" />\r\n    </state>\r\n    <state width=\"914\" height=\"265\" key=\"GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040\" timestamp=\"1602892159284\" />\r\n    <state width=\"1518\" height=\"357\" key=\"GridCell.Tab.0.right/0.0.3440.1400@0.0.3440.1400\" timestamp=\"1603206426444\" />\r\n    <state width=\"914\" height=\"281\" key=\"GridCell.Tab.0.right/1920.0.1920.1040/0.0.1920.1040@0.0.1920.1040\" timestamp=\"1602879799315\" />\r\n    <state width=\"1518\" height=\"515\" key=\"GridCell.Tab.1.bottom\" timestamp=\"1603201048254\">\r\n      <screen x=\"0\" y=\"0\" width=\"3440\" height=\"1400\" />\r\n    </state>\r\n    <state width=\"1518\" height=\"515\" key=\"GridCell.Tab.1.bottom/0.0.3440.1400@0.0.3440.1400\" timestamp=\"1603201048254\" />\r\n    <state width=\"1518\" height=\"515\" key=\"GridCell.Tab.1.center\" timestamp=\"1603201048254\">\r\n      <screen x=\"0\" y=\"0\" width=\"3440\" height=\"1400\" />\r\n    </state>\r\n    <state width=\"1518\" height=\"515\" key=\"GridCell.Tab.1.center/0.0.3440.1400@0.0.3440.1400\" timestamp=\"1603201048254\" />\r\n    <state width=\"1518\" height=\"515\" key=\"GridCell.Tab.1.left\" timestamp=\"1603201048254\">\r\n      <screen x=\"0\" y=\"0\" width=\"3440\" height=\"1400\" />\r\n    </state>\r\n    <state width=\"1518\" height=\"515\" key=\"GridCell.Tab.1.left/0.0.3440.1400@0.0.3440.1400\" timestamp=\"1603201048254\" />\r\n    <state width=\"1518\" height=\"515\" key=\"GridCell.Tab.1.right\" timestamp=\"1603201048254\">\r\n      <screen x=\"0\" y=\"0\" width=\"3440\" height=\"1400\" />\r\n    </state>\r\n    <state width=\"1518\" height=\"515\" key=\"GridCell.Tab.1.right/0.0.3440.1400@0.0.3440.1400\" timestamp=\"1603201048254\" />\r\n    <state width=\"1518\" height=\"515\" key=\"GridCell.Tab.2.bottom\" timestamp=\"1603201048254\">\r\n      <screen x=\"0\" y=\"0\" width=\"3440\" height=\"1400\" />\r\n    </state>\r\n    <state width=\"1518\" height=\"515\" key=\"GridCell.Tab.2.bottom/0.0.3440.1400@0.0.3440.1400\" timestamp=\"1603201048254\" />\r\n    <state width=\"1518\" height=\"515\" key=\"GridCell.Tab.2.center\" timestamp=\"1603201048254\">\r\n      <screen x=\"0\" y=\"0\" width=\"3440\" height=\"1400\" />\r\n    </state>\r\n    <state width=\"1518\" height=\"515\" key=\"GridCell.Tab.2.center/0.0.3440.1400@0.0.3440.1400\" timestamp=\"1603201048254\" />\r\n    <state width=\"1518\" height=\"515\" key=\"GridCell.Tab.2.left\" timestamp=\"1603201048254\">\r\n      <screen x=\"0\" y=\"0\" width=\"3440\" height=\"1400\" />\r\n    </state>\r\n    <state width=\"1518\" height=\"515\" key=\"GridCell.Tab.2.left/0.0.3440.1400@0.0.3440.1400\" timestamp=\"1603201048254\" />\r\n    <state width=\"1518\" height=\"515\" key=\"GridCell.Tab.2.right\" timestamp=\"1603201048254\">\r\n      <screen x=\"0\" y=\"0\" width=\"3440\" height=\"1400\" />\r\n    </state>\r\n    <state width=\"1518\" height=\"515\" key=\"GridCell.Tab.2.right/0.0.3440.1400@0.0.3440.1400\" timestamp=\"1603201048254\" />\r\n    <state width=\"1518\" height=\"515\" key=\"GridCell.Tab.3.bottom\" timestamp=\"1603201048254\">\r\n      <screen x=\"0\" y=\"0\" width=\"3440\" height=\"1400\" />\r\n    </state>\r\n    <state width=\"1518\" height=\"515\" key=\"GridCell.Tab.3.bottom/0.0.3440.1400@0.0.3440.1400\" timestamp=\"1603201048254\" />\r\n    <state width=\"1518\" height=\"515\" key=\"GridCell.Tab.3.center\" timestamp=\"1603201048254\">\r\n      <screen x=\"0\" y=\"0\" width=\"3440\" height=\"1400\" />\r\n    </state>\r\n    <state width=\"1518\" height=\"515\" key=\"GridCell.Tab.3.center/0.0.3440.1400@0.0.3440.1400\" timestamp=\"1603201048254\" />\r\n    <state width=\"1518\" height=\"515\" key=\"GridCell.Tab.3.left\" timestamp=\"1603201048254\">\r\n      <screen x=\"0\" y=\"0\" width=\"3440\" height=\"1400\" />\r\n    </state>\r\n    <state width=\"1518\" height=\"515\" key=\"GridCell.Tab.3.left/0.0.3440.1400@0.0.3440.1400\" timestamp=\"1603201048254\" />\r\n    <state width=\"1518\" height=\"515\" key=\"GridCell.Tab.3.right\" timestamp=\"1603201048254\">\r\n      <screen x=\"0\" y=\"0\" width=\"3440\" height=\"1400\" />\r\n    </state>\r\n    <state width=\"1518\" height=\"515\" key=\"GridCell.Tab.3.right/0.0.3440.1400@0.0.3440.1400\" timestamp=\"1603201048254\" />\r\n    <state width=\"1518\" height=\"515\" key=\"GridCell.Tab.4.bottom\" timestamp=\"1603201048255\">\r\n      <screen x=\"0\" y=\"0\" width=\"3440\" height=\"1400\" />\r\n    </state>\r\n    <state width=\"1518\" height=\"515\" key=\"GridCell.Tab.4.bottom/0.0.3440.1400@0.0.3440.1400\" timestamp=\"1603201048255\" />\r\n    <state width=\"1518\" height=\"515\" key=\"GridCell.Tab.4.center\" timestamp=\"1603201048255\">\r\n      <screen x=\"0\" y=\"0\" width=\"3440\" height=\"1400\" />\r\n    </state>\r\n    <state width=\"1518\" height=\"515\" key=\"GridCell.Tab.4.center/0.0.3440.1400@0.0.3440.1400\" timestamp=\"1603201048255\" />\r\n    <state width=\"1518\" height=\"515\" key=\"GridCell.Tab.4.left\" timestamp=\"1603201048254\">\r\n      <screen x=\"0\" y=\"0\" width=\"3440\" height=\"1400\" />\r\n    </state>\r\n    <state width=\"1518\" height=\"515\" key=\"GridCell.Tab.4.left/0.0.3440.1400@0.0.3440.1400\" timestamp=\"1603201048254\" />\r\n    <state width=\"1518\" height=\"515\" key=\"GridCell.Tab.4.right\" timestamp=\"1603201048255\">\r\n      <screen x=\"0\" y=\"0\" width=\"3440\" height=\"1400\" />\r\n    </state>\r\n    <state width=\"1518\" height=\"515\" key=\"GridCell.Tab.4.right/0.0.3440.1400@0.0.3440.1400\" timestamp=\"1603201048255\" />\r\n    <state x=\"0\" y=\"123\" key=\"MergeDialog\" timestamp=\"1603134642278\">\r\n      <screen x=\"0\" y=\"0\" width=\"3440\" height=\"1400\" />\r\n    </state>\r\n    <state x=\"0\" y=\"123\" key=\"MergeDialog/0.0.3440.1400@0.0.3440.1400\" timestamp=\"1603134642278\" />\r\n    <state x=\"260\" y=\"462\" key=\"MultipleFileMergeDialog\" timestamp=\"1603134642282\">\r\n      <screen x=\"0\" y=\"0\" width=\"3440\" height=\"1400\" />\r\n    </state>\r\n    <state x=\"260\" y=\"462\" key=\"MultipleFileMergeDialog/0.0.3440.1400@0.0.3440.1400\" timestamp=\"1603134642282\" />\r\n    <state x=\"1849\" y=\"339\" key=\"Rider.ProjectTemplateDialog.Size\" timestamp=\"1603206411404\">\r\n      <screen x=\"0\" y=\"0\" width=\"3440\" height=\"1400\" />\r\n    </state>\r\n    <state x=\"1849\" y=\"339\" key=\"Rider.ProjectTemplateDialog.Size/0.0.3440.1400@0.0.3440.1400\" timestamp=\"1603206411404\" />\r\n    <state x=\"1032\" y=\"252\" key=\"Rider.ProjectTemplateDialog.Size/1920.0.1920.1040/0.0.1920.1040@0.0.1920.1040\" timestamp=\"1602861848890\" />\r\n    <state x=\"120\" y=\"334\" key=\"SettingsEditor\" timestamp=\"1603133914688\">\r\n      <screen x=\"0\" y=\"0\" width=\"3440\" height=\"1400\" />\r\n    </state>\r\n    <state x=\"120\" y=\"334\" key=\"SettingsEditor/0.0.3440.1400@0.0.3440.1400\" timestamp=\"1603133914688\" />\r\n    <state x=\"101\" y=\"100\" width=\"1266\" height=\"1201\" key=\"VCS.FileHistoryDialog\" timestamp=\"1603134876888\">\r\n      <screen x=\"0\" y=\"0\" width=\"3440\" height=\"1400\" />\r\n    </state>\r\n    <state x=\"101\" y=\"100\" width=\"1266\" height=\"1201\" key=\"VCS.FileHistoryDialog/0.0.3440.1400@0.0.3440.1400\" timestamp=\"1603134876888\" />\r\n    <state x=\"312\" y=\"433\" key=\"Vcs.Push.Dialog.v2\" timestamp=\"1603206371130\">\r\n      <screen x=\"0\" y=\"0\" width=\"3440\" height=\"1400\" />\r\n    </state>\r\n    <state x=\"312\" y=\"433\" key=\"Vcs.Push.Dialog.v2/0.0.3440.1400@0.0.3440.1400\" timestamp=\"1603206371130\" />\r\n    <state x=\"538\" y=\"614\" key=\"com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2\" timestamp=\"1603193783402\">\r\n      <screen x=\"0\" y=\"0\" width=\"3440\" height=\"1400\" />\r\n    </state>\r\n    <state x=\"538\" y=\"614\" key=\"com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.3440.1400@0.0.3440.1400\" timestamp=\"1603193783402\" />\r\n    <state x=\"1860\" y=\"0\" width=\"1218\" height=\"1398\" key=\"dock-window-1\" timestamp=\"1603200483852\">\r\n      <screen x=\"0\" y=\"0\" width=\"3440\" height=\"1400\" />\r\n    </state>\r\n    <state x=\"1860\" y=\"0\" width=\"1218\" height=\"1398\" key=\"dock-window-1/0.0.3440.1400@0.0.3440.1400\" timestamp=\"1603200483852\" />\r\n    <state x=\"522\" y=\"606\" key=\"git4idea.remote.GitConfigureRemotesDialog\" timestamp=\"1603127945507\">\r\n      <screen x=\"0\" y=\"0\" width=\"3440\" height=\"1400\" />\r\n    </state>\r\n    <state x=\"522\" y=\"606\" key=\"git4idea.remote.GitConfigureRemotesDialog/0.0.3440.1400@0.0.3440.1400\" timestamp=\"1603127945507\" />\r\n    <state x=\"275\" y=\"327\" width=\"672\" height=\"677\" key=\"run.anything.popup\" timestamp=\"1603199299130\">\r\n      <screen x=\"0\" y=\"0\" width=\"3440\" height=\"1400\" />\r\n    </state>\r\n    <state x=\"275\" y=\"327\" width=\"672\" height=\"677\" key=\"run.anything.popup/0.0.3440.1400@0.0.3440.1400\" timestamp=\"1603199299130\" />\r\n    <state x=\"1976\" y=\"310\" width=\"1204\" height=\"913\" key=\"search.everywhere.popup\" timestamp=\"1603182912266\">\r\n      <screen x=\"0\" y=\"0\" width=\"3440\" height=\"1400\" />\r\n    </state>\r\n    <state x=\"1103\" y=\"230\" width=\"672\" height=\"678\" key=\"search.everywhere.popup/0.0.1920.1040@0.0.1920.1040\" timestamp=\"1602891693866\" />\r\n    <state x=\"1976\" y=\"310\" width=\"1204\" height=\"913\" key=\"search.everywhere.popup/0.0.3440.1400@0.0.3440.1400\" timestamp=\"1603182912266\" />\r\n  </component>\r\n</project>
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- .idea/.idea.Assignment_3_Vers01/.idea/workspace.xml	(revision 6f2cf4b44aeed1e08a14c7df82bd5c45e74be106)
++++ .idea/.idea.Assignment_3_Vers01/.idea/workspace.xml	(date 1603296847044)
+@@ -24,59 +24,15 @@
+   </component>
+   <component name="ChangeListManager">
+     <list default="true" id="9dcadf51-fb73-4e39-8da6-7fac8254c49b" name="Default Changelist" comment="Path virker for nhr">
+-      <change beforePath="$PROJECT_DIR$/.idea/.idea.Assignment_3_Vers01/.idea/contentModel.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Assignment_3_Vers01/.idea/contentModel.xml" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/.idea/.idea.Assignment_3_Vers01/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Assignment_3_Vers01/.idea/workspace.xml" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/.vs/Assignment_3_Vers01/DesignTimeBuild/.dtbcache.v2" beforeDir="false" afterPath="$PROJECT_DIR$/.vs/Assignment_3_Vers01/DesignTimeBuild/.dtbcache.v2" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/.vs/Assignment_3_Vers01/v16/.suo" beforeDir="false" afterPath="$PROJECT_DIR$/.vs/Assignment_3_Vers01/v16/.suo" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/Assignment_3_Vers01.sln" beforeDir="false" afterPath="$PROJECT_DIR$/Assignment_3_Vers01.sln" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/Assignment_3_Vers01.sln.DotSettings.user" beforeDir="false" afterPath="$PROJECT_DIR$/Assignment_3_Vers01.sln.DotSettings.user" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/Assignment_3_Vers01/RequestContainer.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assignment_3_Vers01/RequestContainer.cs" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/Assignment_3_Vers01/Response.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assignment_3_Vers01/Response.cs" afterDir="false" />
+       <change beforePath="$PROJECT_DIR$/Assignment_3_Vers01/Server.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assignment_3_Vers01/Server.cs" afterDir="false" />
+       <change beforePath="$PROJECT_DIR$/Assignment_3_Vers01/bin/Debug/netcoreapp3.1/ClassLibrary1.dll" beforeDir="false" afterPath="$PROJECT_DIR$/Assignment_3_Vers01/bin/Debug/netcoreapp3.1/ClassLibrary1.dll" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/Assignment_3_Vers01/bin/Debug/netcoreapp3.1/ClassLibrary1.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/Assignment_3_Vers01/bin/Debug/netcoreapp3.1/ClassLibrary1.pdb" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/Assignment_3_Vers01/bin/Debug/netcoreapp3.1/Server.deps.json" beforeDir="false" afterPath="$PROJECT_DIR$/Assignment_3_Vers01/bin/Debug/netcoreapp3.1/Server.deps.json" afterDir="false" />
+       <change beforePath="$PROJECT_DIR$/Assignment_3_Vers01/bin/Debug/netcoreapp3.1/Server.dll" beforeDir="false" afterPath="$PROJECT_DIR$/Assignment_3_Vers01/bin/Debug/netcoreapp3.1/Server.dll" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/Assignment_3_Vers01/bin/Debug/netcoreapp3.1/Server.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/Assignment_3_Vers01/bin/Debug/netcoreapp3.1/Server.pdb" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/Assignment_3_Vers01/bin/Debug/netcoreapp3.1/Test.dll" beforeDir="false" afterPath="$PROJECT_DIR$/Assignment_3_Vers01/bin/Debug/netcoreapp3.1/Test.dll" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/Assignment_3_Vers01/bin/Debug/netcoreapp3.1/Test.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/Assignment_3_Vers01/bin/Debug/netcoreapp3.1/Test.pdb" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/Assignment_3_Vers01/obj/Debug/netcoreapp3.1/Server.assets.cache" beforeDir="false" afterPath="$PROJECT_DIR$/Assignment_3_Vers01/obj/Debug/netcoreapp3.1/Server.assets.cache" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/Assignment_3_Vers01/obj/Debug/netcoreapp3.1/Server.csproj.CoreCompileInputs.cache" beforeDir="false" afterPath="$PROJECT_DIR$/Assignment_3_Vers01/obj/Debug/netcoreapp3.1/Server.csproj.CoreCompileInputs.cache" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/Assignment_3_Vers01/obj/Debug/netcoreapp3.1/Server.csprojAssemblyReference.cache" beforeDir="false" afterPath="$PROJECT_DIR$/Assignment_3_Vers01/obj/Debug/netcoreapp3.1/Server.csprojAssemblyReference.cache" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/Assignment_3_Vers01/obj/Debug/netcoreapp3.1/Server.dll" beforeDir="false" afterPath="$PROJECT_DIR$/Assignment_3_Vers01/obj/Debug/netcoreapp3.1/Server.dll" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/Assignment_3_Vers01/obj/Debug/netcoreapp3.1/Server.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/Assignment_3_Vers01/obj/Debug/netcoreapp3.1/Server.pdb" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/Assignment_3_Vers01/obj/Server.csproj.nuget.dgspec.json" beforeDir="false" afterPath="$PROJECT_DIR$/Assignment_3_Vers01/obj/Server.csproj.nuget.dgspec.json" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/Assignment_3_Vers01/obj/project.assets.json" beforeDir="false" afterPath="$PROJECT_DIR$/Assignment_3_Vers01/obj/project.assets.json" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/Assignment_3_Vers01/obj/project.nuget.cache" beforeDir="false" afterPath="$PROJECT_DIR$/Assignment_3_Vers01/obj/project.nuget.cache" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/Assignment_3_Vers01/obj/rider.project.restore.info" beforeDir="false" afterPath="$PROJECT_DIR$/Assignment_3_Vers01/obj/rider.project.restore.info" afterDir="false" />
+       <change beforePath="$PROJECT_DIR$/ClassLibrary1/Util.cs" beforeDir="false" afterPath="$PROJECT_DIR$/ClassLibrary1/Util.cs" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/ClassLibrary1/bin/Debug/ClassLibrary1.dll" beforeDir="false" afterPath="$PROJECT_DIR$/ClassLibrary1/bin/Debug/ClassLibrary1.dll" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/ClassLibrary1/bin/Debug/ClassLibrary1.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/ClassLibrary1/bin/Debug/ClassLibrary1.pdb" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/ClassLibrary1/bin/Debug/Test.dll" beforeDir="false" afterPath="$PROJECT_DIR$/ClassLibrary1/bin/Debug/Test.dll" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/ClassLibrary1/bin/Debug/Test.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/ClassLibrary1/bin/Debug/Test.pdb" afterDir="false" />
+       <change beforePath="$PROJECT_DIR$/ClassLibrary1/obj/Debug/ClassLibrary1.csprojAssemblyReference.cache" beforeDir="false" afterPath="$PROJECT_DIR$/ClassLibrary1/obj/Debug/ClassLibrary1.csprojAssemblyReference.cache" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/ClassLibrary1/obj/Debug/ClassLibrary1.dll" beforeDir="false" afterPath="$PROJECT_DIR$/ClassLibrary1/obj/Debug/ClassLibrary1.dll" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/ClassLibrary1/obj/Debug/ClassLibrary1.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/ClassLibrary1/obj/Debug/ClassLibrary1.pdb" afterDir="false" />
+       <change beforePath="$PROJECT_DIR$/Client/Client.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Client/Client.cs" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/Client/bin/Debug/netcoreapp3.1/ClassLibrary1.dll" beforeDir="false" afterPath="$PROJECT_DIR$/Client/bin/Debug/netcoreapp3.1/ClassLibrary1.dll" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/Client/bin/Debug/netcoreapp3.1/ClassLibrary1.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/Client/bin/Debug/netcoreapp3.1/ClassLibrary1.pdb" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/Client/bin/Debug/netcoreapp3.1/Client.deps.json" beforeDir="false" afterPath="$PROJECT_DIR$/Client/bin/Debug/netcoreapp3.1/Client.deps.json" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/Client/bin/Debug/netcoreapp3.1/Client.dll" beforeDir="false" afterPath="$PROJECT_DIR$/Client/bin/Debug/netcoreapp3.1/Client.dll" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/Client/bin/Debug/netcoreapp3.1/Client.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/Client/bin/Debug/netcoreapp3.1/Client.pdb" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/Client/bin/Debug/netcoreapp3.1/Test.dll" beforeDir="false" afterPath="$PROJECT_DIR$/Client/bin/Debug/netcoreapp3.1/Test.dll" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/Client/bin/Debug/netcoreapp3.1/Test.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/Client/bin/Debug/netcoreapp3.1/Test.pdb" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/Client/obj/Client.csproj.nuget.dgspec.json" beforeDir="false" afterPath="$PROJECT_DIR$/Client/obj/Client.csproj.nuget.dgspec.json" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/Client/obj/Debug/netcoreapp3.1/Client.assets.cache" beforeDir="false" afterPath="$PROJECT_DIR$/Client/obj/Debug/netcoreapp3.1/Client.assets.cache" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/Client/obj/Debug/netcoreapp3.1/Client.csproj.CoreCompileInputs.cache" beforeDir="false" afterPath="$PROJECT_DIR$/Client/obj/Debug/netcoreapp3.1/Client.csproj.CoreCompileInputs.cache" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/Client/obj/Debug/netcoreapp3.1/Client.csprojAssemblyReference.cache" beforeDir="false" afterPath="$PROJECT_DIR$/Client/obj/Debug/netcoreapp3.1/Client.csprojAssemblyReference.cache" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/Client/obj/Debug/netcoreapp3.1/Client.dll" beforeDir="false" afterPath="$PROJECT_DIR$/Client/obj/Debug/netcoreapp3.1/Client.dll" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/Client/obj/Debug/netcoreapp3.1/Client.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/Client/obj/Debug/netcoreapp3.1/Client.pdb" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/Client/obj/project.assets.json" beforeDir="false" afterPath="$PROJECT_DIR$/Client/obj/project.assets.json" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/Client/obj/project.nuget.cache" beforeDir="false" afterPath="$PROJECT_DIR$/Client/obj/project.nuget.cache" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/Client/obj/rider.project.restore.info" beforeDir="false" afterPath="$PROJECT_DIR$/Client/obj/rider.project.restore.info" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/Test/Tests.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Test/Tests.cs" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/Test/bin/Debug/Test.dll" beforeDir="false" afterPath="$PROJECT_DIR$/Test/bin/Debug/Test.dll" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/Test/bin/Debug/Test.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/Test/bin/Debug/Test.pdb" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/Test/obj/Debug/Test.dll" beforeDir="false" afterPath="$PROJECT_DIR$/Test/obj/Debug/Test.dll" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/Test/obj/Debug/Test.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/Test/obj/Debug/Test.pdb" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/Client/ResponseContainer.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Client/ResponseContainer.cs" afterDir="false" />
+     </list>
+     <option name="SHOW_DIALOG" value="false" />
+     <option name="HIGHLIGHT_CONFLICTS" value="true" />
+@@ -106,8 +62,10 @@
+   </component>
+   <component name="HighlightingSettingsPerFile">
+     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/B9B5DBED-02E3-45D0-BC55-940FC8BEB2FE/1B/NetworkStream.cs" root0="SKIP_HIGHLIGHTING" />
+-    <setting file="file://$PROJECT_DIR$/../RAWDATA_2020_Assignment3TestSuite-master/Assignment3TestSuite/Assignment3Tests.cs" root0="SKIP_HIGHLIGHTING" />
++    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/6E42116C-F405-4CB5-9EC2-7260B4FED558/26/JsonNamingPolicy.cs" root0="SKIP_HIGHLIGHTING" />
+     <setting file="file://$PROJECT_DIR$/Assignment_3_Vers01/JsonServerTest.json" root0="FORCE_HIGHLIGHTING" />
++    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/6E42116C-F405-4CB5-9EC2-7260B4FED558/73/JsonConverterOfT.cs" root0="SKIP_HIGHLIGHTING" />
++    <setting file="mock://C:/Users/45535/Desktop/RAWDATA/C#/Projects/Assignment_3_Vers01/Testing/Assignment3Tests.cs" root0="SKIP_HIGHLIGHTING" />
+   </component>
+   <component name="IdeDocumentHistory">
+     <option name="CHANGED_PATHS">
+@@ -122,14 +80,14 @@
+         <option value="$PROJECT_DIR$/ClassLibrary1/JsonFiles/JsonServerTest.json" />
+         <option value="$PROJECT_DIR$/Assignment_3_Vers01/HandleRequest.cs" />
+         <option value="$PROJECT_DIR$/Client/Request.cs" />
+-        <option value="$PROJECT_DIR$/Assignment_3_Vers01/RequestContainer.cs" />
+-        <option value="$PROJECT_DIR$/Client/ResponseContainer.cs" />
+-        <option value="$PROJECT_DIR$/Assignment_3_Vers01/Response.cs" />
+-        <option value="$PROJECT_DIR$/Assignment_3_Vers01/Server.cs" />
+-        <option value="$PROJECT_DIR$/Client/Client.cs" />
+         <option value="$PROJECT_DIR$/Test/Tests.cs" />
+-        <option value="$PROJECT_DIR$/ClassLibrary1/Util.cs" />
+         <option value="$PROJECT_DIR$/Tests/Tests.cs" />
++        <option value="$PROJECT_DIR$/Assignment_3_Vers01/Server.cs" />
++        <option value="$PROJECT_DIR$/Assignment_3_Vers01/Response.cs" />
++        <option value="$PROJECT_DIR$/ClassLibrary1/Util.cs" />
++        <option value="$PROJECT_DIR$/Assignment_3_Vers01/RequestContainer.cs" />
++        <option value="$PROJECT_DIR$/Client/Client.cs" />
++        <option value="$PROJECT_DIR$/Client/ResponseContainer.cs" />
+       </list>
+     </option>
+   </component>
+@@ -149,7 +107,7 @@
+     <property name="settings.editor.selected.configurable" value="configurable.group.build" />
+     <property name="vue.rearranger.settings.migration" value="true" />
+   </component>
+-  <component name="RunManager" selected=".NET Project.Client">
++  <component name="RunManager" selected=".NET Project.Server">
+     <configuration name="Client" type="DotNetProject" factoryName=".NET Project">
+       <option name="EXE_PATH" value="$PROJECT_DIR$/Client/bin/Debug/netcoreapp3.1/Client.dll" />
+       <option name="PROGRAM_PARAMETERS" value="" />
+@@ -364,29 +322,29 @@
+       <screen x="0" y="0" width="3440" height="1400" />
+     </state>
+     <state x="0" y="122" key="DiffContextDialog/0.0.3440.1400@0.0.3440.1400" timestamp="1603134555737" />
+-    <state width="1518" height="357" key="GridCell.Tab.0.bottom" timestamp="1603206426444">
++    <state width="1152" height="357" key="GridCell.Tab.0.bottom" timestamp="1603296589996">
+       <screen x="0" y="0" width="3440" height="1400" />
+     </state>
+     <state width="914" height="265" key="GridCell.Tab.0.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1602892159284" />
+-    <state width="1518" height="357" key="GridCell.Tab.0.bottom/0.0.3440.1400@0.0.3440.1400" timestamp="1603206426444" />
++    <state width="1152" height="357" key="GridCell.Tab.0.bottom/0.0.3440.1400@0.0.3440.1400" timestamp="1603296589996" />
+     <state width="914" height="281" key="GridCell.Tab.0.bottom/1920.0.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1602879799315" />
+-    <state width="1518" height="357" key="GridCell.Tab.0.center" timestamp="1603206426444">
++    <state width="1152" height="357" key="GridCell.Tab.0.center" timestamp="1603296589995">
+       <screen x="0" y="0" width="3440" height="1400" />
+     </state>
+     <state width="914" height="265" key="GridCell.Tab.0.center/0.0.1920.1040@0.0.1920.1040" timestamp="1602892159284" />
+-    <state width="1518" height="357" key="GridCell.Tab.0.center/0.0.3440.1400@0.0.3440.1400" timestamp="1603206426444" />
++    <state width="1152" height="357" key="GridCell.Tab.0.center/0.0.3440.1400@0.0.3440.1400" timestamp="1603296589995" />
+     <state width="914" height="281" key="GridCell.Tab.0.center/1920.0.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1602879799315" />
+-    <state width="1518" height="357" key="GridCell.Tab.0.left" timestamp="1603206426444">
++    <state width="1152" height="357" key="GridCell.Tab.0.left" timestamp="1603296589995">
+       <screen x="0" y="0" width="3440" height="1400" />
+     </state>
+     <state width="914" height="265" key="GridCell.Tab.0.left/0.0.1920.1040@0.0.1920.1040" timestamp="1602892159284" />
+-    <state width="1518" height="357" key="GridCell.Tab.0.left/0.0.3440.1400@0.0.3440.1400" timestamp="1603206426444" />
++    <state width="1152" height="357" key="GridCell.Tab.0.left/0.0.3440.1400@0.0.3440.1400" timestamp="1603296589995" />
+     <state width="914" height="281" key="GridCell.Tab.0.left/1920.0.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1602879799315" />
+-    <state width="1518" height="357" key="GridCell.Tab.0.right" timestamp="1603206426444">
++    <state width="1152" height="357" key="GridCell.Tab.0.right" timestamp="1603296589995">
+       <screen x="0" y="0" width="3440" height="1400" />
+     </state>
+     <state width="914" height="265" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1602892159284" />
+-    <state width="1518" height="357" key="GridCell.Tab.0.right/0.0.3440.1400@0.0.3440.1400" timestamp="1603206426444" />
++    <state width="1152" height="357" key="GridCell.Tab.0.right/0.0.3440.1400@0.0.3440.1400" timestamp="1603296589995" />
+     <state width="914" height="281" key="GridCell.Tab.0.right/1920.0.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1602879799315" />
+     <state width="1518" height="515" key="GridCell.Tab.1.bottom" timestamp="1603201048254">
+       <screen x="0" y="0" width="3440" height="1400" />
+@@ -485,6 +443,10 @@
+       <screen x="0" y="0" width="3440" height="1400" />
+     </state>
+     <state x="1860" y="0" width="1218" height="1398" key="dock-window-1/0.0.3440.1400@0.0.3440.1400" timestamp="1603200483852" />
++    <state x="362" y="414" key="git4idea.branch.GitSmartOperationDialog" timestamp="1603296614946">
++      <screen x="0" y="0" width="3440" height="1400" />
++    </state>
++    <state x="362" y="414" key="git4idea.branch.GitSmartOperationDialog/0.0.3440.1400@0.0.3440.1400" timestamp="1603296614946" />
+     <state x="522" y="606" key="git4idea.remote.GitConfigureRemotesDialog" timestamp="1603127945507">
+       <screen x="0" y="0" width="3440" height="1400" />
+     </state>
+Index: .idea/.idea.Assignment_3_Vers01/.idea/contentModel.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?xml version=\"1.0\" encoding=\"UTF-8\"?>\r\n<project version=\"4\">\r\n  <component name=\"ContentModelStore\">\r\n    <e p=\"C:\\Users\\45535\\AppData\\Local\\JetBrains\\Rider2020.2\\extResources\" t=\"IncludeRecursive\" />\r\n    <e p=\"C:\\Users\\45535\\AppData\\Local\\JetBrains\\Rider2020.2\\resharper-host\\Local\\Transient\\Rider\\v202\\SolutionCaches\\_Assignment_3_Vers01.-1035900659.00\" t=\"ExcludeRecursive\" />\r\n    <e p=\"C:\\Users\\45535\\Desktop\\RAWDATA\\C#\\Projects\\Assignment_3_Vers01\" t=\"IncludeFlat\">\r\n      <e p=\"Assignment_3_Vers01\" t=\"IncludeRecursive\">\r\n        <e p=\"bin\" t=\"ExcludeRecursive\" />\r\n        <e p=\"JsonServerTest.json\" t=\"Include\" />\r\n        <e p=\"obj\" t=\"ExcludeRecursive\">\r\n          <e p=\"Debug\" t=\"Include\">\r\n            <e p=\"netcoreapp3.1\" t=\"Include\">\r\n              <e p=\"Server.AssemblyInfo.cs\" t=\"Include\" />\r\n            </e>\r\n          </e>\r\n        </e>\r\n        <e p=\"RequestContainer.cs\" t=\"Include\" />\r\n        <e p=\"Response.cs\" t=\"Include\" />\r\n        <e p=\"Server.cs\" t=\"Include\" />\r\n        <e p=\"Server.csproj\" t=\"IncludeRecursive\" />\r\n      </e>\r\n      <e p=\"Assignment_3_Vers01.sln\" t=\"IncludeFlat\" />\r\n      <e p=\"ClassLibrary1\" t=\"IncludeRecursive\">\r\n        <e p=\"bin\" t=\"ExcludeRecursive\" />\r\n        <e p=\"ClassLibrary1.csproj\" t=\"IncludeRecursive\" />\r\n        <e p=\"JsonFiles\" t=\"Include\" />\r\n        <e p=\"obj\" t=\"ExcludeRecursive\" />\r\n        <e p=\"packages.config\" t=\"Include\" />\r\n        <e p=\"Properties\" t=\"Include\">\r\n          <e p=\"AssemblyInfo.cs\" t=\"Include\" />\r\n        </e>\r\n        <e p=\"Util.cs\" t=\"Include\" />\r\n      </e>\r\n      <e p=\"Client\" t=\"IncludeRecursive\">\r\n        <e p=\"bin\" t=\"ExcludeRecursive\" />\r\n        <e p=\"Client.cs\" t=\"Include\" />\r\n        <e p=\"Client.csproj\" t=\"IncludeRecursive\" />\r\n        <e p=\"obj\" t=\"ExcludeRecursive\">\r\n          <e p=\"Debug\" t=\"Include\">\r\n            <e p=\"netcoreapp3.1\" t=\"Include\">\r\n              <e p=\"Client.AssemblyInfo.cs\" t=\"Include\" />\r\n            </e>\r\n          </e>\r\n        </e>\r\n        <e p=\"Request.cs\" t=\"Include\" />\r\n        <e p=\"ResponseContainer.cs\" t=\"Include\" />\r\n        <e p=\"Test.json\" t=\"Include\" />\r\n      </e>\r\n      <e p=\"packages\" t=\"ExcludeRecursive\" />\r\n    </e>\r\n  </component>\r\n</project>
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- .idea/.idea.Assignment_3_Vers01/.idea/contentModel.xml	(revision 6f2cf4b44aeed1e08a14c7df82bd5c45e74be106)
++++ .idea/.idea.Assignment_3_Vers01/.idea/contentModel.xml	(date 1603296847048)
+@@ -47,6 +47,16 @@
+         <e p="Test.json" t="Include" />
+       </e>
+       <e p="packages" t="ExcludeRecursive" />
++      <e p="TestProject1" t="IncludeRecursive">
++        <e p="bin" t="ExcludeRecursive" />
++        <e p="obj" t="ExcludeRecursive" />
++        <e p="packages.config" t="Include" />
++        <e p="Properties" t="Include">
++          <e p="AssemblyInfo.cs" t="Include" />
++        </e>
++        <e p="TestProject1.csproj" t="IncludeRecursive" />
++        <e p="Tests.cs" t="Include" />
++      </e>
+     </e>
+   </component>
+ </project>
+\ No newline at end of file
+Index: Assignment_3_Vers01.sln.DotSettings.user
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><wpf:ResourceDictionary xml:space=\"preserve\" xmlns:x=\"http://schemas.microsoft.com/winfx/2006/xaml\" xmlns:s=\"clr-namespace:System;assembly=mscorlib\" xmlns:ss=\"urn:shemas-jetbrains-com:settings-storage-xaml\" xmlns:wpf=\"http://schemas.microsoft.com/winfx/2006/xaml/presentation\">\r\n\t<s:String x:Key=\"/Default/Environment/UnitTesting/UnitTestSessionStore/Sessions/=762fdd33_002D000b_002D4d6b_002D8105_002D3780f92dd71c/@EntryIndexedValue\">&lt;SessionState ContinuousTestingMode=\"0\" IsActive=\"True\" Name=\"All tests from Tests.cs\" xmlns=\"urn:schemas-jetbrains-com:jetbrains-ut-session\"&gt;&#xD;\r\n  &lt;ProjectFile&gt;923A7EC7-46CC-41C0-B503-4E600CD0293C/f:Tests.cs&lt;/ProjectFile&gt;&#xD;\r\n&lt;/SessionState&gt;</s:String></wpf:ResourceDictionary>
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- Assignment_3_Vers01.sln.DotSettings.user	(revision 6f2cf4b44aeed1e08a14c7df82bd5c45e74be106)
++++ Assignment_3_Vers01.sln.DotSettings.user	(date 1603296877472)
+@@ -1,4 +1,7 @@
+ <wpf:ResourceDictionary xml:space="preserve" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:s="clr-namespace:System;assembly=mscorlib" xmlns:ss="urn:shemas-jetbrains-com:settings-storage-xaml" xmlns:wpf="http://schemas.microsoft.com/winfx/2006/xaml/presentation">
+ 	<s:String x:Key="/Default/Environment/UnitTesting/UnitTestSessionStore/Sessions/=762fdd33_002D000b_002D4d6b_002D8105_002D3780f92dd71c/@EntryIndexedValue">&lt;SessionState ContinuousTestingMode="0" IsActive="True" Name="All tests from Tests.cs" xmlns="urn:schemas-jetbrains-com:jetbrains-ut-session"&gt;&#xD;
+   &lt;ProjectFile&gt;923A7EC7-46CC-41C0-B503-4E600CD0293C/f:Tests.cs&lt;/ProjectFile&gt;&#xD;
++&lt;/SessionState&gt;</s:String>
++	<s:String x:Key="/Default/Environment/UnitTesting/UnitTestSessionStore/Sessions/=eb844c10_002Db880_002D4f11_002Da77b_002Dd589f9f9eed0/@EntryIndexedValue">&lt;SessionState ContinuousTestingMode="0" IsActive="True" Name="Constraint_ConnectionWithoutRequest_ShouldConnect" xmlns="urn:schemas-jetbrains-com:jetbrains-ut-session"&gt;&#xD;
++  &lt;ProjectFile&gt;EAB50D4D-2392-43C1-8A0B-3914A20D6F73/f:Tests.cs&lt;/ProjectFile&gt;&#xD;
+ &lt;/SessionState&gt;</s:String></wpf:ResourceDictionary>
+\ No newline at end of file
