@@ -24,7 +24,7 @@ namespace ClassLibrary1
         public static T FromJson<T>(this string element)
         {
             return JsonSerializer.Deserialize<T>(element,
-                new JsonSerializerOptions {PropertyNameCaseInsensitive = true});
+                new JsonSerializerOptions {PropertyNamingPolicy = JsonNamingPolicy.CamelCase});
         }
 
         public static void SendRequest(this TcpClient client, string request)

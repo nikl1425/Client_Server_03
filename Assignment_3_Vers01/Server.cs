@@ -90,10 +90,7 @@ namespace Server
                     stream.Write(response);
                     connection.Close();
                     stream.Flush();
-                } else if ()
-                {
-                    
-                }
+                } 
                 else
                 {
                     var perfectJson = Util.ToJson(perfect);
@@ -106,7 +103,6 @@ namespace Server
                     Console.WriteLine("method is: " + r.Method);
                 }
                 connection.Close();
-
             }
         }
     }

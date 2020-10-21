@@ -3,6 +3,7 @@ using System.IO;
 using System.Net;
 using System.Net.Sockets;
 using System.Text;
+using System.Text.Json;
 using ClassLibrary1;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
@@ -37,15 +38,20 @@ namespace Client
             //File.WriteAllText(path, request.ToJson());
             while (true)
             {
+                try
+                {
+                    //Read responses from the server.
+                    string readResponse = ClientReadResponse(tcpClient, tcpClient.GetStream());
+                    ResponseContainer r3 = JsonConvert.DeserializeObject<ResponseContainer>(readResponse);
+                    Console.WriteLine($"The server responds:  \n + {r3.Status} \n {r3.Body}");
+                    break;
+                }
+                catch (Exception e)
+                {
+                    
+                }
 
-
-
-                //Read responses from the server.
-                string r3 = ClientReadResponse(tcpClient, tcpClient.GetStream());
-                ResponseContainer responseContainer = Util.FromJson<ResponseContainer>(r3);
-
-
-                Console.WriteLine($"The server responds:  \n + {responseContainer.Body} \n {responseContainer.Body}");
+                
 
                 //We send respond to a JSON formatted string.
 
@@ -110,6 +116,25 @@ namespace Client
 
             return Status;
         }
-        
+
+        public static ResponseContainer ReadResponse(TcpClient client)
+        {
+            var strm = client.GetStream();
+            strm.ReadTimeout = 250;
+            byte[] resp = new byte[2048];
+            using (var memStream = new MemoryStream())
+            {
+                int bytesread = 0;
+                do
+                {
+                    bytesread = strm.Read(resp, 0, resp.Length);
+                    memStream.Write(resp, 0, bytesread);
+                } while (bytesread == 2048);
+
+                var responseData = Encoding.UTF8.GetString(memStream.ToArray());
+                return JsonSerializer.Deserialize<ResponseContainer>(responseData,
+                    new JsonSerializerOptions {PropertyNamingPolicy = JsonNamingPolicy.CamelCase});
+            }
+        }
     }
 }

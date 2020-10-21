@@ -1,10 +1,4 @@
 ﻿<wpf:ResourceDictionary xml:space="preserve" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:s="clr-namespace:System;assembly=mscorlib" xmlns:ss="urn:shemas-jetbrains-com:settings-storage-xaml" xmlns:wpf="http://schemas.microsoft.com/winfx/2006/xaml/presentation">
 	<s:String x:Key="/Default/Environment/UnitTesting/UnitTestSessionStore/Sessions/=eb844c10_002Db880_002D4f11_002Da77b_002Dd589f9f9eed0/@EntryIndexedValue">&lt;SessionState ContinuousTestingMode="0" IsActive="True" Name="Constraint_ConnectionWithoutRequest_ShouldConnect" xmlns="urn:schemas-jetbrains-com:jetbrains-ut-session"&gt;&#xD;
-  &lt;TestAncestor&gt;&#xD;
-    &lt;TestId&gt;xUnit::DBBDFF3C-576D-4D9F-A878-1334D1C3102B::.NETFramework,Version=v4.7.2::Assignment3TestSuite.Assignment3Tests.Constraint_ConnectionWithoutRequest_ShouldConnect&lt;/TestId&gt;&#xD;
-    &lt;TestId&gt;xUnit::DBBDFF3C-576D-4D9F-A878-1334D1C3102B::.NETFramework,Version=v4.7.2::Assignment3TestSuite.Assignment3Tests.Constraint_RequestWithoutDate_MissingDateError&lt;/TestId&gt;&#xD;
-    &lt;TestId&gt;xUnit::DBBDFF3C-576D-4D9F-A878-1334D1C3102B::.NETFramework,Version=v4.7.2::Assignment3TestSuite.Assignment3Tests.Constraint_RequestWithoutMethod_MissingMethodError&lt;/TestId&gt;&#xD;
-    &lt;TestId&gt;xUnit::DBBDFF3C-576D-4D9F-A878-1334D1C3102B::.NETFramework,Version=v4.7.2::Assignment3TestSuite.Assignment3Tests.Constraint_RequestWithUnknownMethod_IllegalMethodError&lt;/TestId&gt;&#xD;
-    &lt;TestId&gt;xUnit::DBBDFF3C-576D-4D9F-A878-1334D1C3102B::.NETFramework,Version=v4.7.2::Assignment3TestSuite.Assignment3Tests.Constraint_RequestForCreateReadUpdateDeleteWithoutResource_MissingResourceError&lt;/TestId&gt;&#xD;
-  &lt;/TestAncestor&gt;&#xD;
+  &lt;ProjectFile&gt;DBBDFF3C-576D-4D9F-A878-1334D1C3102B/f:Assignment3Tests.cs&lt;/ProjectFile&gt;&#xD;
 &lt;/SessionState&gt;</s:String></wpf:ResourceDictionary>
