@@ -18,10 +18,7 @@ namespace Server
             get;
             set;
         }
-
         
-        
-
         public string Body { get; set; }
 
 

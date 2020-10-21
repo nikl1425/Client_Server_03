@@ -6,6 +6,7 @@
     <e p="C:\Users\45535\Desktop\RAWDATA\C#\Projects\Assignment_3_Vers01" t="IncludeFlat">
       <e p="Assignment_3_Vers01" t="IncludeRecursive">
         <e p="bin" t="ExcludeRecursive" />
+        <e p="BodyContainer.cs" t="Include" />
         <e p="JsonServerTest.json" t="Include" />
         <e p="obj" t="ExcludeRecursive">
           <e p="Debug" t="Include">
