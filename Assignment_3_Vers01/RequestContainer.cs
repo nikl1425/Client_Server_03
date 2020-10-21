@@ -13,15 +13,13 @@ namespace Server
             get;
             set;
         }
-        public long Date  {
+        public string Date  {
             get;
             set;
         }
-        public string Name{
-            get;
-            set;
-        }
-        public int Id {
+
+        public string Body
+        {
             get;
             set;
         }

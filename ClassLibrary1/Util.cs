@@ -1,4 +1,5 @@
-﻿using System.IO;
+﻿using System.ComponentModel;
+using System.IO;
 using System.Net.Sockets;
 using System.Text;
 using System.Text.Json;
@@ -16,6 +17,9 @@ namespace ClassLibrary1
             return JsonSerializer.Serialize(data,
                 new JsonSerializerOptions {PropertyNameCaseInsensitive = true});
         }
+        
+        
+        
 
         public static T FromJson<T>(this string element)
         {
@@ -48,9 +52,12 @@ namespace ClassLibrary1
                 return JsonSerializer.Deserialize<Response>(responseData,
                     new JsonSerializerOptions {PropertyNamingPolicy = JsonNamingPolicy.CamelCase});
             }
+            
+            
         }
+        
+        
 
-// THIS METHOD WORKS
         
         }
     }

@@ -6,6 +6,7 @@ using System.Net;
 using System.Net.Sockets;
 using System.Reflection;
 using System.Text;
+using System.Threading;
 using ClassLibrary1;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
@@ -30,7 +31,6 @@ namespace Server
                 Console.WriteLine("Accepted client!");
 
                 var stream = connection.GetStream();
-                var stream2 = connection.GetStream();
                 byte[] data = new byte[connection.ReceiveBufferSize];
                 var cnt = stream.Read(data);
 
@@ -47,27 +47,52 @@ namespace Server
                 Response perfect = new Response("1 OK", "Well done.");
                 Response created = new Response("2 Created: ", " ");
                 Response updated = new Response("3 Updated: ", " ");
-                Response badRequest = new Response("4 missing method: ", " ");
+                Response badRequest = new Response("4 missing date, missing method, illegal method ", " ");
+                Response missingRessourse = new Response("4 missing resource", " ");
                 Response notFound = new Response("5 Not found: ", " ");
                 Response error = new Response("6 error: ", " ");
+                
+                // Legal methods:
+                HashSet<string> serverMethods = new HashSet<string>();
+                serverMethods.Add("create");
+                serverMethods.Add("read");
+                serverMethods.Add("update");
+                serverMethods.Add("delete");
+                serverMethods.Add("echo");
 
-                bool whatever = false;
-                if (r.Method == null)
+
+
+                if (r.Method == null && r.Date == null)
                 {
                     var missedmethodJson = Util.ToJson(badRequest);
                     Console.WriteLine(missedmethodJson);
                     byte[] response = Encoding.UTF8.GetBytes(missedmethodJson.ToUpper());
                     stream.Write(response);
+                    connection.Close();
+                    stream.Flush();
                     continue;
                 }
-                else if (r.Date == 0)
+                else if (!serverMethods.Contains(r.Method))
                 {
-                    Response missingDate = new Response("4 missing date", " ");
-                    var missDate = Util.ToJson(missingDate);
-                    byte[] missDate2 = Encoding.UTF8.GetBytes(missDate.ToUpper());
-                    stream.Write(missDate2);
-                    Console.WriteLine("we are here");
+                    var illegalMethodJson = Util.ToJson(badRequest);
+                    Console.WriteLine("Illegal method: " + illegalMethodJson);
+                    byte[] response = Encoding.UTF8.GetBytes(illegalMethodJson.ToUpper());
+                    stream.Write(response);
+                    connection.Close();
+                    stream.Flush();
                     continue;
+                }
+                else if (serverMethods.Contains(r.Method) && r.Date != null && r.Path == null)
+                {
+                    var missingResources = Util.ToJson(missingRessourse);
+                    Console.WriteLine("Ressource doesn't exists: " + missingResources);
+                    byte[] response = Encoding.UTF8.GetBytes(missingResources);
+                    stream.Write(response);
+                    connection.Close();
+                    stream.Flush();
+                } else if ()
+                {
+                    
                 }
                 else
                 {
@@ -75,9 +100,13 @@ namespace Server
                     Console.WriteLine(perfectJson);
                     byte[] response = Encoding.UTF8.GetBytes(perfectJson.ToUpper());
                     stream.Write(response);
+                    connection.Close();
+                    stream.Flush();
                     //stream.Write(Encoding.UTF8.GetBytes(methodExist));
                     Console.WriteLine("method is: " + r.Method);
                 }
+                connection.Close();
+
             }
         }
     }
